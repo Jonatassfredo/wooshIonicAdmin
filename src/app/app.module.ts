@@ -33,6 +33,7 @@ import { ProdutoProvider } from "../providers/produto/produto";
 import { CarrinhoProvider } from "../providers/carrinho/carrinho";
 import { EnderecoEntregaProvider } from "../providers/endereco/endereco";
 import { MensagensPage } from "./../pages/mensagens/mensagens";
+import { OperadorProvider } from "../providers/operador/operador";
 
 @NgModule({
   declarations: [MyApp, MensagensPage],
@@ -56,7 +57,8 @@ import { MensagensPage } from "./../pages/mensagens/mensagens";
     ProdutoProvider,
     CarrinhoProvider,
     EnderecoEntregaProvider,
-    MensagensPage
+    MensagensPage,
+    OperadorProvider
   ]
 })
-export class AppModule {}
+export class AppModule { }

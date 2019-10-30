@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
-import { UsuarioProvider } from "../../providers/usuario/usuario";
+import { OperadorProvider } from './../../providers/operador/operador';
 
 @IonicPage()
 @Component({
@@ -13,17 +13,17 @@ export class LoginPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private usuarioSrv: UsuarioProvider
-  ) {}
+    private operadorSrv: OperadorProvider
+  ) { }
 
   async login(): Promise<void> {
-    let result = await this.usuarioSrv.autenticate(
-      this.form.email,
+    let result = await this.operadorSrv.autenticate(
+      this.form.nome,
       this.form.senha
     );
     if (result.success) {
-      UsuarioProvider.RegisterLogin(result.data);
-      this.navCtrl.setRoot("CategoriaPage");
+      OperadorProvider.RegisterLogin(result.data);
+      this.navCtrl.setRoot("PedidosPage");
     }
     console.log(result);
   }

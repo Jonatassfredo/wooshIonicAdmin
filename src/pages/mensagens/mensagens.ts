@@ -1,9 +1,8 @@
 import { Component, ViewChild } from "@angular/core";
 import { IonicPage, NavController, NavParams, Content } from "ionic-angular";
 import { UsuarioModel } from "./../../app/models/usuarioModel";
-import * as firebase from "Firebase";
+import * as firebase from "firebase";
 import { UsuarioProvider } from "../../providers/usuario/usuario";
-import { CategoriaPage } from './../categoria/categoria';
 
 @IonicPage()
 @Component({

@@ -10,7 +10,7 @@ export class TabComponent implements OnInit {
 
   tabs: Array<{ icon: string; path: string; label: string; isSelect: boolean }>;
 
-  constructor(private navCtrl: NavController) {}
+  constructor(private navCtrl: NavController) { }
 
   ngOnInit(): void {
     this.tabs = [
@@ -22,9 +22,9 @@ export class TabComponent implements OnInit {
       },
       {
         icon: "menu",
-        path: "MeusPedidosPage",
+        path: "PedidosPage",
         label: "Pedidos",
-        isSelect: this.pagina == "Meus Pedidos"
+        isSelect: this.pagina == "Pedidos"
       },
       {
         icon: "cart",

@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Pedidos</ion-title>
+    <button ion-button icon-only clear color="light" (click)="adminOptions()">
+      <ion-icon name="settings"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+<ion-content no-padding>
+  <ion-card *ngFor="let item of lista" style="border-radius: 10px;">
+    <ion-card-header icon-left>
+      <!-- <ion-icon name="cart"></ion-icon> -->
+      Pedido realizado em {{ item.dataPedido | date:'dd/MM/yyyy, HH:mm' }}
+    </ion-card-header>
+    <ion-card-content>
+      {{item.itens}}
+      <!-- {{item.itensGeral}} -->
+
+      {{item.usuarioId}}
+      <p>Status: {{item.status}}</p>
+      <p>Quantidade Total itens: {{ contaItem(item) }}</p>
+      <p>Valor total: <strong> {{ item.valorTotal }}</strong></p>
+    </ion-card-content>
+  </ion-card>
+  <div>
+    <ion-item no-lines style="background-color: transparent !important;"></ion-item>
+    <ion-item no-lines style="background-color: transparent !important;"></ion-item>
+  </div>
+</ion-content>
+<!-- <tab [pagina]="'Pedidos'"></tab> -->

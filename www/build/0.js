@@ -1,16 +1,15 @@
 webpackJsonp([0],{
 
-/***/ 314:
+/***/ 321:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CarrinhoPageModule", function() { return CarrinhoPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pipes_pipes_module__ = __webpack_require__(327);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_components_module__ = __webpack_require__(331);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__carrinho__ = __webpack_require__(341);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MinhaContaPageModule", function() { return MinhaContaPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_components_module__ = __webpack_require__(331);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__minha_conta__ = __webpack_require__(348);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -21,56 +20,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-var CarrinhoPageModule = /** @class */ (function () {
-    function CarrinhoPageModule() {
+var MinhaContaPageModule = /** @class */ (function () {
+    function MinhaContaPageModule() {
     }
-    CarrinhoPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["I" /* NgModule */])({
+    MinhaContaPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_4__carrinho__["a" /* CarrinhoPage */],
+                __WEBPACK_IMPORTED_MODULE_3__minha_conta__["a" /* MinhaContaPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1__components_components_module__["a" /* ComponentsModule */],
-                __WEBPACK_IMPORTED_MODULE_0__pipes_pipes_module__["a" /* PipesModule */],
-                __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_4__carrinho__["a" /* CarrinhoPage */]),
+                __WEBPACK_IMPORTED_MODULE_0__components_components_module__["a" /* ComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__minha_conta__["a" /* MinhaContaPage */]),
             ],
         })
-    ], CarrinhoPageModule);
-    return CarrinhoPageModule;
+    ], MinhaContaPageModule);
+    return MinhaContaPageModule;
 }());
 
-//# sourceMappingURL=carrinho.module.js.map
-
-/***/ }),
-
-/***/ 325:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UtilsHelper; });
-var UtilsHelper = /** @class */ (function () {
-    function UtilsHelper() {
-    }
-    UtilsHelper.data = {
-        sorting: function (array, field) {
-            return array.sort(function (a, b) {
-                var x = a[field];
-                var y = b[field];
-                return ((x < y) ? -1 : ((x > y) ? 1 : 0));
-            });
-        }
-    };
-    UtilsHelper.number = {
-        formatCurrency: function (valor) {
-            return Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(valor);
-            ;
-        }
-    };
-    return UtilsHelper;
-}());
-
-//# sourceMappingURL=utilsHelper.js.map
+//# sourceMappingURL=minha-conta.module.js.map
 
 /***/ }),
 
@@ -86,120 +53,6 @@ var ProdutoModel = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=produtoModel.js.map
-
-/***/ }),
-
-/***/ 327:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PipesModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__real_real__ = __webpack_require__(328);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__order_by_order_by__ = __webpack_require__(329);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-var PipesModule = /** @class */ (function () {
-    function PipesModule() {
-    }
-    PipesModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
-            declarations: [__WEBPACK_IMPORTED_MODULE_1__real_real__["a" /* RealPipe */],
-                __WEBPACK_IMPORTED_MODULE_2__order_by_order_by__["a" /* OrderByPipe */]],
-            imports: [],
-            exports: [__WEBPACK_IMPORTED_MODULE_1__real_real__["a" /* RealPipe */],
-                __WEBPACK_IMPORTED_MODULE_2__order_by_order_by__["a" /* OrderByPipe */]]
-        })
-    ], PipesModule);
-    return PipesModule;
-}());
-
-//# sourceMappingURL=pipes.module.js.map
-
-/***/ }),
-
-/***/ 328:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RealPipe; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_helpers_utilsHelper__ = __webpack_require__(325);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-var RealPipe = /** @class */ (function () {
-    function RealPipe() {
-    }
-    RealPipe.prototype.transform = function (value) {
-        var args = [];
-        for (var _i = 1; _i < arguments.length; _i++) {
-            args[_i - 1] = arguments[_i];
-        }
-        return __WEBPACK_IMPORTED_MODULE_1__app_helpers_utilsHelper__["a" /* UtilsHelper */].number.formatCurrency(value);
-    };
-    RealPipe = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["S" /* Pipe */])({
-            name: 'real',
-        })
-    ], RealPipe);
-    return RealPipe;
-}());
-
-//# sourceMappingURL=real.js.map
-
-/***/ }),
-
-/***/ 329:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OrderByPipe; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_helpers_utilsHelper__ = __webpack_require__(325);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-var OrderByPipe = /** @class */ (function () {
-    function OrderByPipe() {
-    }
-    OrderByPipe.prototype.transform = function (value, args) {
-        var _ret = [];
-        var _args = args.replace('-', '');
-        if (args.indexOf('-') > -1) {
-            _ret = __WEBPACK_IMPORTED_MODULE_1__app_helpers_utilsHelper__["a" /* UtilsHelper */].data.sorting(value, _args).reverse();
-        }
-        else {
-            _ret = __WEBPACK_IMPORTED_MODULE_1__app_helpers_utilsHelper__["a" /* UtilsHelper */].data.sorting(value, args);
-        }
-        return _ret;
-    };
-    OrderByPipe = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["S" /* Pipe */])({
-            name: 'orderBy',
-        })
-    ], OrderByPipe);
-    return OrderByPipe;
-}());
-
-//# sourceMappingURL=order-by.js.map
 
 /***/ }),
 
@@ -328,7 +181,7 @@ var QuantidadeComponent = /** @class */ (function () {
     ], QuantidadeComponent.prototype, "quantidadeAlterada", void 0);
     QuantidadeComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["m" /* Component */])({
-            selector: 'quantidade',template:/*ion-inline-start:"e:\Desenvolvimento\TCC\1 - Projeto\Mobile\WooshApp\src\components\quantidade\quantidade.html"*/'<div>\n  <button round ion-button icon-only color="light" (click)="remover()">\n    -\n  </button>\n  <span class="numero">{{numero}}</span>\n  <button round ion-button icon-only color="dark" (click)="adicionar()">\n    +\n  </button>\n</div>'/*ion-inline-end:"e:\Desenvolvimento\TCC\1 - Projeto\Mobile\WooshApp\src\components\quantidade\quantidade.html"*/
+            selector: 'quantidade',template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\components\quantidade\quantidade.html"*/'<div>\n  <button round ion-button icon-only color="light" (click)="remover()">\n    -\n  </button>\n  <span class="numero">{{numero}}</span>\n  <button round ion-button icon-only color="dark" (click)="adicionar()">\n    +\n  </button>\n</div>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\components\quantidade\quantidade.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_carrinho_carrinho__["a" /* CarrinhoProvider */],
             __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["d" /* Events */]])
@@ -372,9 +225,9 @@ var TabComponent = /** @class */ (function () {
             },
             {
                 icon: "menu",
-                path: "MeusPedidosPage",
+                path: "PedidosPage",
                 label: "Pedidos",
-                isSelect: this.pagina == "Meus Pedidos"
+                isSelect: this.pagina == "Pedidos"
             },
             {
                 icon: "cart",
@@ -399,9 +252,9 @@ var TabComponent = /** @class */ (function () {
     ], TabComponent.prototype, "pagina", void 0);
     TabComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: "tab",template:/*ion-inline-start:"e:\Desenvolvimento\TCC\1 - Projeto\Mobile\WooshApp\src\components\tab\tab.html"*/'<ion-footer class="tabs">\n  <div class="tab" *ngFor="let item of tabs" [ngClass]="{\'active\': item.isSelect}" (click)="selecionarTab(item.path)">\n    <ion-icon name="{{item.icon}}"></ion-icon>\n    <p>{{item.label}}</p>\n  </div>\n</ion-footer>'/*ion-inline-end:"e:\Desenvolvimento\TCC\1 - Projeto\Mobile\WooshApp\src\components\tab\tab.html"*/
+            selector: "tab",template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\components\tab\tab.html"*/'<ion-footer class="tabs">\n  <div class="tab" *ngFor="let item of tabs" [ngClass]="{\'active\': item.isSelect}" (click)="selecionarTab(item.path)">\n    <ion-icon name="{{item.icon}}"></ion-icon>\n    <p>{{item.label}}</p>\n  </div>\n</ion-footer>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\components\tab\tab.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0_ionic_angular__["k" /* NavController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavController */]])
     ], TabComponent);
     return TabComponent;
 }());
@@ -410,35 +263,19 @@ var TabComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 335:
+/***/ 348:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EnderecoEntregaModel; });
-var EnderecoEntregaModel = /** @class */ (function () {
-    function EnderecoEntregaModel() {
-    }
-    return EnderecoEntregaModel;
-}());
-
-//# sourceMappingURL=enderecoModel.js.map
-
-/***/ }),
-
-/***/ 341:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CarrinhoPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_alert_alert__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_models_carrinhoModel__ = __webpack_require__(224);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_carrinho_carrinho__ = __webpack_require__(218);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_enums_AcaoCarrinhoEnum__ = __webpack_require__(330);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_models_enderecoModel__ = __webpack_require__(335);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_endereco_endereco__ = __webpack_require__(221);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__mensagens_mensagens__ = __webpack_require__(222);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MinhaContaPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app_models_usuarioModel__ = __webpack_require__(223);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_alert_alert__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_camera_camera__ = __webpack_require__(219);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_helpers_configHelper__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_usuario_usuario__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__mensagens_mensagens__ = __webpack_require__(222);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ionic_angular__ = __webpack_require__(20);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -491,107 +328,140 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
-
-var CarrinhoPage = /** @class */ (function () {
-    function CarrinhoPage(navCtrl, navParams, carrinhoSrv, alertSrv, enderecoSrv) {
+var MinhaContaPage = /** @class */ (function () {
+    function MinhaContaPage(navCtrl, navParams, usuarioSrv, cameraSrv, actionSheetCtrl, alertSrv) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.carrinhoSrv = carrinhoSrv;
+        this.usuarioSrv = usuarioSrv;
+        this.cameraSrv = cameraSrv;
+        this.actionSheetCtrl = actionSheetCtrl;
         this.alertSrv = alertSrv;
-        this.enderecoSrv = enderecoSrv;
-        this.usuarioLogado = new __WEBPACK_IMPORTED_MODULE_6__app_models_enderecoModel__["a" /* EnderecoEntregaModel */]();
-        this.totalProdutos = 0.0;
-        this.carrinho = new __WEBPACK_IMPORTED_MODULE_1__app_models_carrinhoModel__["a" /* CarrinhoModel */]();
-        this.enderecos = new Array();
-        this.formaPagamento = ["Dinheiro", "Cartão de Crédito/Débito"];
-        this.loadData();
+        this.usuarioLogado = new __WEBPACK_IMPORTED_MODULE_0__app_models_usuarioModel__["a" /* UsuarioModel */]();
     }
-    CarrinhoPage.prototype.loadData = function () {
+    MinhaContaPage.prototype.ionViewDidLoad = function () {
+        this.LoadData();
+    };
+    MinhaContaPage.prototype.mensagens = function () {
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_6__mensagens_mensagens__["a" /* MensagensPage */]);
+    };
+    MinhaContaPage.prototype.sair = function () {
+        var _this = this;
+        try {
+            this.alertSrv.confirm("Sair", "Deseja realmente sair de sua Conta atual?", function () { return __awaiter(_this, void 0, void 0, function () {
+                return __generator(this, function (_a) {
+                    if (this.alertSrv) {
+                        localStorage.clear();
+                        this.navCtrl.setRoot("LoginPage");
+                    }
+                    return [2 /*return*/];
+                });
+            }); });
+        }
+        catch (error) {
+            console.log("Erro ao excluir", error);
+        }
+    };
+    MinhaContaPage.prototype.mudarFoto = function () {
+        var _this = this;
+        var action = this.actionSheetCtrl.create({
+            title: "Foto",
+            buttons: [
+                {
+                    text: "Remover Foto",
+                    handler: function () {
+                        _this.usuarioLogado.foto = __WEBPACK_IMPORTED_MODULE_3__app_helpers_configHelper__["a" /* ConfigHelper */].photo;
+                    }
+                },
+                {
+                    text: "Selecionar da Galeria",
+                    handler: function () {
+                        _this.cameraSrv.getPictureFromGalery(function (photo) {
+                            _this.usuarioLogado.foto = photo;
+                        });
+                    }
+                },
+                { text: "Cancelar", handler: function () { }, role: "destructive" }
+            ]
+        });
+        action.present();
+    };
+    MinhaContaPage.prototype.salvar = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var enderecoEntregaResult, error_1;
+            var salvarResult, error_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.enderecoSrv.get()];
+                        return [4 /*yield*/, this.usuarioSrv.put(this.usuarioLogado._id, this.usuarioLogado)];
                     case 1:
-                        enderecoEntregaResult = _a.sent();
-                        if (enderecoEntregaResult.success) {
-                            this.enderecos = (enderecoEntregaResult.data);
-                            console.log("enderecos", this.enderecos);
+                        salvarResult = _a.sent();
+                        if (salvarResult.success) {
+                            this.alertSrv.toast("Dados atualizados com sucesso!", "bottom");
                         }
                         return [3 /*break*/, 3];
                     case 2:
                         error_1 = _a.sent();
-                        console.log("Erro ao carregar os endereços", error_1);
+                        console.log("Erro ao atualizar os dados, motivo: " + error_1);
                         return [3 /*break*/, 3];
-                    case 3: return [2 /*return*/];
+                    case 3:
+                        console.log("telefone", this.usuarioLogado.telefone);
+                        return [2 /*return*/];
                 }
             });
         });
     };
-    CarrinhoPage.prototype.ionViewDidLoad = function () {
-        var _this = this;
-        this.carrinhoSrv.getCarrinho().subscribe(function (data) {
-            _this.carrinho = data;
+    MinhaContaPage.prototype.LoadData = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var user, userResult, error_2;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        user = (JSON.parse(localStorage.getItem(__WEBPACK_IMPORTED_MODULE_3__app_helpers_configHelper__["a" /* ConfigHelper */].storageKeys.user)));
+                        return [4 /*yield*/, this.usuarioSrv.getByUid(user._id)];
+                    case 1:
+                        userResult = _a.sent();
+                        if (userResult.success) {
+                            this.usuarioLogado = userResult.data;
+                            if (!this.usuarioLogado.foto)
+                                this.usuarioLogado.foto = __WEBPACK_IMPORTED_MODULE_3__app_helpers_configHelper__["a" /* ConfigHelper */].photo;
+                        }
+                        return [3 /*break*/, 3];
+                    case 2:
+                        error_2 = _a.sent();
+                        console.log("Problema ao carregar os dados do usuário");
+                        return [3 /*break*/, 3];
+                    case 3:
+                        console.log("telefone", this.usuarioLogado.telefone);
+                        return [2 /*return*/];
+                }
+            });
         });
     };
-    CarrinhoPage.prototype.quantidadeAlterada = function (produto, evt) {
-        if (evt.acao == __WEBPACK_IMPORTED_MODULE_5__app_enums_AcaoCarrinhoEnum__["a" /* AcaoCarrinhoEnum */].Adicionar)
-            this.carrinhoSrv.adicionarNovoItem(produto);
-        else
-            this.carrinhoSrv.removerItem(produto);
-    };
-    CarrinhoPage.prototype.finalizarPedido = function () {
+    //fazer tela de cadastro de endereço de entrega
+    MinhaContaPage.prototype.adicionarEndereco = function (model) {
         return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
             return __generator(this, function (_a) {
-                try {
-                    this.alertSrv.confirm("Finalizar pedido", "Deseja concluir seu pedido?", function () { return __awaiter(_this, void 0, void 0, function () {
-                        var pedidoResult;
-                        return __generator(this, function (_a) {
-                            switch (_a.label) {
-                                case 0: return [4 /*yield*/, this.carrinhoSrv.SalvarPedido(this.carrinho)];
-                                case 1:
-                                    pedidoResult = _a.sent();
-                                    console.log("meu carinho", this.carrinho);
-                                    if (pedidoResult.success) {
-                                        this.carrinho.valorTotal = 0;
-                                        this.carrinho.itens = [];
-                                        this.carrinho.enderecoEntregaId = "";
-                                        this.carrinho.formaPagamento = "";
-                                        this.navCtrl.setRoot("MeusPedidosPage");
-                                        this.alertSrv.toast("Pedido realizado com sucesso!", "bottom");
-                                    }
-                                    if (pedidoResult.success) {
-                                        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_8__mensagens_mensagens__["a" /* MensagensPage */]);
-                                    }
-                                    return [2 /*return*/];
-                            }
-                        });
-                    }); });
-                }
-                catch (error) {
-                    console.log("Problema ao enviar seu pedido", error);
-                }
+                this.navCtrl.push("ListEnderecosEntregaPage");
                 return [2 /*return*/];
             });
         });
     };
-    CarrinhoPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["m" /* Component */])({
-            selector: "page-carrinho",template:/*ion-inline-start:"e:\Desenvolvimento\TCC\1 - Projeto\Mobile\WooshApp\src\pages\carrinho\carrinho.html"*/'<ion-header>\n    <ion-navbar color="primary">\n        <ion-title>Meu Carrinho</ion-title>\n    </ion-navbar>\n</ion-header>\n<ion-content no-padding>\n    <div class="valor">\n        <h2>{{ carrinho.valorTotal | real }}</h2>\n        <small>seu pedido atual</small>\n    </div>\n    <div class="botao-finalizar">\n        <div class="botao" tappable (click)="finalizarPedido()">\n            Finalizar Pedido\n        </div>\n    </div>\n\n    <div class="entrega">\n        <ion-item no-lines style="border-radius: 10px;">\n            <ion-label class="entregaLabel" no-lines>\n                Entregar em:\n            </ion-label>\n            <ion-select [(ngModel)]="carrinho.enderecoEntregaId" cancelText="Cancelar" okText="Ok">\n                <ion-option value="{{ item._id }}" *ngFor="let item of enderecos">\n                    {{ item.rua }}, {{ item.numero }}, {{ item.bairro }}\n                </ion-option>\n            </ion-select>\n        </ion-item>\n    </div>\n    <div>\n        <ion-item no-lines style="border-radius: 10px;">\n            <ion-label class="entregaLabel" no-lines>\n                Forma de Pagamento:\n            </ion-label>\n            <ion-select [(ngModel)]="carrinho.formaPagamento" cancelText="Cancelar" okText="Ok">\n                <ion-option value="{{ item }}" *ngFor="let item of formaPagamento">\n                    {{ item }}\n                </ion-option>\n            </ion-select>\n        </ion-item>\n    </div>\n\n    <div class="produtos">\n        <div class="produto" *ngFor="let item of carrinho.itens" tappable>\n            <div class="imagem" [ngStyle]="{ \'background-image\': \'url(\' + item.Produto.foto + \')\' }"></div>\n            <div class="titulo">{{ item.Produto.nome }}</div>\n            <div class="descricao">{{ item.Produto.descricao }}</div>\n            <div class="preco">{{ item.Produto.preco | real }}</div>\n            <div class="quantidade">\n                <quantidade [produto]="item.Produto" (quantidadeAlterada)="quantidadeAlterada(item.Produto, $event)">\n                </quantidade>\n            </div>\n            <ion-item>\n                <ion-label floating>Observações</ion-label>\n                <ion-input [(ngModel)]="item.Observacoes" type="text"></ion-input>\n            </ion-item>\n        </div>\n    </div>\n    <div>\n        <ion-item no-lines style="background-color: transparent !important;"></ion-item>\n        <ion-item no-lines style="background-color: transparent !important;"></ion-item>\n    </div>\n</ion-content>\n<tab [pagina]="\'Meu Carrinho\'"></tab>'/*ion-inline-end:"e:\Desenvolvimento\TCC\1 - Projeto\Mobile\WooshApp\src\pages\carrinho\carrinho.html"*/
+    MinhaContaPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_5__angular_core__["m" /* Component */])({
+            selector: "page-minha-conta",template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\minha-conta\minha-conta.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-title class="titulo">Minha Conta</ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only (click)="sair()">\n        <p class="sair">Sair</p>\n        <ion-icon name="exit"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n<ion-content>\n  <div class="imagem" [ngStyle]="{\'background-image\': \'url(\' + usuarioLogado.foto + \')\'}" (click)="mudarFoto()">\n  </div>\n  <div class="formulario">\n    <div class="btnSuporte">\n      <button ion-button round class="btnMsg" (click)="mensagens()">\n        <ion-icon name="chatboxes"></ion-icon>\n      </button>\n      <p class="suporte">Suporte</p>\n    </div>\n    <p>Nome</p>\n    <input type="text" placeholder="Nome" [(ngModel)]="usuarioLogado.nome">\n    <p>E-mail</p>\n    <input type="text" placeholder="Email" [(ngModel)]="usuarioLogado.email">\n    <p>CPF</p>\n    <input type="number" placeholder="CPF" [(ngModel)]="usuarioLogado.cpf" disabled="true">\n    <!-- <P>Telefone</P>\n        <input type="number" placeholder="Telefone" [(ngModel)]="usuarioLogado.telefone"> -->\n\n    <div class="botaoEndereco">\n      <button ion-button outline color="primary" round block (click)="adicionarEndereco()" style="margin-top: 20px;">\n        Endereços de entrega\n      </button>\n    </div>\n    <div class="botao">\n      <button ion-button outline color="primary" round block (click)="salvar()" style="margin-top: 10px;">\n        Salvar os dados\n      </button>\n    </div>\n  </div>\n  <div>\n    <ion-item no-lines style="background-color: transparent !important;"></ion-item>\n    <ion-item no-lines style="background-color: transparent !important;"></ion-item>\n  </div>\n</ion-content>\n<tab [pagina]="\'Minha Conta\'"></tab>\n'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\minha-conta\minha-conta.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["k" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["l" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_carrinho_carrinho__["a" /* CarrinhoProvider */],
-            __WEBPACK_IMPORTED_MODULE_0__providers_alert_alert__["a" /* AlertProvider */],
-            __WEBPACK_IMPORTED_MODULE_7__providers_endereco_endereco__["a" /* EnderecoEntregaProvider */]])
-    ], CarrinhoPage);
-    return CarrinhoPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_7_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_7_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_usuario_usuario__["a" /* UsuarioProvider */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_camera_camera__["a" /* CameraProvider */],
+            __WEBPACK_IMPORTED_MODULE_7_ionic_angular__["a" /* ActionSheetController */],
+            __WEBPACK_IMPORTED_MODULE_1__providers_alert_alert__["a" /* AlertProvider */]])
+    ], MinhaContaPage);
+    return MinhaContaPage;
 }());
 
-//# sourceMappingURL=carrinho.js.map
+//# sourceMappingURL=minha-conta.js.map
 
 /***/ })
 

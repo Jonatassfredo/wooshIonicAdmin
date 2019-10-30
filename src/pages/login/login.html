@@ -2,10 +2,10 @@
   <div>
     <img src="assets/imagens/logo.png" class="logo">
   </div>
-
+  <p class="cadastroQuest">Woosh Manager</p>
   <ion-list no-lines class="list-transparent">
     <ion-item>
-      <ion-input [(ngModel)]="form.email" type="text" placeholder="E-mail"></ion-input>
+      <ion-input [(ngModel)]="form.nome" type="text" placeholder="Operador"></ion-input>
     </ion-item>
     <ion-item>
       <ion-input [(ngModel)]="form.senha" type="password" placeholder="Senha"></ion-input>
@@ -18,16 +18,6 @@
           Efetuar Login
         </button>
       </ion-row>
-      <p class="cadastroQuest">Ainda não possui conta?</p>
-      <ion-row>
-        <button ion-button block outline round color="secondary" (click)="cadastrar()" class='botao'>
-          Cadastrar-se
-        </button>
-      </ion-row>
     </ion-grid>
-    <!-- <div class="rodapeLogo">
-            <img src="assets/imagens/rodape.png" alt>
-
-        </div> -->
   </div>
 </ion-content>
