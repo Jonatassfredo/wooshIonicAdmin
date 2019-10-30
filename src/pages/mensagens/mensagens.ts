@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, Content } from "ionic-angular";
 import { UsuarioModel } from "./../../app/models/usuarioModel";
 import * as firebase from "firebase";
 import { UsuarioProvider } from "../../providers/usuario/usuario";
+import { PedidosPage } from './../pedidos/pedidos';
 
 @IonicPage()
 @Component({
@@ -78,7 +79,7 @@ export class MensagensPage {
   }
 
   sair() {
-    this.navCtrl.setRoot(CategoriaPage);
+    this.navCtrl.setRoot(PedidosPage);
   }
 }
 

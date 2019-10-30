@@ -1,9 +1,12 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>Pedidos</ion-title>
     <button ion-button icon-only clear color="light" (click)="adminOptions()">
       <ion-icon name="settings"></ion-icon>
     </button>
+    <button ion-button icon-only clear color="light" (click)="sair()">
+      <ion-icon name="exit"></ion-icon>
+    </button>
+    <ion-title>Pedidos</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content no-padding>
@@ -20,6 +23,12 @@
       <p>Status: {{item.status}}</p>
       <p>Quantidade Total itens: {{ contaItem(item) }}</p>
       <p>Valor total: <strong> {{ item.valorTotal }}</strong></p>
+      <div>
+        <button ion-button>Aceitar</button>
+        <button ion-button>Recusar</button>
+        <button ion-button>Chat</button>
+        <button ion-button>Cliente</button>
+      </div>
     </ion-card-content>
   </ion-card>
   <div>

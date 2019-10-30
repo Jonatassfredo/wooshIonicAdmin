@@ -7,6 +7,7 @@ import { OneSignal } from "@ionic-native/onesignal";
 import { ConfigHelper } from "./helpers/configHelper";
 
 import * as firebase from "firebase";
+import { OperadorProvider } from "../providers/operador/operador";
 const config = {
   apiKey: "AIzaSyDlsbsgr1kvkrZndhbRmfA6dMYpW8i1-HM",
   authDomain: "fir-chat-e7621.firebaseapp.com",
@@ -21,7 +22,7 @@ const config = {
   templateUrl: "app.html"
 })
 export class MyApp {
-  rootPage: any = UsuarioProvider.IsLogado ? "CategoriaPage" : "LoginPage";
+  rootPage: any = OperadorProvider.IsLogado ? "PedidosPage" : "LoginPage";
 
   constructor(
     private platform: Platform,

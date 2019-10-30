@@ -1,4 +1,4 @@
-import { UsuarioProvider } from "./../usuario/usuario";
+import { OperadorProvider } from "./../operador/operador";
 import { SpinnerProvider } from "./../spinner/spinner";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
@@ -13,7 +13,7 @@ export class HttpProvider {
     private spinnerSrv: SpinnerProvider,
     private alertSrv: AlertProvider,
     private networkSrv: NetworkProvider
-  ) {}
+  ) { }
 
   public createHeader(header?: HttpHeaders): HttpHeaders {
     if (!header) {
@@ -22,7 +22,7 @@ export class HttpProvider {
     header = header.append("Content-Type", "application/json");
     header = header.append("Accept", "application/json");
 
-    let token = UsuarioProvider.GetTokenAccess;
+    let token = OperadorProvider.GetTokenAccess;
     if (token) {
       header = header.append("x-access-token", token);
     }

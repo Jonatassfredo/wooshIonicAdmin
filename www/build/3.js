@@ -1,39 +1,14 @@
 webpackJsonp([3],{
 
-/***/ 347:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListaPedidosModel; });
-var ListaPedidosModel = /** @class */ (function () {
-    function ListaPedidosModel() {
-        this.itensGeral = new Array();
-    }
-    ListaPedidosModel.getTotalItens = function (itens) {
-        try {
-            var _itens = JSON.parse(itens);
-            return _itens.length;
-        }
-        catch (error) {
-            return 0;
-        }
-    };
-    return ListaPedidosModel;
-}());
-
-//# sourceMappingURL=ListaPedidosModel.js.map
-
-/***/ }),
-
-/***/ 352:
+/***/ 315:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PedidosPageModule", function() { return PedidosPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pedidos__ = __webpack_require__(353);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(326);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -43,36 +18,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var PedidosPageModule = /** @class */ (function () {
-    function PedidosPageModule() {
+var LoginPageModule = /** @class */ (function () {
+    function LoginPageModule() {
     }
-    PedidosPageModule = __decorate([
+    LoginPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__pedidos__["a" /* PedidosPage */],
+                __WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__pedidos__["a" /* PedidosPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */]),
             ],
         })
-    ], PedidosPageModule);
-    return PedidosPageModule;
+    ], LoginPageModule);
+    return LoginPageModule;
 }());
 
-//# sourceMappingURL=pedidos.module.js.map
+//# sourceMappingURL=login.module.js.map
 
 /***/ }),
 
-/***/ 353:
+/***/ 326:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PedidosPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_models_ListaPedidosModel__ = __webpack_require__(347);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_helpers_configHelper__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_http_http__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(0);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_operador_operador__ = __webpack_require__(58);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -120,92 +93,46 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
-
-
-// import { ProdutoModel } from './../../app/models/produtoModel';
-var PedidosPage = /** @class */ (function () {
-    function PedidosPage(navCtrl, navParams, actionSheetCtrl, http) {
+var LoginPage = /** @class */ (function () {
+    function LoginPage(navCtrl, navParams, operadorSrv) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.actionSheetCtrl = actionSheetCtrl;
-        this.http = http;
-        this.lista = new Array();
+        this.operadorSrv = operadorSrv;
+        this.form = {};
     }
-    PedidosPage.prototype.ionViewDidLoad = function () {
-        this.GetAllPedidos();
-        console.log(this.produtos);
-    };
-    PedidosPage.prototype.adminOptions = function () {
-        var _this = this;
-        var action = this.actionSheetCtrl.create({
-            title: "Administração",
-            buttons: [
-                {
-                    text: "Gerenciar Categorias",
-                    handler: function () {
-                        _this.gerenciarCategoria();
-                    }
-                },
-                {
-                    text: "Gerenciar Produtos",
-                    handler: function () {
-                        _this.gerenciarProduto();
-                    }
-                },
-                { text: "Cancelar", handler: function () { }, role: "destructive" }
-            ]
-        });
-        action.present();
-    };
-    PedidosPage.prototype.gerenciarCategoria = function () {
-        this.navCtrl.push("AdmCategoriasPage");
-    };
-    PedidosPage.prototype.gerenciarProduto = function () {
-        this.navCtrl.push("AdmProdutosPage");
-    };
-    PedidosPage.prototype.GetAllPedidos = function () {
+    LoginPage.prototype.login = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var pedidosResult, error_1;
+            var result;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.http.get(__WEBPACK_IMPORTED_MODULE_2__app_helpers_configHelper__["a" /* ConfigHelper */].Url + "pedido/getAll")];
+                    case 0: return [4 /*yield*/, this.operadorSrv.autenticate(this.form.nome, this.form.senha)];
                     case 1:
-                        pedidosResult = _a.sent();
-                        if (pedidosResult.success) {
-                            this.lista = pedidosResult.data;
-                            this.produtos = pedidosResult.data;
-                            console.log(pedidosResult);
-                            return [2 /*return*/, pedidosResult];
+                        result = _a.sent();
+                        if (result.success) {
+                            __WEBPACK_IMPORTED_MODULE_2__providers_operador_operador__["a" /* OperadorProvider */].RegisterLogin(result.data);
+                            this.navCtrl.setRoot("PedidosPage");
                         }
-                        return [3 /*break*/, 3];
-                    case 2:
-                        error_1 = _a.sent();
-                        console.log('Problema ao carregar os pedidos, motivo: ', error_1);
-                        return [3 /*break*/, 3];
-                    case 3: return [2 /*return*/];
+                        console.log(result);
+                        return [2 /*return*/];
                 }
             });
         });
     };
-    PedidosPage.prototype.contaItem = function (item) {
-        // console.log(JSON.parse(item.itens));
-        return __WEBPACK_IMPORTED_MODULE_1__app_models_ListaPedidosModel__["a" /* ListaPedidosModel */].getTotalItens(item.itens);
+    LoginPage.prototype.cadastrar = function () {
+        this.navCtrl.setRoot("CadastroPage");
     };
-    PedidosPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["m" /* Component */])({
-            selector: 'meus-pedidos',template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\pedidos\pedidos.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>Pedidos</ion-title>\n    <button ion-button icon-only clear color="light" (click)="adminOptions()">\n      <ion-icon name="settings"></ion-icon>\n    </button>\n  </ion-navbar>\n</ion-header>\n<ion-content no-padding>\n  <ion-card *ngFor="let item of lista" style="border-radius: 10px;">\n    <ion-card-header icon-left>\n      <!-- <ion-icon name="cart"></ion-icon> -->\n      Pedido realizado em {{ item.dataPedido | date:\'dd/MM/yyyy, HH:mm\' }}\n    </ion-card-header>\n    <ion-card-content>\n      {{item.itens}}\n      <!-- {{item.itensGeral}} -->\n\n      {{item.usuarioId}}\n      <p>Status: {{item.status}}</p>\n      <p>Quantidade Total itens: {{ contaItem(item) }}</p>\n      <p>Valor total: <strong> {{ item.valorTotal }}</strong></p>\n    </ion-card-content>\n  </ion-card>\n  <div>\n    <ion-item no-lines style="background-color: transparent !important;"></ion-item>\n    <ion-item no-lines style="background-color: transparent !important;"></ion-item>\n  </div>\n</ion-content>\n<!-- <tab [pagina]="\'Pedidos\'"></tab> -->'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\pedidos\pedidos.html"*/,
+    LoginPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: "page-login",template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\login\login.html"*/'<ion-content padding class="backImage">\n  <div>\n    <img src="assets/imagens/logo.png" class="logo">\n  </div>\n  <p class="cadastroQuest">Woosh Manager</p>\n  <ion-list no-lines class="list-transparent">\n    <ion-item>\n      <ion-input [(ngModel)]="form.nome" type="text" placeholder="Operador"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-input [(ngModel)]="form.senha" type="password" placeholder="Senha"></ion-input>\n    </ion-item>\n  </ion-list>\n  <div>\n    <ion-grid>\n      <ion-row>\n        <button ion-button color="secondary" block round (click)="login()" class=\'botao\' style="margin-top: 20%">\n          Efetuar Login\n        </button>\n      </ion-row>\n    </ion-grid>\n  </div>\n</ion-content>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\login\login.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["a" /* ActionSheetController */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_http_http__["a" /* HttpProvider */]])
-    ], PedidosPage);
-    return PedidosPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_operador_operador__["a" /* OperadorProvider */]])
+    ], LoginPage);
+    return LoginPage;
 }());
 
-//# sourceMappingURL=pedidos.js.map
+//# sourceMappingURL=login.js.map
 
 /***/ })
 
