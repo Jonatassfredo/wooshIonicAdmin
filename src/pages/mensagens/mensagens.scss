@@ -1,0 +1,31 @@
+page-mensagens {
+    .alinhaMsg {
+        margin-left: 40px;
+    }
+    .myMessage {
+        background-color: darkred;
+        //border-radius: 25px;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        border-bottom-left-radius: 25px
+    }
+    .msg-name {
+        color: #ffffff7e
+    }
+    .msg-date {
+        color: #ffffff7e
+    }
+    .msg-text {
+        color: white;
+        font-size: 17px
+    }
+    .iconeMsg {
+        //width: 20px !important;
+        size: 30px !important;
+        margin-top: 13px !important;
+        margin-left: 0px !important;
+    }
+    .fontsize {
+        font-size: 17px !important;
+    }
+}

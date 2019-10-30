@@ -1,0 +1,38 @@
+page-login {
+  ion-input {
+    color: white
+  }
+
+  .botao {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 45px;
+    width: 200px;
+  }
+
+  .rodapeLogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+  }
+
+  .logo {
+    margin-bottom: 50px;
+    width: 50%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cadastroQuest {
+    color: white;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 15px;
+  }
+}

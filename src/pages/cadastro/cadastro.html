@@ -1,0 +1,37 @@
+<ion-content padding class="backImage">
+  <div>
+    <img src="assets/imagens/logo.png" class="logo">
+    <!-- <span>Woosh</span> -->
+  </div>
+  <ion-list no-lines class="list-transparent">
+    <ion-item>
+      <ion-input [(ngModel)]="usuario.nome" type="text" placeholder="Nome"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="usuario.email" type="text" placeholder="E-mail"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="usuario.cpf" type="number" placeholder="CPF" #input maxlength="10"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="usuario.senha" type="password" placeholder="Senha"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="usuario.senhaConfirmacao" type="password" placeholder="Confirmar Senha"></ion-input>
+    </ion-item>
+  </ion-list>
+  <div>
+    <ion-grid>
+      <ion-row>
+        <button ion-button block round color="secondary" (click)="cadastrar()" class='botao'>
+          Cadastrar
+        </button>
+      </ion-row>
+      <ion-row>
+        <button ion-button block outline round color="secondary" (click)="cancelar()" class='botao'>
+          Cancelar
+        </button>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

@@ -1,0 +1,77 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>Mensagens</ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="sair()">
+        <ion-icon name="exit"></ion-icon>
+      </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item *ngFor="let chat of chats" no-lines>
+            <div class="chat-status" text-center *ngIf="chat.mensagentype==='join'||chat.type==='sair';else message">
+                <span class="chat-date">{{chat.sendDate | date:'short'}}</span>
+                <span class="chat-content-center">{{chat.mensagem}}</span>
+            </div>
+            <ng-template #message>
+                <div class="alinhaMsg">
+                    <ion-card class="myMessage" text-right *ngIf="messageType === 'userMessage'">
+                        <ion-card-header>
+                            <span class="msg-name">
+                <strong>Eu</strong>
+                em
+              </span>
+                            <span class="msg-date">{{chat.sendDate | date:'dd/MM/yyyy'}}</span>
+                        </ion-card-header>
+                        <ion-card-content>
+                            <div class="chat-message" text-right>
+                                <div class="right-bubble">
+                                    <p class="msg-text" text-wrap>
+                                        {{chat.mensagem}}
+                                    </p>
+                                </div>
+                            </div>
+                        </ion-card-content>
+                    </ion-card>
+                </div>
+                <ion-card text-left *ngIf="messageType !== 'userMessage'">
+                    <ion-card-header>
+                        <span class="msg-name">
+              <strong>Atendente</strong>
+              em
+            </span>
+                        <span class="msg-date">
+              {{chat.sendDate | date:'dd/MM/yyyy hh:mm' }}
+            </span>
+                    </ion-card-header>
+                    <ion-card-content>
+                        <div class="chat-message" text-left>
+                            <div class="left-bubble">
+                                <p>{{chat.mensagem}}</p>
+                            </div>
+                        </div>
+                    </ion-card-content>
+                </ion-card>
+            </ng-template>
+        </ion-item>
+    </ion-list>
+</ion-content>
+
+<ion-footer>
+    <ion-grid>
+        <ion-row>
+            <ion-col col-10>
+                <ion-input type="text" placeholder="Escreva uma mensagem" [(ngModel)]="data.mensagem" name="mensagem" class="fontsize">
+                </ion-input>
+            </ion-col>
+            <ion-col col-2 (click)="enviarMensagem()" class="iconeMsg">
+                <div>
+                    <ion-icon color="primary" name="paper-plane"></ion-icon>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-footer>

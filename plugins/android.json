@@ -1,0 +1,33 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "br.com.jsfredo.Woosh"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "br.com.jsfredo.Woosh"
+    },
+    "cordova-plugin-ionic-keyboard": {
+      "PACKAGE_NAME": "br.com.jsfredo.Woosh"
+    },
+    "cordova-plugin-ionic-webview": {
+      "PACKAGE_NAME": "br.com.jsfredo.Woosh"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "br.com.jsfredo.Woosh"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "br.com.jsfredo.Woosh"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "br.com.jsfredo.Woosh"
+    }
+  },
+  "dependent_plugins": {}
+}
