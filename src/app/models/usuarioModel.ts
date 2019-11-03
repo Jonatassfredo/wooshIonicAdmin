@@ -7,7 +7,7 @@ export class UsuarioModel {
   cpf: string;
   foto: string;
   telefone: number = 0;
-  ativo: string;
+  ativo: boolean;
   enderecosEntrega: Array<EnderecoEntregaModel>;
 
   constructor() {

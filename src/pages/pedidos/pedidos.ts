@@ -6,6 +6,7 @@ import { HttpResultModel } from "../../app/models/HttpResultModel";
 import { Component } from "@angular/core";
 import { ProdutoModel } from '../../app/models/produtoModel';
 import { AlertProvider } from '../../providers/alert/alert';
+import { UsuarioModel } from '../../app/models/usuarioModel';
 // import { ProdutoModel } from './../../app/models/produtoModel';
 
 @IonicPage()
@@ -53,6 +54,12 @@ export class PedidosPage {
           }
         },
         {
+          text: "Gerenciar Operadores",
+          handler: () => {
+            this.gerenciarOperador();
+          }
+        },
+        {
           text: "Sair da conta",
           handler: () => {
             this.sair();
@@ -68,12 +75,21 @@ export class PedidosPage {
     this.navCtrl.push("AdmCategoriasPage");
   }
 
+  private gerenciarOperador(): void {
+    this.navCtrl.push("OperadoresPage");
+  }
+
   private gerenciarProduto(): void {
     this.navCtrl.push("AdmProdutosPage");
   }
 
   private gerenciarCliente(): void {
     this.navCtrl.push("ClientesPage");
+  }
+
+  clienteInfo(model?: UsuarioModel): void {
+    this.navCtrl.push('AdmClientePage', { _cliente: model });
+    console.log("model", model);
   }
 
   sair() {

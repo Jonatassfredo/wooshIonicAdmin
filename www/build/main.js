@@ -761,6 +761,12 @@ var PedidosPage = /** @class */ (function () {
                     }
                 },
                 {
+                    text: "Gerenciar Operadores",
+                    handler: function () {
+                        _this.gerenciarOperador();
+                    }
+                },
+                {
                     text: "Sair da conta",
                     handler: function () {
                         _this.sair();
@@ -774,11 +780,18 @@ var PedidosPage = /** @class */ (function () {
     PedidosPage.prototype.gerenciarCategoria = function () {
         this.navCtrl.push("AdmCategoriasPage");
     };
+    PedidosPage.prototype.gerenciarOperador = function () {
+        this.navCtrl.push("OperadoresPage");
+    };
     PedidosPage.prototype.gerenciarProduto = function () {
         this.navCtrl.push("AdmProdutosPage");
     };
     PedidosPage.prototype.gerenciarCliente = function () {
         this.navCtrl.push("ClientesPage");
+    };
+    PedidosPage.prototype.clienteInfo = function (model) {
+        this.navCtrl.push('AdmClientePage', { _cliente: model });
+        console.log("model", model);
     };
     PedidosPage.prototype.sair = function () {
         var _this = this;
@@ -829,15 +842,12 @@ var PedidosPage = /** @class */ (function () {
     };
     PedidosPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["m" /* Component */])({
-            selector: 'meus-pedidos',template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\pedidos\pedidos.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <button ion-button icon-only clear color="light" (click)="adminOptions()">\n      <ion-icon name="settings"></ion-icon>\n    </button>\n    <ion-title>Pedidos</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content no-padding>\n  <ion-card *ngFor="let item of lista" style="border-radius: 10px;">\n    <ion-card-header icon-left>\n      <!-- <ion-icon name="cart"></ion-icon> -->\n      Pedido realizado em <strong>{{ item.dataPedido | date:\'dd/MM/yyyy, HH:mm\' }}</strong>\n    </ion-card-header>\n    <ion-card-content>\n      {{item.itens}}\n\n      {{item.usuarioId}}\n      <p>Status: <strong>{{item.status}}</strong></p>\n      <p>Quantidade Total itens: <strong>{{ contaItem(item) }}</strong></p>\n      <p>Valor total: <strong> {{ item.valorTotal }}</strong></p>\n      <div>\n        <ion-row class="botoes">\n          <button ion-button>Aceitar</button>\n          <button ion-button>Recusar</button>\n          <button ion-button>Chat</button>\n          <button ion-button>Cliente</button>\n        </ion-row>\n\n      </div>\n    </ion-card-content>\n  </ion-card>\n  <div>\n    <ion-item no-lines style="background-color: transparent !important;"></ion-item>\n    <ion-item no-lines style="background-color: transparent !important;"></ion-item>\n  </div>\n</ion-content>\n<!-- <tab [pagina]="\'Pedidos\'"></tab> -->'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\pedidos\pedidos.html"*/,
+            selector: 'meus-pedidos',template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\pedidos\pedidos.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <button ion-button icon-only clear color="light" (click)="adminOptions()">\n      <ion-icon name="settings"></ion-icon>\n    </button>\n    <ion-title>Pedidos</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content no-padding>\n  <ion-card *ngFor="let item of lista" style="border-radius: 10px;">\n    <ion-card-header icon-left>\n      <!-- <ion-icon name="cart"></ion-icon> -->\n      Pedido realizado em <strong>{{ item.dataPedido | date:\'dd/MM/yyyy, HH:mm\' }}</strong>\n    </ion-card-header>\n    <ion-card-content>\n      {{item.itens}}\n\n      {{item.usuarioId}}\n      <p>Status: <strong>{{item.status}}</strong></p>\n      <p>Quantidade Total itens: <strong>{{ contaItem(item) }}</strong></p>\n      <p>Valor total: <strong> {{ item.valorTotal }}</strong></p>\n      <div>\n        <ion-row class="botoes">\n          <button ion-button>Aceitar</button>\n          <button ion-button>Recusar</button>\n          <button ion-button>Chat</button>\n          <!-- <button (click)="clienteInfo(item.usuarioId)" ion-button>Cliente</button> -->\n        </ion-row>\n\n      </div>\n    </ion-card-content>\n  </ion-card>\n  <div>\n    <ion-item no-lines style="background-color: transparent !important;"></ion-item>\n    <ion-item no-lines style="background-color: transparent !important;"></ion-item>\n  </div>\n</ion-content>\n<!-- <tab [pagina]="\'Pedidos\'"></tab> -->'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\pedidos\pedidos.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["a" /* ActionSheetController */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_http_http__["a" /* HttpProvider */],
-            __WEBPACK_IMPORTED_MODULE_5__providers_alert_alert__["a" /* AlertProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["a" /* ActionSheetController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["a" /* ActionSheetController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_http_http__["a" /* HttpProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_http_http__["a" /* HttpProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__providers_alert_alert__["a" /* AlertProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_alert_alert__["a" /* AlertProvider */]) === "function" && _e || Object])
     ], PedidosPage);
     return PedidosPage;
+    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=pedidos.js.map

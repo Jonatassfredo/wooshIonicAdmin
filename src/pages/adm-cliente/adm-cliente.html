@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>Produto</ion-title>
+    <ion-title>Clientes</ion-title>
     <ion-buttons right>
       <button ion-button clear (click)="salvar()">
         Salvar
@@ -14,20 +14,21 @@
   <ion-list no-lines>
     <ion-item>
       <ion-label floating>Nome do Cliente</ion-label>
-      <ion-input [(ngModel)]="cliente.nome" type="text"></ion-input>
+      <ion-input disabled [(ngModel)]="cliente.nome" type="text"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>CPF</ion-label>
-      <ion-input type="number" [(ngModel)]="cliente.cpf"></ion-input>
+      <ion-input disabled type="number" [(ngModel)]="cliente.cpf"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label floating>Ativo</ion-label>
-      <ion-input type="text" [(ngModel)]="cliente.ativo"></ion-input>
+      <ion-label floating>Email</ion-label>
+      <ion-input disabled type="email" [(ngModel)]="cliente.email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Ativo</ion-label>
+      <ion-toggle [(ngModel)]="cliente.ativo"></ion-toggle>
     </ion-item>
     <ion-item text-center>
-    </ion-item>
-    <ion-item *ngIf="cliente.foto">
-      <img [src]="cliente.foto">
     </ion-item>
   </ion-list>
 </ion-content>

@@ -127,6 +127,7 @@ var AdmClientePage = /** @class */ (function () {
                     case 2: return [4 /*yield*/, this.usuarioSrv.put(this.cliente._id, this.cliente)];
                     case 3:
                         updateResult = _a.sent();
+                        console.log("put cliente", this.cliente);
                         sucesso = updateResult.success;
                         _a.label = 4;
                     case 4:
@@ -144,12 +145,14 @@ var AdmClientePage = /** @class */ (function () {
     };
     AdmClientePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-adm-cliente',template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\adm-cliente\adm-cliente.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>Produto</ion-title>\n    <ion-buttons right>\n      <button ion-button clear (click)="salvar()">\n        Salvar\n      </button>\n      <button *ngIf="cliente._id" ion-button icon-only>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n<ion-content no-padding>\n  <ion-list no-lines>\n    <ion-item>\n      <ion-label floating>Nome do Cliente</ion-label>\n      <ion-input [(ngModel)]="cliente.nome" type="text"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>CPF</ion-label>\n      <ion-input type="number" [(ngModel)]="cliente.cpf"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Ativo</ion-label>\n      <ion-input type="text" [(ngModel)]="cliente.ativo"></ion-input>\n    </ion-item>\n    <ion-item text-center>\n    </ion-item>\n    <ion-item *ngIf="cliente.foto">\n      <img [src]="cliente.foto">\n    </ion-item>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\adm-cliente\adm-cliente.html"*/,
+            selector: 'page-adm-cliente',template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\adm-cliente\adm-cliente.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>Clientes</ion-title>\n    <ion-buttons right>\n      <button ion-button clear (click)="salvar()">\n        Salvar\n      </button>\n      <button *ngIf="cliente._id" ion-button icon-only>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n<ion-content no-padding>\n  <ion-list no-lines>\n    <ion-item>\n      <ion-label floating>Nome do Cliente</ion-label>\n      <ion-input disabled [(ngModel)]="cliente.nome" type="text"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>CPF</ion-label>\n      <ion-input disabled type="number" [(ngModel)]="cliente.cpf"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Email</ion-label>\n      <ion-input disabled type="email" [(ngModel)]="cliente.email"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Ativo</ion-label>\n      <ion-toggle [(ngModel)]="cliente.ativo"></ion-toggle>\n    </ion-item>\n    <ion-item text-center>\n    </ion-item>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\adm-cliente\adm-cliente.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__providers_usuario_usuario__["a" /* UsuarioProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_usuario_usuario__["a" /* UsuarioProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__providers_alert_alert__["a" /* AlertProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_alert_alert__["a" /* AlertProvider */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_usuario_usuario__["a" /* UsuarioProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_alert_alert__["a" /* AlertProvider */]])
     ], AdmClientePage);
     return AdmClientePage;
-    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=adm-cliente.js.map

@@ -34,6 +34,7 @@ export class AdmClientePage {
       sucesso = cadastroResult.success;
     } else {
       let updateResult = await this.usuarioSrv.put(this.cliente._id, this.cliente);
+      console.log("put cliente", this.cliente);
       sucesso = updateResult.success;
     }
     if (sucesso) {

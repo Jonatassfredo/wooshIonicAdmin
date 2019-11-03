@@ -26,6 +26,10 @@
             <ion-textarea [(ngModel)]="produto.descricao" rows="4"></ion-textarea>
         </ion-item>
         <ion-item>
+            <ion-label>Ativo</ion-label>
+            <ion-toggle [(ngModel)]="produto.ativo"></ion-toggle>
+        </ion-item>
+        <ion-item>
             <ion-label>Categoria</ion-label>
             <ion-select [(ngModel)]="produto.categoriaId">
                 <ion-option value="{{item._id}}" *ngFor="let item of categorias">{{item.titulo}}</ion-option>
