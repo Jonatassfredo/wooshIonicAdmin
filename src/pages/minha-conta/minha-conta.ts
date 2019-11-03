@@ -28,14 +28,14 @@ export class MinhaContaPage {
     private cameraSrv: CameraProvider,
     public actionSheetCtrl: ActionSheetController,
     private alertSrv: AlertProvider
-  ) {}
+  ) { }
 
   ionViewDidLoad() {
     this.LoadData();
   }
 
   mensagens() {
-    this.navCtrl.setRoot(MensagensPage);
+    this.navCtrl.push(MensagensPage);
   }
 
   sair() {
@@ -73,7 +73,7 @@ export class MinhaContaPage {
             });
           }
         },
-        { text: "Cancelar", handler: () => {}, role: "destructive" }
+        { text: "Cancelar", handler: () => { }, role: "destructive" }
       ]
     });
     action.present();

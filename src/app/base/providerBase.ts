@@ -2,7 +2,7 @@ import { HttpProvider } from "../../providers/http/http";
 import { HttpResultModel } from "../models/HttpResultModel";
 
 export abstract class ProviderBase<T> {
-  constructor(public url: string, public http: HttpProvider) {}
+  constructor(public url: string, public http: HttpProvider) { }
 
   get(): Promise<HttpResultModel> {
     return this.http.get(this.url);

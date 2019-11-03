@@ -174,7 +174,7 @@ var AdmProdutoPage = /** @class */ (function () {
                                     excluirResult = _a.sent();
                                     if (excluirResult.success) {
                                         this.alertSrv.toast('Produto excluído com sucesso!', 'bottom');
-                                        this.navCtrl.setRoot('AdmProdutosPage');
+                                        this.navCtrl.push('AdmProdutosPage');
                                     }
                                     return [2 /*return*/];
                             }
@@ -209,7 +209,7 @@ var AdmProdutoPage = /** @class */ (function () {
                     case 4:
                         if (sucesso) {
                             this.alertSrv.toast('Produto salvo com sucesso!', 'bottom');
-                            this.navCtrl.setRoot('AdmProdutosPage');
+                            this.navCtrl.push('AdmProdutosPage');
                         }
                         return [2 /*return*/];
                 }

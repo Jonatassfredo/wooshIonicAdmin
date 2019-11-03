@@ -128,7 +128,7 @@ var AdmCategoriaPage = /** @class */ (function () {
                                     excluirResult = _a.sent();
                                     if (excluirResult.success) {
                                         this.alertSrv.toast('Categoria excluída com sucesso!', 'bottom');
-                                        this.navCtrl.setRoot('AdmCategoriasPage');
+                                        this.navCtrl.push('AdmCategoriasPage');
                                     }
                                     return [2 /*return*/];
                             }
@@ -163,7 +163,7 @@ var AdmCategoriaPage = /** @class */ (function () {
                     case 4:
                         if (sucesso) {
                             this.alertSrv.toast('Categoria salva com sucesso!', 'bottom');
-                            this.navCtrl.setRoot('AdmCategoriasPage');
+                            this.navCtrl.push('AdmCategoriasPage');
                         }
                         return [2 /*return*/];
                 }

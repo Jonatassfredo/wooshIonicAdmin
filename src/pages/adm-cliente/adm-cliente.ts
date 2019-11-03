@@ -39,7 +39,8 @@ export class AdmClientePage {
     }
     if (sucesso) {
       this.alertSrv.toast('Produto salvo com sucesso!', 'bottom');
-      this.navCtrl.setRoot('ClientesPage');
+      // this.navCtrl.setRoot('ClientesPage');
+      this.navCtrl.push('ClientesPage');
     }
   }
 

@@ -23,12 +23,12 @@ export class LoginPage {
     );
     if (result.success) {
       OperadorProvider.RegisterLogin(result.data);
-      this.navCtrl.setRoot("PedidosPage");
+      this.navCtrl.push("PedidosPage");
     }
     console.log(result);
   }
 
   cadastrar(): void {
-    this.navCtrl.setRoot("CadastroPage");
+    this.navCtrl.push("CadastroPage");
   }
 }

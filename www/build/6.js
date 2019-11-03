@@ -1,14 +1,14 @@
 webpackJsonp([6],{
 
-/***/ 311:
+/***/ 313:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdmCategoriasPageModule", function() { return AdmCategoriasPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdmProdutosPageModule", function() { return AdmProdutosPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__adm_categorias__ = __webpack_require__(322);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__adm_produtos__ = __webpack_require__(324);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,34 +18,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AdmCategoriasPageModule = /** @class */ (function () {
-    function AdmCategoriasPageModule() {
+var AdmProdutosPageModule = /** @class */ (function () {
+    function AdmProdutosPageModule() {
     }
-    AdmCategoriasPageModule = __decorate([
+    AdmProdutosPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__adm_categorias__["a" /* AdmCategoriasPage */],
+                __WEBPACK_IMPORTED_MODULE_2__adm_produtos__["a" /* AdmProdutosPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__adm_categorias__["a" /* AdmCategoriasPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__adm_produtos__["a" /* AdmProdutosPage */]),
             ],
         })
-    ], AdmCategoriasPageModule);
-    return AdmCategoriasPageModule;
+    ], AdmProdutosPageModule);
+    return AdmProdutosPageModule;
 }());
 
-//# sourceMappingURL=adm-categorias.module.js.map
+//# sourceMappingURL=adm-produtos.module.js.map
 
 /***/ }),
 
-/***/ 322:
+/***/ 324:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdmCategoriasPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdmProdutosPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_categoria_categoria__ = __webpack_require__(212);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_produto_produto__ = __webpack_require__(214);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -93,45 +93,52 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
-var AdmCategoriasPage = /** @class */ (function () {
-    function AdmCategoriasPage(navCtrl, navParams, categoriaSrv) {
+var AdmProdutosPage = /** @class */ (function () {
+    function AdmProdutosPage(navCtrl, navParams, produtoSrv) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.categoriaSrv = categoriaSrv;
+        this.produtoSrv = produtoSrv;
         this.lista = new Array();
-        this._loadData();
+        this.isLoading = true;
     }
-    AdmCategoriasPage.prototype._loadData = function () {
+    AdmProdutosPage.prototype.ionViewWillEnter = function () {
+        this.isLoading = true;
+        this._loadData();
+    };
+    AdmProdutosPage.prototype._loadData = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var categoriaResult;
+            var produtoResult;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.categoriaSrv.get()];
+                    case 0: return [4 /*yield*/, this.produtoSrv.get()];
                     case 1:
-                        categoriaResult = _a.sent();
-                        if (categoriaResult.success) {
-                            this.lista = categoriaResult.data;
+                        produtoResult = _a.sent();
+                        if (produtoResult.success) {
+                            this.isLoading = false;
+                            this.lista = produtoResult.data;
+                            console.log(this.lista);
                         }
                         return [2 /*return*/];
                 }
             });
         });
     };
-    AdmCategoriasPage.prototype.addOrEdit = function (model) {
-        this.navCtrl.push("AdmCategoriaPage", { _categoria: model });
+    AdmProdutosPage.prototype.addOrEdit = function (model) {
+        this.navCtrl.push('AdmProdutoPage', { _produto: model });
+        console.log("model", model);
     };
-    AdmCategoriasPage = __decorate([
+    AdmProdutosPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: "page-adm-categorias",template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\adm-categorias\adm-categorias.html"*/'<ion-header>\n    <ion-navbar color="primary">\n        <ion-title>Categorias</ion-title>\n        <ion-buttons right>\n            <button ion-button icon-only (click)="addOrEdit({})">\n                <ion-icon name="add"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content no-padding>\n    <ion-list lines>\n        <ion-item text-wrap *ngIf="lista.length == 0">\n            Você não tem nenhuma categoria cadastrada.\n        </ion-item>\n        <ion-item *ngFor="let item of lista" text-wrap (click)="addOrEdit(item)">\n            {{ item.titulo }}\n        </ion-item>\n    </ion-list>\n</ion-content>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\adm-categorias\adm-categorias.html"*/
+            selector: 'page-adm-produtos',template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\adm-produtos\adm-produtos.html"*/'<ion-header>\n    <ion-navbar color="primary">\n        <ion-title>Produtos</ion-title>\n        <ion-buttons right>\n            <button ion-button icon-only (click)="addOrEdit({})">\n                <ion-icon name="add"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content no-padding>\n    <ion-list lines *ngIf="!isLoading">\n        <ion-item text-wrap *ngIf="lista.length == 0">\n            Você não tem nenhum produto cadastrado.\n        </ion-item>\n        <ion-item *ngFor="let item of lista" text-wrap (click)="addOrEdit(item)">\n            {{ item.nome }}\n            <ion-note item-end>\n                {{ item.categoriaId.titulo }}\n            </ion-note>\n        </ion-item>\n    </ion-list>\n</ion-content>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\adm-produtos\adm-produtos.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_categoria_categoria__["a" /* CategoriaProvider */]])
-    ], AdmCategoriasPage);
-    return AdmCategoriasPage;
+            __WEBPACK_IMPORTED_MODULE_2__providers_produto_produto__["a" /* ProdutoProvider */]])
+    ], AdmProdutosPage);
+    return AdmProdutosPage;
 }());
 
-//# sourceMappingURL=adm-categorias.js.map
+//# sourceMappingURL=adm-produtos.js.map
 
 /***/ })
 

@@ -100,7 +100,7 @@ export class PedidosPage {
         async () => {
           if (this.alertSrv) {
             localStorage.clear();
-            this.navCtrl.setRoot("LoginPage");
+            this.navCtrl.push("LoginPage");
           }
         }
       );

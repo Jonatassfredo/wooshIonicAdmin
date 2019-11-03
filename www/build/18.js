@@ -1,14 +1,14 @@
 webpackJsonp([18],{
 
-/***/ 311:
+/***/ 336:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdmCategoriasPageModule", function() { return AdmCategoriasPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdmOperadorPageModule", function() { return AdmOperadorPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__adm_categorias__ = __webpack_require__(322);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__adm_operador__ = __webpack_require__(337);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,34 +18,36 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AdmCategoriasPageModule = /** @class */ (function () {
-    function AdmCategoriasPageModule() {
+var AdmOperadorPageModule = /** @class */ (function () {
+    function AdmOperadorPageModule() {
     }
-    AdmCategoriasPageModule = __decorate([
+    AdmOperadorPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__adm_categorias__["a" /* AdmCategoriasPage */],
+                __WEBPACK_IMPORTED_MODULE_2__adm_operador__["a" /* AdmOperadorPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__adm_categorias__["a" /* AdmCategoriasPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__adm_operador__["a" /* AdmOperadorPage */]),
             ],
         })
-    ], AdmCategoriasPageModule);
-    return AdmCategoriasPageModule;
+    ], AdmOperadorPageModule);
+    return AdmOperadorPageModule;
 }());
 
-//# sourceMappingURL=adm-categorias.module.js.map
+//# sourceMappingURL=adm-operador.module.js.map
 
 /***/ }),
 
-/***/ 322:
+/***/ 337:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdmCategoriasPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdmOperadorPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_categoria_categoria__ = __webpack_require__(212);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_models_operadorModel__ = __webpack_require__(338);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_alert_alert__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_operador_operador__ = __webpack_require__(59);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -93,45 +95,109 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
-var AdmCategoriasPage = /** @class */ (function () {
-    function AdmCategoriasPage(navCtrl, navParams, categoriaSrv) {
+
+
+var AdmOperadorPage = /** @class */ (function () {
+    function AdmOperadorPage(navCtrl, navParams, usuarioSrv, alertSrv, operadorSrv) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.categoriaSrv = categoriaSrv;
-        this.lista = new Array();
-        this._loadData();
+        this.usuarioSrv = usuarioSrv;
+        this.alertSrv = alertSrv;
+        this.operadorSrv = operadorSrv;
+        var _cli = this.navParams.get('_operador');
+        console.log("teste item", _cli);
+        if (_cli && _cli._id) {
+            this.operador = _cli;
+        }
+        else
+            this.operador = new __WEBPACK_IMPORTED_MODULE_2__app_models_operadorModel__["a" /* OperadorModel */]();
     }
-    AdmCategoriasPage.prototype._loadData = function () {
+    AdmOperadorPage.prototype.excluir = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var categoriaResult;
+            var _this = this;
+            return __generator(this, function (_a) {
+                try {
+                    this.alertSrv.confirm('Excluir?', "Deseja realmente excluir o operador " + this.operador.nome + "?", function () { return __awaiter(_this, void 0, void 0, function () {
+                        var excluirResult;
+                        return __generator(this, function (_a) {
+                            switch (_a.label) {
+                                case 0: return [4 /*yield*/, this.operadorSrv.delete(this.operador._id)];
+                                case 1:
+                                    excluirResult = _a.sent();
+                                    if (excluirResult.success) {
+                                        this.alertSrv.toast('Produto excluído com sucesso!', 'bottom');
+                                        this.navCtrl.push('OperadoresPage');
+                                    }
+                                    return [2 /*return*/];
+                            }
+                        });
+                    }); });
+                }
+                catch (error) {
+                    console.log('Erro ao excluir', error);
+                }
+                return [2 /*return*/];
+            });
+        });
+    };
+    AdmOperadorPage.prototype.salvar = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var sucesso, cadastroResult, updateResult;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.categoriaSrv.get()];
+                    case 0:
+                        sucesso = false;
+                        if (!!this.operador._id) return [3 /*break*/, 2];
+                        return [4 /*yield*/, this.usuarioSrv.post(this.operador)];
                     case 1:
-                        categoriaResult = _a.sent();
-                        if (categoriaResult.success) {
-                            this.lista = categoriaResult.data;
+                        cadastroResult = _a.sent();
+                        sucesso = cadastroResult.success;
+                        return [3 /*break*/, 4];
+                    case 2: return [4 /*yield*/, this.usuarioSrv.put(this.operador._id, this.operador)];
+                    case 3:
+                        updateResult = _a.sent();
+                        console.log("put operador", this.operador);
+                        sucesso = updateResult.success;
+                        _a.label = 4;
+                    case 4:
+                        if (sucesso) {
+                            this.alertSrv.toast('Produto salvo com sucesso!', 'bottom');
+                            this.navCtrl.push('OperadoresPage');
                         }
                         return [2 /*return*/];
                 }
             });
         });
     };
-    AdmCategoriasPage.prototype.addOrEdit = function (model) {
-        this.navCtrl.push("AdmCategoriaPage", { _categoria: model });
+    AdmOperadorPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad AdmOperadorPage');
     };
-    AdmCategoriasPage = __decorate([
+    AdmOperadorPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: "page-adm-categorias",template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\adm-categorias\adm-categorias.html"*/'<ion-header>\n    <ion-navbar color="primary">\n        <ion-title>Categorias</ion-title>\n        <ion-buttons right>\n            <button ion-button icon-only (click)="addOrEdit({})">\n                <ion-icon name="add"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content no-padding>\n    <ion-list lines>\n        <ion-item text-wrap *ngIf="lista.length == 0">\n            Você não tem nenhuma categoria cadastrada.\n        </ion-item>\n        <ion-item *ngFor="let item of lista" text-wrap (click)="addOrEdit(item)">\n            {{ item.titulo }}\n        </ion-item>\n    </ion-list>\n</ion-content>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\adm-categorias\adm-categorias.html"*/
+            selector: 'page-adm-operador',template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\adm-operador\adm-operador.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>Clientes</ion-title>\n    <ion-buttons right>\n      <button ion-button clear (click)="salvar()">\n        Salvar\n      </button>\n      <button *ngIf="operador._id" ion-button icon-only (click)="excluir()">\n        <ion-icon name="trash"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n<ion-content no-padding>\n  <ion-list no-lines>\n    <ion-item>\n      <ion-label floating>Nome do Operador </ion-label>\n      <ion-input [(ngModel)]="operador.nome" type="text"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Senha</ion-label>\n      <ion-input [(ngModel)]="operador.senha" type="password"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Senha Confirmação</ion-label>\n      <ion-input [(ngModel)]="operador.senhaConfirmacao" type="password"></ion-input>\n    </ion-item>\n    <!-- <ion-item>\n      <ion-label>Ativo</ion-label>\n      <ion-toggle [(ngModel)]="operador.ativo"></ion-toggle>\n    </ion-item> -->\n    <ion-item text-center>\n    </ion-item>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\adm-operador\adm-operador.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_categoria_categoria__["a" /* CategoriaProvider */]])
-    ], AdmCategoriasPage);
-    return AdmCategoriasPage;
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__providers_operador_operador__["a" /* OperadorProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_operador_operador__["a" /* OperadorProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_alert_alert__["a" /* AlertProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_alert_alert__["a" /* AlertProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__providers_operador_operador__["a" /* OperadorProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_operador_operador__["a" /* OperadorProvider */]) === "function" && _e || Object])
+    ], AdmOperadorPage);
+    return AdmOperadorPage;
+    var _a, _b, _c, _d, _e;
 }());
 
-//# sourceMappingURL=adm-categorias.js.map
+//# sourceMappingURL=adm-operador.js.map
+
+/***/ }),
+
+/***/ 338:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OperadorModel; });
+var OperadorModel = /** @class */ (function () {
+    function OperadorModel() {
+    }
+    return OperadorModel;
+}());
+
+//# sourceMappingURL=operadorModel.js.map
 
 /***/ })
 

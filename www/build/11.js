@@ -342,7 +342,7 @@ var MinhaContaPage = /** @class */ (function () {
         this.LoadData();
     };
     MinhaContaPage.prototype.mensagens = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_6__mensagens_mensagens__["a" /* MensagensPage */]);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__mensagens_mensagens__["a" /* MensagensPage */]);
     };
     MinhaContaPage.prototype.sair = function () {
         var _this = this;

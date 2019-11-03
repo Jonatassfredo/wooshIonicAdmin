@@ -11,7 +11,7 @@ import { HttpProvider } from '../../providers/http/http';
   templateUrl: 'clientes.html',
 })
 export class ClientesPage {
-  produtos: UsuarioModel;
+  clientes: UsuarioModel;
   lista: Array<UsuarioModel> = new Array<UsuarioModel>();
   // url: string = `${ConfigHelper.Url}usuario`;
 

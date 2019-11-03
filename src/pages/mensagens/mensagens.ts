@@ -79,7 +79,7 @@ export class MensagensPage {
   }
 
   sair() {
-    this.navCtrl.setRoot(PedidosPage);
+    this.navCtrl.push(PedidosPage);
   }
 }
 
