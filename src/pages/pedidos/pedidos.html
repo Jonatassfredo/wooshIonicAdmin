@@ -3,9 +3,6 @@
     <button ion-button icon-only clear color="light" (click)="adminOptions()">
       <ion-icon name="settings"></ion-icon>
     </button>
-    <button ion-button icon-only clear color="light" (click)="sair()">
-      <ion-icon name="exit"></ion-icon>
-    </button>
     <ion-title>Pedidos</ion-title>
   </ion-navbar>
 </ion-header>
@@ -13,21 +10,23 @@
   <ion-card *ngFor="let item of lista" style="border-radius: 10px;">
     <ion-card-header icon-left>
       <!-- <ion-icon name="cart"></ion-icon> -->
-      Pedido realizado em {{ item.dataPedido | date:'dd/MM/yyyy, HH:mm' }}
+      Pedido realizado em <strong>{{ item.dataPedido | date:'dd/MM/yyyy, HH:mm' }}</strong>
     </ion-card-header>
     <ion-card-content>
       {{item.itens}}
-      <!-- {{item.itensGeral}} -->
 
       {{item.usuarioId}}
-      <p>Status: {{item.status}}</p>
-      <p>Quantidade Total itens: {{ contaItem(item) }}</p>
+      <p>Status: <strong>{{item.status}}</strong></p>
+      <p>Quantidade Total itens: <strong>{{ contaItem(item) }}</strong></p>
       <p>Valor total: <strong> {{ item.valorTotal }}</strong></p>
       <div>
-        <button ion-button>Aceitar</button>
-        <button ion-button>Recusar</button>
-        <button ion-button>Chat</button>
-        <button ion-button>Cliente</button>
+        <ion-row class="botoes">
+          <button ion-button>Aceitar</button>
+          <button ion-button>Recusar</button>
+          <button ion-button>Chat</button>
+          <button ion-button>Cliente</button>
+        </ion-row>
+
       </div>
     </ion-card-content>
   </ion-card>

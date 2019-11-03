@@ -9,6 +9,7 @@ import { HttpResultModel } from "../../app/models/HttpResultModel";
 export class UsuarioProvider extends ProviderBase<UsuarioModel> {
   url: string = `${ConfigHelper.Url}usuario`;
   static usuario: UsuarioModel;
+  static clientes: Array<UsuarioModel>;
 
   constructor(public http: HttpProvider) {
     super(`${ConfigHelper.Url}usuario`, http);
@@ -32,6 +33,11 @@ export class UsuarioProvider extends ProviderBase<UsuarioModel> {
       JSON.stringify(result.usuario)
     );
   }
+
+  // async GetAllUsuarios(): cli {
+  //   UsuarioProvider.clientes = Array<UsuarioModel>()
+  //   return this.http.get(`${this.url}/usuario`);
+  // }
 
   static GetUsuario(): UsuarioModel {
     if (!UsuarioProvider.usuario) {

@@ -30,23 +30,6 @@ export class PedidosPage {
     console.log(this.produtos);
   }
 
-  sair() {
-    try {
-      this.alertSrv.confirm(
-        "Sair",
-        "Deseja realmente sair de sua Conta atual?",
-        async () => {
-          if (this.alertSrv) {
-            localStorage.clear();
-            this.navCtrl.setRoot("LoginPage");
-          }
-        }
-      );
-    } catch (error) {
-      console.log("Erro ao excluir", error);
-    }
-  }
-
   adminOptions(): void {
     let action = this.actionSheetCtrl.create({
       title: "Administração",
@@ -69,6 +52,12 @@ export class PedidosPage {
             this.gerenciarCliente();
           }
         },
+        {
+          text: "Sair da conta",
+          handler: () => {
+            this.sair();
+          }
+        },
         { text: "Cancelar", handler: () => { }, role: "destructive" }
       ]
     });
@@ -87,6 +76,22 @@ export class PedidosPage {
     this.navCtrl.push("ClientesPage");
   }
 
+  sair() {
+    try {
+      this.alertSrv.confirm(
+        "Sair",
+        "Deseja realmente sair de sua Conta atual?",
+        async () => {
+          if (this.alertSrv) {
+            localStorage.clear();
+            this.navCtrl.setRoot("LoginPage");
+          }
+        }
+      );
+    } catch (error) {
+      console.log("Erro ao excluir", error);
+    }
+  }
 
   private async GetAllPedidos(): Promise<HttpResultModel> {
     try {
