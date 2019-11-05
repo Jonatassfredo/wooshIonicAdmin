@@ -1,14 +1,14 @@
 webpackJsonp([4],{
 
-/***/ 315:
+/***/ 320:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OperadoresPageModule", function() { return OperadoresPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(326);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__operadores__ = __webpack_require__(338);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,34 +18,35 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var LoginPageModule = /** @class */ (function () {
-    function LoginPageModule() {
+var OperadoresPageModule = /** @class */ (function () {
+    function OperadoresPageModule() {
     }
-    LoginPageModule = __decorate([
+    OperadoresPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */],
+                __WEBPACK_IMPORTED_MODULE_2__operadores__["a" /* OperadoresPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__operadores__["a" /* OperadoresPage */]),
             ],
         })
-    ], LoginPageModule);
-    return LoginPageModule;
+    ], OperadoresPageModule);
+    return OperadoresPageModule;
 }());
 
-//# sourceMappingURL=login.module.js.map
+//# sourceMappingURL=operadores.module.js.map
 
 /***/ }),
 
-/***/ 326:
+/***/ 338:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OperadoresPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_operador_operador__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_helpers_configHelper__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_http_http__ = __webpack_require__(23);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -93,46 +94,58 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
-var LoginPage = /** @class */ (function () {
-    function LoginPage(navCtrl, navParams, operadorSrv) {
+
+var OperadoresPage = /** @class */ (function () {
+    // url: string = `${ConfigHelper.Url}usuario`;
+    function OperadoresPage(navCtrl, navParams, http) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.operadorSrv = operadorSrv;
-        this.form = {};
+        this.http = http;
+        this.lista = new Array();
     }
-    LoginPage.prototype.login = function () {
+    OperadoresPage.prototype.GetAllOperadores = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var result;
+            var operadoresResult, error_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.operadorSrv.autenticate(this.form.nome, this.form.senha)];
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, this.http.get(__WEBPACK_IMPORTED_MODULE_2__app_helpers_configHelper__["a" /* ConfigHelper */].Url + "operador")];
                     case 1:
-                        result = _a.sent();
-                        if (result.success) {
-                            __WEBPACK_IMPORTED_MODULE_2__providers_operador_operador__["a" /* OperadorProvider */].RegisterLogin(result.data);
-                            this.navCtrl.setRoot("PedidosPage");
+                        operadoresResult = _a.sent();
+                        if (operadoresResult.success) {
+                            this.lista = operadoresResult.data;
+                            console.log(this.lista);
+                            return [2 /*return*/, operadoresResult];
                         }
-                        console.log(result);
-                        return [2 /*return*/];
+                        return [3 /*break*/, 3];
+                    case 2:
+                        error_1 = _a.sent();
+                        console.log('Problema ao carregar os pedidos, motivo: ', error_1);
+                        return [3 /*break*/, 3];
+                    case 3: return [2 /*return*/];
                 }
             });
         });
     };
-    LoginPage.prototype.cadastrar = function () {
-        this.navCtrl.setRoot("CadastroPage");
+    OperadoresPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad OperadoresPage');
+        this.GetAllOperadores();
     };
-    LoginPage = __decorate([
+    OperadoresPage.prototype.addOrEdit = function (model) {
+        this.navCtrl.push('AdmOperadorPage', { _operador: model });
+        console.log("model", model);
+    };
+    OperadoresPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: "page-login",template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\login\login.html"*/'<ion-content padding class="backImage">\n  <div>\n    <img src="assets/imagens/logo.png" class="logo">\n  </div>\n  <p class="cadastroQuest">Woosh Manager</p>\n  <ion-list no-lines class="list-transparent">\n    <ion-item>\n      <ion-input [(ngModel)]="form.nome" type="text" placeholder="Operador"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-input [(ngModel)]="form.senha" type="password" placeholder="Senha"></ion-input>\n    </ion-item>\n  </ion-list>\n  <div>\n    <ion-grid>\n      <ion-row>\n        <button ion-button color="secondary" block round (click)="login()" class=\'botao\' style="margin-top: 20%">\n          Efetuar Login\n        </button>\n      </ion-row>\n    </ion-grid>\n  </div>\n</ion-content>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\login\login.html"*/
+            selector: 'page-operadores',template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\operadores\operadores.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>Clientes</ion-title>\n    <ion-buttons right>\n      <button ion-button icon-only (click)="addOrEdit({})">\n        <ion-icon name="add"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n<ion-content no-padding>\n  <ion-list lines *ngIf="!isLoading">\n    <ion-item text-wrap *ngIf="lista.length == 0">\n      Não há nenhum cliente cadastrado.\n    </ion-item>\n    <ion-item *ngFor="let item of lista" text-wrap (click)="addOrEdit(item)">\n      {{ item.nome }}\n      <ion-note item-end>\n        ID: {{ item._id}}\n      </ion-note>\n    </ion-item>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\operadores\operadores.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_operador_operador__["a" /* OperadorProvider */]])
-    ], LoginPage);
-    return LoginPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_http_http__["a" /* HttpProvider */]])
+    ], OperadoresPage);
+    return OperadoresPage;
 }());
 
-//# sourceMappingURL=login.js.map
+//# sourceMappingURL=operadores.js.map
 
 /***/ })
 

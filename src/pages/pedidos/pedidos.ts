@@ -16,7 +16,7 @@ import { UsuarioModel } from '../../app/models/usuarioModel';
 })
 export class PedidosPage {
   produtos: ProdutoModel;
-  lista: Array<ListaPedidosModel> = new Array<ListaPedidosModel>();
+  pedidos: Array<ListaPedidosModel> = new Array<ListaPedidosModel>();
 
   constructor(
     public navCtrl: NavController,
@@ -113,9 +113,22 @@ export class PedidosPage {
     try {
       let pedidosResult = await this.http.get(`${ConfigHelper.Url}pedido/getAll`);
       if (pedidosResult.success) {
-        this.lista = <Array<ListaPedidosModel>>pedidosResult.data;
-        this.produtos = <ProdutoModel>pedidosResult.data
-        console.log(pedidosResult);
+        this.pedidos = <Array<ListaPedidosModel>>pedidosResult.data;
+
+
+        // for (let i = 0; i = this.pedidos.length; i++) {
+        //   console.log("teste prod", this.pedidos[i]);
+        // }
+
+        let teste = this.pedidos;
+        console.log("sadjhsadkjas", teste);
+
+
+
+        // let prod = this._carrinho.itens.filter(x => x.Produto._id == item._id)[0];
+        // if (prod) return prod.Quantidade;
+
+        console.log(pedidosResult.data);
         return pedidosResult;
       }
     } catch (error) {

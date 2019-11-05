@@ -1,14 +1,14 @@
 webpackJsonp([7],{
 
-/***/ 332:
+/***/ 315:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdmClientePageModule", function() { return AdmClientePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdmProdutosPageModule", function() { return AdmProdutosPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__adm_cliente__ = __webpack_require__(333);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__adm_produtos__ = __webpack_require__(330);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,36 +18,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AdmClientePageModule = /** @class */ (function () {
-    function AdmClientePageModule() {
+var AdmProdutosPageModule = /** @class */ (function () {
+    function AdmProdutosPageModule() {
     }
-    AdmClientePageModule = __decorate([
+    AdmProdutosPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__adm_cliente__["a" /* AdmClientePage */],
+                __WEBPACK_IMPORTED_MODULE_2__adm_produtos__["a" /* AdmProdutosPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__adm_cliente__["a" /* AdmClientePage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__adm_produtos__["a" /* AdmProdutosPage */]),
             ],
         })
-    ], AdmClientePageModule);
-    return AdmClientePageModule;
+    ], AdmProdutosPageModule);
+    return AdmProdutosPageModule;
 }());
 
-//# sourceMappingURL=adm-cliente.module.js.map
+//# sourceMappingURL=adm-produtos.module.js.map
 
 /***/ }),
 
-/***/ 333:
+/***/ 330:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdmClientePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdmProdutosPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_models_usuarioModel__ = __webpack_require__(216);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_usuario_usuario__ = __webpack_require__(109);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_alert_alert__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_produto_produto__ = __webpack_require__(215);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -95,67 +93,52 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
-
-
-var AdmClientePage = /** @class */ (function () {
-    function AdmClientePage(navCtrl, navParams, usuarioSrv, alertSrv) {
+var AdmProdutosPage = /** @class */ (function () {
+    function AdmProdutosPage(navCtrl, navParams, produtoSrv) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.usuarioSrv = usuarioSrv;
-        this.alertSrv = alertSrv;
-        var _cli = this.navParams.get('_cliente');
-        console.log("teste item", _cli);
-        if (_cli && _cli._id) {
-            this.cliente = _cli;
-        }
-        else
-            this.cliente = new __WEBPACK_IMPORTED_MODULE_2__app_models_usuarioModel__["a" /* UsuarioModel */]();
+        this.produtoSrv = produtoSrv;
+        this.lista = new Array();
+        this.isLoading = true;
     }
-    AdmClientePage.prototype.salvar = function () {
+    AdmProdutosPage.prototype.ionViewWillEnter = function () {
+        this.isLoading = true;
+        this._loadData();
+    };
+    AdmProdutosPage.prototype._loadData = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var sucesso, cadastroResult, updateResult;
+            var produtoResult;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        sucesso = false;
-                        if (!!this.cliente._id) return [3 /*break*/, 2];
-                        return [4 /*yield*/, this.usuarioSrv.post(this.cliente)];
+                    case 0: return [4 /*yield*/, this.produtoSrv.get()];
                     case 1:
-                        cadastroResult = _a.sent();
-                        sucesso = cadastroResult.success;
-                        return [3 /*break*/, 4];
-                    case 2: return [4 /*yield*/, this.usuarioSrv.put(this.cliente._id, this.cliente)];
-                    case 3:
-                        updateResult = _a.sent();
-                        console.log("put cliente", this.cliente);
-                        sucesso = updateResult.success;
-                        _a.label = 4;
-                    case 4:
-                        if (sucesso) {
-                            this.alertSrv.toast('Produto salvo com sucesso!', 'bottom');
-                            this.navCtrl.setRoot('ClientesPage');
+                        produtoResult = _a.sent();
+                        if (produtoResult.success) {
+                            this.isLoading = false;
+                            this.lista = produtoResult.data;
+                            console.log(this.lista);
                         }
                         return [2 /*return*/];
                 }
             });
         });
     };
-    AdmClientePage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad AdmClientePage');
+    AdmProdutosPage.prototype.addOrEdit = function (model) {
+        this.navCtrl.push('AdmProdutoPage', { _produto: model });
+        console.log("model", model);
     };
-    AdmClientePage = __decorate([
+    AdmProdutosPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-adm-cliente',template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\adm-cliente\adm-cliente.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>Clientes</ion-title>\n    <ion-buttons right>\n      <button ion-button clear (click)="salvar()">\n        Salvar\n      </button>\n      <button *ngIf="cliente._id" ion-button icon-only>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n<ion-content no-padding>\n  <ion-list no-lines>\n    <ion-item>\n      <ion-label floating>Nome do Cliente</ion-label>\n      <ion-input disabled [(ngModel)]="cliente.nome" type="text"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>CPF</ion-label>\n      <ion-input disabled type="number" [(ngModel)]="cliente.cpf"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Email</ion-label>\n      <ion-input disabled type="email" [(ngModel)]="cliente.email"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Ativo</ion-label>\n      <ion-toggle [(ngModel)]="cliente.ativo"></ion-toggle>\n    </ion-item>\n    <ion-item text-center>\n    </ion-item>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\adm-cliente\adm-cliente.html"*/,
+            selector: 'page-adm-produtos',template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\adm-produtos\adm-produtos.html"*/'<ion-header>\n    <ion-navbar color="primary">\n        <ion-title>Produtos</ion-title>\n        <ion-buttons right>\n            <button ion-button icon-only (click)="addOrEdit({})">\n                <ion-icon name="add"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content no-padding>\n    <ion-list lines *ngIf="!isLoading">\n        <ion-item text-wrap *ngIf="lista.length == 0">\n            Você não tem nenhum produto cadastrado.\n        </ion-item>\n        <ion-item *ngFor="let item of lista" text-wrap (click)="addOrEdit(item)">\n            {{ item.nome }}\n            <ion-note item-end>\n                {{ item.categoriaId.titulo }}\n            </ion-note>\n        </ion-item>\n    </ion-list>\n</ion-content>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\adm-produtos\adm-produtos.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_usuario_usuario__["a" /* UsuarioProvider */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_alert_alert__["a" /* AlertProvider */]])
-    ], AdmClientePage);
-    return AdmClientePage;
+            __WEBPACK_IMPORTED_MODULE_2__providers_produto_produto__["a" /* ProdutoProvider */]])
+    ], AdmProdutosPage);
+    return AdmProdutosPage;
 }());
 
-//# sourceMappingURL=adm-cliente.js.map
+//# sourceMappingURL=adm-produtos.js.map
 
 /***/ })
 

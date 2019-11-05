@@ -1,14 +1,14 @@
 webpackJsonp([8],{
 
-/***/ 311:
+/***/ 312:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdmCategoriasPageModule", function() { return AdmCategoriasPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdmClientePageModule", function() { return AdmClientePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__adm_categorias__ = __webpack_require__(322);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__adm_cliente__ = __webpack_require__(326);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,34 +18,36 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AdmCategoriasPageModule = /** @class */ (function () {
-    function AdmCategoriasPageModule() {
+var AdmClientePageModule = /** @class */ (function () {
+    function AdmClientePageModule() {
     }
-    AdmCategoriasPageModule = __decorate([
+    AdmClientePageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__adm_categorias__["a" /* AdmCategoriasPage */],
+                __WEBPACK_IMPORTED_MODULE_2__adm_cliente__["a" /* AdmClientePage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__adm_categorias__["a" /* AdmCategoriasPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__adm_cliente__["a" /* AdmClientePage */]),
             ],
         })
-    ], AdmCategoriasPageModule);
-    return AdmCategoriasPageModule;
+    ], AdmClientePageModule);
+    return AdmClientePageModule;
 }());
 
-//# sourceMappingURL=adm-categorias.module.js.map
+//# sourceMappingURL=adm-cliente.module.js.map
 
 /***/ }),
 
-/***/ 322:
+/***/ 326:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdmCategoriasPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdmClientePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_categoria_categoria__ = __webpack_require__(212);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_models_usuarioModel__ = __webpack_require__(214);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_usuario_usuario__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_alert_alert__ = __webpack_require__(58);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -93,45 +95,68 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
-var AdmCategoriasPage = /** @class */ (function () {
-    function AdmCategoriasPage(navCtrl, navParams, categoriaSrv) {
+
+
+var AdmClientePage = /** @class */ (function () {
+    function AdmClientePage(navCtrl, navParams, usuarioSrv, alertSrv) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.categoriaSrv = categoriaSrv;
-        this.lista = new Array();
-        this._loadData();
+        this.usuarioSrv = usuarioSrv;
+        this.alertSrv = alertSrv;
+        var _cli = this.navParams.get('_cliente');
+        console.log("teste item", _cli);
+        if (_cli && _cli._id) {
+            this.cliente = _cli;
+        }
+        else
+            this.cliente = new __WEBPACK_IMPORTED_MODULE_2__app_models_usuarioModel__["a" /* UsuarioModel */]();
     }
-    AdmCategoriasPage.prototype._loadData = function () {
+    AdmClientePage.prototype.salvar = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var categoriaResult;
+            var sucesso, cadastroResult, updateResult;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.categoriaSrv.get()];
+                    case 0:
+                        sucesso = false;
+                        if (!!this.cliente._id) return [3 /*break*/, 2];
+                        return [4 /*yield*/, this.usuarioSrv.post(this.cliente)];
                     case 1:
-                        categoriaResult = _a.sent();
-                        if (categoriaResult.success) {
-                            this.lista = categoriaResult.data;
+                        cadastroResult = _a.sent();
+                        sucesso = cadastroResult.success;
+                        return [3 /*break*/, 4];
+                    case 2: return [4 /*yield*/, this.usuarioSrv.put(this.cliente._id, this.cliente)];
+                    case 3:
+                        updateResult = _a.sent();
+                        console.log("put cliente", this.cliente);
+                        sucesso = updateResult.success;
+                        _a.label = 4;
+                    case 4:
+                        if (sucesso) {
+                            this.alertSrv.toast('Produto salvo com sucesso!', 'bottom');
+                            // this.navCtrl.setRoot('ClientesPage');
+                            this.navCtrl.push('ClientesPage');
                         }
                         return [2 /*return*/];
                 }
             });
         });
     };
-    AdmCategoriasPage.prototype.addOrEdit = function (model) {
-        this.navCtrl.push("AdmCategoriaPage", { _categoria: model });
+    AdmClientePage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad AdmClientePage');
     };
-    AdmCategoriasPage = __decorate([
+    AdmClientePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: "page-adm-categorias",template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\adm-categorias\adm-categorias.html"*/'<ion-header>\n    <ion-navbar color="primary">\n        <ion-title>Categorias</ion-title>\n        <ion-buttons right>\n            <button ion-button icon-only (click)="addOrEdit({})">\n                <ion-icon name="add"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content no-padding>\n    <ion-list lines>\n        <ion-item text-wrap *ngIf="lista.length == 0">\n            Você não tem nenhuma categoria cadastrada.\n        </ion-item>\n        <ion-item *ngFor="let item of lista" text-wrap (click)="addOrEdit(item)">\n            {{ item.titulo }}\n        </ion-item>\n    </ion-list>\n</ion-content>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\adm-categorias\adm-categorias.html"*/
+            selector: 'page-adm-cliente',template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\adm-cliente\adm-cliente.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>Clientes</ion-title>\n    <ion-buttons right>\n      <button ion-button clear (click)="salvar()">\n        Salvar\n      </button>\n      <button *ngIf="cliente._id" ion-button icon-only>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n<ion-content no-padding>\n  <ion-list no-lines>\n    <ion-item>\n      <ion-label floating>Nome do Cliente</ion-label>\n      <ion-input disabled [(ngModel)]="cliente.nome" type="text"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>CPF</ion-label>\n      <ion-input disabled type="number" [(ngModel)]="cliente.cpf"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Email</ion-label>\n      <ion-input disabled type="email" [(ngModel)]="cliente.email"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Ativo</ion-label>\n      <ion-toggle [(ngModel)]="cliente.ativo"></ion-toggle>\n    </ion-item>\n    <ion-item text-center>\n    </ion-item>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\adm-cliente\adm-cliente.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_categoria_categoria__["a" /* CategoriaProvider */]])
-    ], AdmCategoriasPage);
-    return AdmCategoriasPage;
+            __WEBPACK_IMPORTED_MODULE_3__providers_usuario_usuario__["a" /* UsuarioProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_alert_alert__["a" /* AlertProvider */]])
+    ], AdmClientePage);
+    return AdmClientePage;
 }());
 
-//# sourceMappingURL=adm-categorias.js.map
+//# sourceMappingURL=adm-cliente.js.map
 
 /***/ })
 

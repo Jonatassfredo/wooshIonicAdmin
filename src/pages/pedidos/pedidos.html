@@ -7,25 +7,32 @@
   </ion-navbar>
 </ion-header>
 <ion-content no-padding>
-  <ion-card *ngFor="let item of lista" style="border-radius: 10px;">
+  <ion-card *ngFor="let pedido of pedidos" style="border-radius: 10px;">
     <ion-card-header icon-left>
       <!-- <ion-icon name="cart"></ion-icon> -->
-      Pedido realizado em <strong>{{ item.dataPedido | date:'dd/MM/yyyy, HH:mm' }}</strong>
+      Pedido realizado em <strong>{{ pedido.dataPedido | date:'dd/MM/yyyy, HH:mm' }}</strong>
     </ion-card-header>
     <ion-card-content>
-      {{item.itens}}
+      <p><strong>Produtos do Pedido</strong></p>
+      <ion-item *ngFor="let produto of pedido.itens">
+        <p>Nome Produto: {{produto.nomeProd}}</p>
+        <p>Quantidade: {{produto.quantidade}}</p>
+        <p>Produto ID: {{produto.produtoId}}</p>
+        <p>Observaçoes: {{produto.observacoes}}</p>
+      </ion-item>
 
-      {{item.usuarioId}}
-      <p>Status: <strong>{{item.status}}</strong></p>
-      <p>Quantidade Total itens: <strong>{{ contaItem(item) }}</strong></p>
-      <p>Valor total: <strong> {{ item.valorTotal }}</strong></p>
-      <p>Tempo para Entrega: <strong> {{ item.tempoEntrega }}</strong></p>
+      <p>Usuário ID: <strong>{{pedido.usuarioId}}</strong></p>
+      <p>Status: <strong>{{pedido.status}}</strong></p>
+      <!-- <strong>Quantidade Total itens: <strong>{{ contaItem(item) }}</strong></p> -->
+      <p>Valor total: <strong> {{ pedido.valorTotal }}</strong></p>
+      <p>Forma de Pagamento: <strong>{{pedido.formaPagamento}}</strong></p>
+      <p>Tempo para Entrega: <strong> {{ pedido.tempoEntrega }}</strong></p>
       <div>
         <ion-row class="botoes">
           <button ion-button>Aceitar</button>
           <button ion-button>Recusar</button>
           <button ion-button>Chat</button>
-          <!-- <button (click)="clienteInfo(item.usuarioId)" ion-button>Cliente</button> -->
+          <!-- <button (click)="clienteInfo(pedido.usuarioId)" ion-button>Cliente</button> -->
         </ion-row>
 
       </div>

@@ -1,4 +1,4 @@
-webpackJsonp([9],{
+webpackJsonp([12],{
 
 /***/ 109:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -7,7 +7,7 @@ webpackJsonp([9],{
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UsuarioProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_base_providerBase__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__http_http__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__http_http__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_helpers_configHelper__ = __webpack_require__(29);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -156,51 +156,51 @@ webpackEmptyAsyncContext.id = 121;
 var map = {
 	"../pages/adm-categoria/adm-categoria.module": [
 		310,
-		13
+		3
 	],
 	"../pages/adm-categorias/adm-categorias.module": [
 		311,
-		20
+		9
 	],
 	"../pages/adm-cliente/adm-cliente.module": [
-		332,
-		19
+		312,
+		8
 	],
 	"../pages/adm-operador/adm-operador.module": [
-		336,
-		18
+		313,
+		2
 	],
 	"../pages/adm-produto/adm-produto.module": [
-		312,
-		12
+		314,
+		1
 	],
 	"../pages/adm-produtos/adm-produtos.module": [
-		313,
-		17
+		315,
+		7
 	],
 	"../pages/clientes/clientes.module": [
-		314,
-		16
+		316,
+		6
 	],
 	"../pages/login/login.module": [
-		315,
-		15
+		317,
+		5
 	],
 	"../pages/mensagens/mensagens.module": [
-		316,
-		24
-	],
-	"../pages/minha-conta/minha-conta.module": [
-		317,
+		318,
 		11
 	],
+	"../pages/minha-conta/minha-conta.module": [
+		319,
+		0
+	],
 	"../pages/operadores/operadores.module": [
-		334,
-		14
+		320,
+		4
 	],
 	"../pages/pedidos/pedidos.module": [
-		318,
-		23
+		321,
+		10
 	]
 };
 function webpackAsyncContext(req) {
@@ -325,7 +325,7 @@ var NetworkProvider = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_base_providerBase__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_helpers_configHelper__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__http_http__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__http_http__ = __webpack_require__(23);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -449,11 +449,28 @@ var CameraProvider = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UsuarioModel; });
+var UsuarioModel = /** @class */ (function () {
+    function UsuarioModel() {
+        this.telefone = 0;
+        this.enderecosEntrega = new Array();
+    }
+    return UsuarioModel;
+}());
+
+//# sourceMappingURL=usuarioModel.js.map
+
+/***/ }),
+
+/***/ 215:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProdutoProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_base_providerBase__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_helpers_configHelper__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__http_http__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__http_http__ = __webpack_require__(23);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -538,7 +555,7 @@ var ProdutoProvider = /** @class */ (function (_super) {
 
 /***/ }),
 
-/***/ 215:
+/***/ 216:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -546,7 +563,7 @@ var ProdutoProvider = /** @class */ (function (_super) {
 /* unused harmony export snapshotToArray */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_models_usuarioModel__ = __webpack_require__(216);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_models_usuarioModel__ = __webpack_require__(214);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase__ = __webpack_require__(169);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_usuario_usuario__ = __webpack_require__(109);
@@ -653,23 +670,6 @@ var snapshotToArray = function (snapshot) {
 
 /***/ }),
 
-/***/ 216:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UsuarioModel; });
-var UsuarioModel = /** @class */ (function () {
-    function UsuarioModel() {
-        this.telefone = 0;
-        this.enderecosEntrega = new Array();
-    }
-    return UsuarioModel;
-}());
-
-//# sourceMappingURL=usuarioModel.js.map
-
-/***/ }),
-
 /***/ 217:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -678,7 +678,7 @@ var UsuarioModel = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_models_ListaPedidosModel__ = __webpack_require__(286);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_helpers_configHelper__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_http_http__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_http_http__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_alert_alert__ = __webpack_require__(58);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -739,7 +739,7 @@ var PedidosPage = /** @class */ (function () {
         this.actionSheetCtrl = actionSheetCtrl;
         this.http = http;
         this.alertSrv = alertSrv;
-        this.lista = new Array();
+        this.pedidos = new Array();
     }
     PedidosPage.prototype.ionViewDidLoad = function () {
         this.GetAllPedidos();
@@ -820,7 +820,7 @@ var PedidosPage = /** @class */ (function () {
     };
     PedidosPage.prototype.GetAllPedidos = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var pedidosResult, error_1;
+            var pedidosResult, teste, error_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -829,9 +829,12 @@ var PedidosPage = /** @class */ (function () {
                     case 1:
                         pedidosResult = _a.sent();
                         if (pedidosResult.success) {
-                            this.lista = pedidosResult.data;
-                            this.produtos = pedidosResult.data;
-                            console.log(pedidosResult);
+                            this.pedidos = pedidosResult.data;
+                            teste = this.pedidos;
+                            console.log("sadjhsadkjas", teste);
+                            // let prod = this._carrinho.itens.filter(x => x.Produto._id == item._id)[0];
+                            // if (prod) return prod.Quantidade;
+                            console.log(pedidosResult.data);
                             return [2 /*return*/, pedidosResult];
                         }
                         return [3 /*break*/, 3];
@@ -850,7 +853,7 @@ var PedidosPage = /** @class */ (function () {
     };
     PedidosPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["m" /* Component */])({
-            selector: 'meus-pedidos',template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\pedidos\pedidos.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <button ion-button icon-only clear color="light" (click)="adminOptions()">\n      <ion-icon name="settings"></ion-icon>\n    </button>\n    <ion-title>Pedidos</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content no-padding>\n  <ion-card *ngFor="let item of lista" style="border-radius: 10px;">\n    <ion-card-header icon-left>\n      <!-- <ion-icon name="cart"></ion-icon> -->\n      Pedido realizado em <strong>{{ item.dataPedido | date:\'dd/MM/yyyy, HH:mm\' }}</strong>\n    </ion-card-header>\n    <ion-card-content>\n      {{item.itens}}\n\n      {{item.usuarioId}}\n      <p>Status: <strong>{{item.status}}</strong></p>\n      <p>Quantidade Total itens: <strong>{{ contaItem(item) }}</strong></p>\n      <p>Valor total: <strong> {{ item.valorTotal }}</strong></p>\n      <div>\n        <ion-row class="botoes">\n          <button ion-button>Aceitar</button>\n          <button ion-button>Recusar</button>\n          <button ion-button>Chat</button>\n          <!-- <button (click)="clienteInfo(item.usuarioId)" ion-button>Cliente</button> -->\n        </ion-row>\n\n      </div>\n    </ion-card-content>\n  </ion-card>\n  <div>\n    <ion-item no-lines style="background-color: transparent !important;"></ion-item>\n    <ion-item no-lines style="background-color: transparent !important;"></ion-item>\n  </div>\n</ion-content>\n<!-- <tab [pagina]="\'Pedidos\'"></tab> -->'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\pedidos\pedidos.html"*/,
+            selector: 'meus-pedidos',template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\pedidos\pedidos.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <button ion-button icon-only clear color="light" (click)="adminOptions()">\n      <ion-icon name="settings"></ion-icon>\n    </button>\n    <ion-title>Pedidos</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content no-padding>\n  <ion-card *ngFor="let pedido of pedidos" style="border-radius: 10px;">\n    <ion-card-header icon-left>\n      <!-- <ion-icon name="cart"></ion-icon> -->\n      Pedido realizado em <strong>{{ pedido.dataPedido | date:\'dd/MM/yyyy, HH:mm\' }}</strong>\n    </ion-card-header>\n    <ion-card-content>\n      <p><strong>Produtos do Pedido</strong></p>\n      <ion-item *ngFor="let produto of pedido.itens">\n        <p>Nome Produto: {{produto.nomeProd}}</p>\n        <p>Quantidade: {{produto.quantidade}}</p>\n        <p>Produto ID: {{produto.produtoId}}</p>\n        <p>Observaçoes: {{produto.observacoes}}</p>\n      </ion-item>\n\n      <p>Usuário ID: <strong>{{pedido.usuarioId}}</strong></p>\n      <p>Status: <strong>{{pedido.status}}</strong></p>\n      <!-- <strong>Quantidade Total itens: <strong>{{ contaItem(item) }}</strong></p> -->\n      <p>Valor total: <strong> {{ pedido.valorTotal }}</strong></p>\n      <p>Forma de Pagamento: <strong>{{pedido.formaPagamento}}</strong></p>\n      <p>Tempo para Entrega: <strong> {{ pedido.tempoEntrega }}</strong></p>\n      <div>\n        <ion-row class="botoes">\n          <button ion-button>Aceitar</button>\n          <button ion-button>Recusar</button>\n          <button ion-button>Chat</button>\n          <!-- <button (click)="clienteInfo(pedido.usuarioId)" ion-button>Cliente</button> -->\n        </ion-row>\n\n      </div>\n    </ion-card-content>\n  </ion-card>\n  <div>\n    <ion-item no-lines style="background-color: transparent !important;"></ion-item>\n    <ion-item no-lines style="background-color: transparent !important;"></ion-item>\n  </div>\n</ion-content>\n<!-- <tab [pagina]="\'Pedidos\'"></tab> -->'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\pedidos\pedidos.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["k" /* NavParams */],
@@ -870,7 +873,7 @@ var PedidosPage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CarrinhoProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__http_http__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__http_http__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_models_CarrinhoItemModel__ = __webpack_require__(287);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__ = __webpack_require__(8);
@@ -1023,121 +1026,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 239:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_splash_screen__ = __webpack_require__(210);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__ = __webpack_require__(211);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__ = __webpack_require__(167);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_onesignal__ = __webpack_require__(306);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__(307);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_spinner_spinner__ = __webpack_require__(164);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_alert_alert__ = __webpack_require__(58);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_platform_browser__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_network__ = __webpack_require__(308);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__node_modules_angular_common_http__ = __webpack_require__(165);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_http_http__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_network_network__ = __webpack_require__(166);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_usuario_usuario__ = __webpack_require__(109);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_categoria_categoria__ = __webpack_require__(212);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__providers_camera_camera__ = __webpack_require__(213);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__providers_produto_produto__ = __webpack_require__(214);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_carrinho_carrinho__ = __webpack_require__(218);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__providers_endereco_endereco__ = __webpack_require__(309);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_mensagens_mensagens__ = __webpack_require__(215);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__providers_operador_operador__ = __webpack_require__(59);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-//statusbar import
-
-//camera
-
-//push notifications
-
-
-//animação loading
-
-//Mensagem Alerta
-
-//imports para internet, rodar no browser e http
-
-
-
-
-
-
-
-
-
-
-
-
-
-var AppModule = /** @class */ (function () {
-    function AppModule() {
-    }
-    AppModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
-            declarations: [__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* MyApp */], __WEBPACK_IMPORTED_MODULE_20__pages_mensagens_mensagens__["a" /* MensagensPage */]],
-            imports: [__WEBPACK_IMPORTED_MODULE_9__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_11__node_modules_angular_common_http__["b" /* HttpClientModule */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* MyApp */], {}, {
-                    links: [
-                        { loadChildren: '../pages/adm-categoria/adm-categoria.module#AdmCategoriaPageModule', name: 'AdmCategoriaPage', segment: 'adm-categoria', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/adm-categorias/adm-categorias.module#AdmCategoriasPageModule', name: 'AdmCategoriasPage', segment: 'adm-categorias', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/adm-produto/adm-produto.module#AdmProdutoPageModule', name: 'AdmProdutoPage', segment: 'adm-produto', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/adm-produtos/adm-produtos.module#AdmProdutosPageModule', name: 'AdmProdutosPage', segment: 'adm-produtos', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/clientes/clientes.module#ClientesPageModule', name: 'ClientesPage', segment: 'clientes', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/mensagens/mensagens.module#MensagensPageModule', name: 'MensagensPage', segment: 'mensagens', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/minha-conta/minha-conta.module#MinhaContaPageModule', name: 'MinhaContaPage', segment: 'minha-conta', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/pedidos/pedidos.module#PedidosPageModule', name: 'PedidosPage', segment: 'pedidos', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/adm-cliente/adm-cliente.module#AdmClientePageModule', name: 'AdmClientePage', segment: 'adm-cliente', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/operadores/operadores.module#OperadoresPageModule', name: 'OperadoresPage', segment: 'operadores', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/adm-operador/adm-operador.module#AdmOperadorPageModule', name: 'AdmOperadorPage', segment: 'adm-operador', priority: 'low', defaultHistory: [] }
-                    ]
-                })],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicApp */]],
-            entryComponents: [__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* MyApp */], __WEBPACK_IMPORTED_MODULE_20__pages_mensagens_mensagens__["a" /* MensagensPage */]],
-            providers: [
-                __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__["a" /* StatusBar */],
-                __WEBPACK_IMPORTED_MODULE_2__ionic_native_splash_screen__["a" /* SplashScreen */],
-                { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicErrorHandler */] },
-                __WEBPACK_IMPORTED_MODULE_7__providers_spinner_spinner__["a" /* SpinnerProvider */],
-                __WEBPACK_IMPORTED_MODULE_8__providers_alert_alert__["a" /* AlertProvider */],
-                __WEBPACK_IMPORTED_MODULE_12__providers_http_http__["a" /* HttpProvider */],
-                __WEBPACK_IMPORTED_MODULE_13__providers_network_network__["a" /* NetworkProvider */],
-                __WEBPACK_IMPORTED_MODULE_14__providers_usuario_usuario__["a" /* UsuarioProvider */],
-                __WEBPACK_IMPORTED_MODULE_15__providers_categoria_categoria__["a" /* CategoriaProvider */],
-                __WEBPACK_IMPORTED_MODULE_16__providers_camera_camera__["a" /* CameraProvider */],
-                __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__["a" /* Camera */],
-                __WEBPACK_IMPORTED_MODULE_5__ionic_native_onesignal__["a" /* OneSignal */],
-                __WEBPACK_IMPORTED_MODULE_10__ionic_native_network__["a" /* Network */],
-                __WEBPACK_IMPORTED_MODULE_17__providers_produto_produto__["a" /* ProdutoProvider */],
-                __WEBPACK_IMPORTED_MODULE_18__providers_carrinho_carrinho__["a" /* CarrinhoProvider */],
-                __WEBPACK_IMPORTED_MODULE_19__providers_endereco_endereco__["a" /* EnderecoEntregaProvider */],
-                __WEBPACK_IMPORTED_MODULE_20__pages_mensagens_mensagens__["a" /* MensagensPage */],
-                __WEBPACK_IMPORTED_MODULE_21__providers_operador_operador__["a" /* OperadorProvider */]
-            ]
-        })
-    ], AppModule);
-    return AppModule;
-}());
-
-//# sourceMappingURL=app.module.js.map
-
-/***/ }),
-
-/***/ 28:
+/***/ 23:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1304,6 +1193,120 @@ var HttpProvider = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 239:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_splash_screen__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_onesignal__ = __webpack_require__(306);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__(307);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_spinner_spinner__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_alert_alert__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_platform_browser__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_network__ = __webpack_require__(308);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__node_modules_angular_common_http__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_http_http__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_network_network__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_usuario_usuario__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_categoria_categoria__ = __webpack_require__(212);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__providers_camera_camera__ = __webpack_require__(213);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__providers_produto_produto__ = __webpack_require__(215);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_carrinho_carrinho__ = __webpack_require__(218);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__providers_endereco_endereco__ = __webpack_require__(309);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_mensagens_mensagens__ = __webpack_require__(216);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__providers_operador_operador__ = __webpack_require__(59);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+//statusbar import
+
+//camera
+
+//push notifications
+
+
+//animação loading
+
+//Mensagem Alerta
+
+//imports para internet, rodar no browser e http
+
+
+
+
+
+
+
+
+
+
+
+
+
+var AppModule = /** @class */ (function () {
+    function AppModule() {
+    }
+    AppModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* MyApp */], __WEBPACK_IMPORTED_MODULE_20__pages_mensagens_mensagens__["a" /* MensagensPage */]],
+            imports: [__WEBPACK_IMPORTED_MODULE_9__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_11__node_modules_angular_common_http__["b" /* HttpClientModule */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* MyApp */], {}, {
+                    links: [
+                        { loadChildren: '../pages/adm-categoria/adm-categoria.module#AdmCategoriaPageModule', name: 'AdmCategoriaPage', segment: 'adm-categoria', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/adm-categorias/adm-categorias.module#AdmCategoriasPageModule', name: 'AdmCategoriasPage', segment: 'adm-categorias', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/adm-cliente/adm-cliente.module#AdmClientePageModule', name: 'AdmClientePage', segment: 'adm-cliente', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/adm-operador/adm-operador.module#AdmOperadorPageModule', name: 'AdmOperadorPage', segment: 'adm-operador', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/adm-produto/adm-produto.module#AdmProdutoPageModule', name: 'AdmProdutoPage', segment: 'adm-produto', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/adm-produtos/adm-produtos.module#AdmProdutosPageModule', name: 'AdmProdutosPage', segment: 'adm-produtos', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/clientes/clientes.module#ClientesPageModule', name: 'ClientesPage', segment: 'clientes', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/mensagens/mensagens.module#MensagensPageModule', name: 'MensagensPage', segment: 'mensagens', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/minha-conta/minha-conta.module#MinhaContaPageModule', name: 'MinhaContaPage', segment: 'minha-conta', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/operadores/operadores.module#OperadoresPageModule', name: 'OperadoresPage', segment: 'operadores', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/pedidos/pedidos.module#PedidosPageModule', name: 'PedidosPage', segment: 'pedidos', priority: 'low', defaultHistory: [] }
+                    ]
+                })],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicApp */]],
+            entryComponents: [__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* MyApp */], __WEBPACK_IMPORTED_MODULE_20__pages_mensagens_mensagens__["a" /* MensagensPage */]],
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__["a" /* StatusBar */],
+                __WEBPACK_IMPORTED_MODULE_2__ionic_native_splash_screen__["a" /* SplashScreen */],
+                { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicErrorHandler */] },
+                __WEBPACK_IMPORTED_MODULE_7__providers_spinner_spinner__["a" /* SpinnerProvider */],
+                __WEBPACK_IMPORTED_MODULE_8__providers_alert_alert__["a" /* AlertProvider */],
+                __WEBPACK_IMPORTED_MODULE_12__providers_http_http__["a" /* HttpProvider */],
+                __WEBPACK_IMPORTED_MODULE_13__providers_network_network__["a" /* NetworkProvider */],
+                __WEBPACK_IMPORTED_MODULE_14__providers_usuario_usuario__["a" /* UsuarioProvider */],
+                __WEBPACK_IMPORTED_MODULE_15__providers_categoria_categoria__["a" /* CategoriaProvider */],
+                __WEBPACK_IMPORTED_MODULE_16__providers_camera_camera__["a" /* CameraProvider */],
+                __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__["a" /* Camera */],
+                __WEBPACK_IMPORTED_MODULE_5__ionic_native_onesignal__["a" /* OneSignal */],
+                __WEBPACK_IMPORTED_MODULE_10__ionic_native_network__["a" /* Network */],
+                __WEBPACK_IMPORTED_MODULE_17__providers_produto_produto__["a" /* ProdutoProvider */],
+                __WEBPACK_IMPORTED_MODULE_18__providers_carrinho_carrinho__["a" /* CarrinhoProvider */],
+                __WEBPACK_IMPORTED_MODULE_19__providers_endereco_endereco__["a" /* EnderecoEntregaProvider */],
+                __WEBPACK_IMPORTED_MODULE_20__pages_mensagens_mensagens__["a" /* MensagensPage */],
+                __WEBPACK_IMPORTED_MODULE_21__providers_operador_operador__["a" /* OperadorProvider */]
+            ]
+        })
+    ], AppModule);
+    return AppModule;
+}());
+
+//# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
 /***/ 286:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1462,7 +1465,7 @@ var MyApp = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_base_providerBase__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_helpers_configHelper__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__http_http__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__http_http__ = __webpack_require__(23);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -1607,7 +1610,7 @@ var AlertProvider = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OperadorProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_base_providerBase__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__http_http__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__http_http__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_helpers_configHelper__ = __webpack_require__(29);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
