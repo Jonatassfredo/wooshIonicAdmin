@@ -28293,5 +28293,20 @@ page-minha-conta .suporte {
 }
 
 page-pedidos .botoes {
-  margin: 60%;
+  margin-top: 40px;
+}
+
+page-pedidos .tabela {
+  width: 500px;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+page-pedidos .tabela th {
+  text-align: left;
+}
+
+page-pedidos .enderecoEntrega {
+  margin-left: 30%;
+  margin-top: -130px;
 }

@@ -1,4 +1,5 @@
 import { ProdutoModel } from './produtoModel';
+import { EnderecoEntregaModel } from './enderecoModel';
 
 export class ListaPedidosModel {
   _id: string;
@@ -9,12 +10,14 @@ export class ListaPedidosModel {
   usuarioId: string;
   operadorId: string;
   status: string;
+  usuarioNome: string;
   observacoes: string;
   tempoEntrega: string;
   aceito: string;
   dataPedidoAceito: Date;
   formaPagamento: string;
   enderecoEntregaId: string;
+  enderecoEntrega: EnderecoEntregaModel;
 
   constructor() {
     this.itensGeral = new Array<ProdutoModel>();

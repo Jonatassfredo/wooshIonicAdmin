@@ -1,40 +1,63 @@
 <ion-header>
   <ion-navbar color="primary">
     <button ion-button icon-only clear color="light" (click)="adminOptions()">
-      <ion-icon name="settings"></ion-icon>
+      <ion-icon style="border-bottom:20px ;" name="settings"></ion-icon>
     </button>
-    <ion-title>Pedidos</ion-title>
+    <ion-title style="width: 85%; display: inline-flex; margin-top: 15px;" align="end">Pedidos</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content no-padding>
   <ion-card *ngFor="let pedido of pedidos" style="border-radius: 10px;">
     <ion-card-header icon-left>
-      <!-- <ion-icon name="cart"></ion-icon> -->
+      <ion-icon name="cart"></ion-icon>
       Pedido realizado em <strong>{{ pedido.dataPedido | date:'dd/MM/yyyy, HH:mm' }}</strong>
     </ion-card-header>
     <ion-card-content>
-      <p><strong>Produtos do Pedido</strong></p>
-      <ion-item *ngFor="let produto of pedido.itens">
-        <p>Nome Produto: {{produto.nomeProd}}</p>
-        <p>Quantidade: {{produto.quantidade}}</p>
-        <p>Produto ID: {{produto.produtoId}}</p>
-        <p>Observaçoes: {{produto.observacoes}}</p>
-      </ion-item>
-
-      <p>Usuário ID: <strong>{{pedido.usuarioId}}</strong></p>
+      <table class="tabela">
+        <tr>
+          <th>Qtd.</th>
+          <th>Produto</th>
+          <th>Observações</th>
+        </tr>
+        <tr *ngFor="let produto of pedido.itens">
+          <td>{{produto.quantidade}}</td>
+          <td>{{produto.nomeProd}}</td>
+          <td>{{produto.observacoes}}</td>
+          <!-- <strong>Nome Produto: <strong>{{produto.nomeProd}}</strong></{{produto.quantidade}},> -->
+          <!-- <strong>Quantidade: <strong>{{produto.quantidade}}</strong></p> -->
+          <!-- <p>Produto ID: <strong>{{produto.produtoId}}</strong></p> -->
+          <!-- <strong>Observaçoes: <strong>{{produto.observacoes}}</strong></p> -->
+        </tr>
+      </table>
+      <!-- <p>Usuário ID: <strong>{{pedido.usuarioId}}</strong></p> -->
+      <p>Aceito: <strong> {{ pedido.aceito }}</strong></p>
       <p>Status: <strong>{{pedido.status}}</strong></p>
-      <!-- <strong>Quantidade Total itens: <strong>{{ contaItem(item) }}</strong></p> -->
+      <!-- <strong>Quantidade Total itens: <strong>{{ contaItem(produtos) }}</strong></p> -->
       <p>Valor total: <strong> {{ pedido.valorTotal }}</strong></p>
       <p>Forma de Pagamento: <strong>{{pedido.formaPagamento}}</strong></p>
       <p>Tempo para Entrega: <strong> {{ pedido.tempoEntrega }}</strong></p>
+      <p>Cliente: <strong> {{ pedido.usuarioNome }}</strong></p>
+
+
+      <div class="enderecoEntrega">
+        <p><strong>Endereço de Entrega</strong></p>
+        <p>Rua: <strong> {{ pedido.enderecoEntrega.rua }}</strong> Nº: <strong>
+            {{pedido.enderecoEntrega.numero }}</strong> Bairro:
+          <strong> {{pedido.enderecoEntrega.bairro }}</strong></p>
+        <p>Cidade: <strong> {{pedido.enderecoEntrega.cidade }}</strong> Estado: <strong>
+            {{pedido.enderecoEntrega.uf }}</strong>
+          Cep: <strong> {{pedido.enderecoEntrega.cep }}</strong></p>
+        <p>Ponto Ref.: <strong> {{pedido.enderecoEntrega.pontoReferencia }}</strong></p>
+        <p>Orientações: <strong> {{pedido.enderecoEntrega.orientacoes }}</strong></p>
+      </div>
+
+
       <div>
         <ion-row class="botoes">
           <button ion-button>Aceitar</button>
           <button ion-button>Recusar</button>
           <button ion-button>Chat</button>
-          <!-- <button (click)="clienteInfo(pedido.usuarioId)" ion-button>Cliente</button> -->
         </ion-row>
-
       </div>
     </ion-card-content>
   </ion-card>
@@ -43,4 +66,3 @@
     <ion-item no-lines style="background-color: transparent !important;"></ion-item>
   </div>
 </ion-content>
-<!-- <tab [pagina]="'Pedidos'"></tab> -->

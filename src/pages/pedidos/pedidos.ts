@@ -6,17 +6,18 @@ import { HttpResultModel } from "../../app/models/HttpResultModel";
 import { Component } from "@angular/core";
 import { ProdutoModel } from '../../app/models/produtoModel';
 import { AlertProvider } from '../../providers/alert/alert';
-import { UsuarioModel } from '../../app/models/usuarioModel';
-// import { ProdutoModel } from './../../app/models/produtoModel';
+import { EnderecoEntregaModel } from './../../app/models/enderecoModel';
 
 @IonicPage()
 @Component({
-  selector: 'meus-pedidos',
+  selector: 'page-pedidos',
   templateUrl: 'pedidos.html',
 })
 export class PedidosPage {
   produtos: ProdutoModel;
+  // enderecoEntregaId: any;
   pedidos: Array<ListaPedidosModel> = new Array<ListaPedidosModel>();
+  enderecoEntrega = new EnderecoEntregaModel;
 
   constructor(
     public navCtrl: NavController,
@@ -87,10 +88,10 @@ export class PedidosPage {
     this.navCtrl.push("ClientesPage");
   }
 
-  clienteInfo(model?: UsuarioModel): void {
-    this.navCtrl.push('AdmClientePage', { _cliente: model });
-    console.log("model", model);
-  }
+  // clienteInfo(model?: UsuarioModel): void {
+  //   this.navCtrl.push('AdmClientePage', { _cliente: model });
+  //   console.log("model", model);
+  // }
 
   sair() {
     try {
@@ -115,29 +116,20 @@ export class PedidosPage {
       if (pedidosResult.success) {
         this.pedidos = <Array<ListaPedidosModel>>pedidosResult.data;
 
-
-        // for (let i = 0; i = this.pedidos.length; i++) {
-        //   console.log("teste prod", this.pedidos[i]);
+        // for (let i = 0; i < this.pedidos.length; i++) {
+        //   const pedido = this.pedidos[i];
+        //   this.enderecoEntrega = pedido.enderecoEntrega;
         // }
 
-        let teste = this.pedidos;
-        console.log("sadjhsadkjas", teste);
+        // this.enderecoEntregaId = await this.http.get(`${ConfigHelper.Url}enderecoEntrega/${this.enderecoEntregaId}`);
+        // this.enderecoEntrega = this.enderecoEntregaId.data;
+        // console.log("asdklmsakldslak", this.enderecoEntrega);
 
-
-
-        // let prod = this._carrinho.itens.filter(x => x.Produto._id == item._id)[0];
-        // if (prod) return prod.Quantidade;
-
-        console.log(pedidosResult.data);
+        console.log(this.pedidos);
         return pedidosResult;
       }
     } catch (error) {
       console.log('Problema ao carregar os pedidos, motivo: ', error);
     }
-  }
-
-  public contaItem(item: ListaPedidosModel): number {
-    // console.log(JSON.parse(item.itens));
-    return ListaPedidosModel.getTotalItens(item.itens);
   }
 }

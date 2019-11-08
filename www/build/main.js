@@ -179,15 +179,15 @@ var map = {
 		7
 	],
 	"../pages/clientes/clientes.module": [
-		316,
+		318,
 		6
 	],
 	"../pages/login/login.module": [
-		317,
+		316,
 		5
 	],
 	"../pages/mensagens/mensagens.module": [
-		318,
+		317,
 		11
 	],
 	"../pages/minha-conta/minha-conta.module": [
@@ -676,11 +676,11 @@ var snapshotToArray = function (snapshot) {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PedidosPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_models_ListaPedidosModel__ = __webpack_require__(286);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_helpers_configHelper__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_http_http__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_alert_alert__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_helpers_configHelper__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_http_http__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_alert_alert__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_models_enderecoModel__ = __webpack_require__(286);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -731,7 +731,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
-// import { ProdutoModel } from './../../app/models/produtoModel';
 var PedidosPage = /** @class */ (function () {
     function PedidosPage(navCtrl, navParams, actionSheetCtrl, http, alertSrv) {
         this.navCtrl = navCtrl;
@@ -739,7 +738,9 @@ var PedidosPage = /** @class */ (function () {
         this.actionSheetCtrl = actionSheetCtrl;
         this.http = http;
         this.alertSrv = alertSrv;
+        // enderecoEntregaId: any;
         this.pedidos = new Array();
+        this.enderecoEntrega = new __WEBPACK_IMPORTED_MODULE_5__app_models_enderecoModel__["a" /* EnderecoEntregaModel */];
     }
     PedidosPage.prototype.ionViewDidLoad = function () {
         this.GetAllPedidos();
@@ -797,10 +798,10 @@ var PedidosPage = /** @class */ (function () {
     PedidosPage.prototype.gerenciarCliente = function () {
         this.navCtrl.push("ClientesPage");
     };
-    PedidosPage.prototype.clienteInfo = function (model) {
-        this.navCtrl.push('AdmClientePage', { _cliente: model });
-        console.log("model", model);
-    };
+    // clienteInfo(model?: UsuarioModel): void {
+    //   this.navCtrl.push('AdmClientePage', { _cliente: model });
+    //   console.log("model", model);
+    // }
     PedidosPage.prototype.sair = function () {
         var _this = this;
         try {
@@ -820,21 +821,24 @@ var PedidosPage = /** @class */ (function () {
     };
     PedidosPage.prototype.GetAllPedidos = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var pedidosResult, teste, error_1;
+            var pedidosResult, error_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.http.get(__WEBPACK_IMPORTED_MODULE_2__app_helpers_configHelper__["a" /* ConfigHelper */].Url + "pedido/getAll")];
+                        return [4 /*yield*/, this.http.get(__WEBPACK_IMPORTED_MODULE_1__app_helpers_configHelper__["a" /* ConfigHelper */].Url + "pedido/getAll")];
                     case 1:
                         pedidosResult = _a.sent();
                         if (pedidosResult.success) {
                             this.pedidos = pedidosResult.data;
-                            teste = this.pedidos;
-                            console.log("sadjhsadkjas", teste);
-                            // let prod = this._carrinho.itens.filter(x => x.Produto._id == item._id)[0];
-                            // if (prod) return prod.Quantidade;
-                            console.log(pedidosResult.data);
+                            // for (let i = 0; i < this.pedidos.length; i++) {
+                            //   const pedido = this.pedidos[i];
+                            //   this.enderecoEntrega = pedido.enderecoEntrega;
+                            // }
+                            // this.enderecoEntregaId = await this.http.get(`${ConfigHelper.Url}enderecoEntrega/${this.enderecoEntregaId}`);
+                            // this.enderecoEntrega = this.enderecoEntregaId.data;
+                            // console.log("asdklmsakldslak", this.enderecoEntrega);
+                            console.log(this.pedidos);
                             return [2 /*return*/, pedidosResult];
                         }
                         return [3 /*break*/, 3];
@@ -847,21 +851,14 @@ var PedidosPage = /** @class */ (function () {
             });
         });
     };
-    PedidosPage.prototype.contaItem = function (item) {
-        // console.log(JSON.parse(item.itens));
-        return __WEBPACK_IMPORTED_MODULE_1__app_models_ListaPedidosModel__["a" /* ListaPedidosModel */].getTotalItens(item.itens);
-    };
     PedidosPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["m" /* Component */])({
-            selector: 'meus-pedidos',template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\pedidos\pedidos.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <button ion-button icon-only clear color="light" (click)="adminOptions()">\n      <ion-icon name="settings"></ion-icon>\n    </button>\n    <ion-title>Pedidos</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content no-padding>\n  <ion-card *ngFor="let pedido of pedidos" style="border-radius: 10px;">\n    <ion-card-header icon-left>\n      <!-- <ion-icon name="cart"></ion-icon> -->\n      Pedido realizado em <strong>{{ pedido.dataPedido | date:\'dd/MM/yyyy, HH:mm\' }}</strong>\n    </ion-card-header>\n    <ion-card-content>\n      <p><strong>Produtos do Pedido</strong></p>\n      <ion-item *ngFor="let produto of pedido.itens">\n        <p>Nome Produto: {{produto.nomeProd}}</p>\n        <p>Quantidade: {{produto.quantidade}}</p>\n        <p>Produto ID: {{produto.produtoId}}</p>\n        <p>Observaçoes: {{produto.observacoes}}</p>\n      </ion-item>\n\n      <p>Usuário ID: <strong>{{pedido.usuarioId}}</strong></p>\n      <p>Status: <strong>{{pedido.status}}</strong></p>\n      <!-- <strong>Quantidade Total itens: <strong>{{ contaItem(item) }}</strong></p> -->\n      <p>Valor total: <strong> {{ pedido.valorTotal }}</strong></p>\n      <p>Forma de Pagamento: <strong>{{pedido.formaPagamento}}</strong></p>\n      <p>Tempo para Entrega: <strong> {{ pedido.tempoEntrega }}</strong></p>\n      <div>\n        <ion-row class="botoes">\n          <button ion-button>Aceitar</button>\n          <button ion-button>Recusar</button>\n          <button ion-button>Chat</button>\n          <!-- <button (click)="clienteInfo(pedido.usuarioId)" ion-button>Cliente</button> -->\n        </ion-row>\n\n      </div>\n    </ion-card-content>\n  </ion-card>\n  <div>\n    <ion-item no-lines style="background-color: transparent !important;"></ion-item>\n    <ion-item no-lines style="background-color: transparent !important;"></ion-item>\n  </div>\n</ion-content>\n<!-- <tab [pagina]="\'Pedidos\'"></tab> -->'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\pedidos\pedidos.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["m" /* Component */])({
+            selector: 'page-pedidos',template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\pedidos\pedidos.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <button ion-button icon-only clear color="light" (click)="adminOptions()">\n      <ion-icon style="border-bottom:20px ;" name="settings"></ion-icon>\n    </button>\n    <ion-title style="width: 85%; display: inline-flex; margin-top: 15px;" align="end">Pedidos</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content no-padding>\n  <ion-card *ngFor="let pedido of pedidos" style="border-radius: 10px;">\n    <ion-card-header icon-left>\n      <ion-icon name="cart"></ion-icon>\n      Pedido realizado em <strong>{{ pedido.dataPedido | date:\'dd/MM/yyyy, HH:mm\' }}</strong>\n    </ion-card-header>\n    <ion-card-content>\n      <table class="tabela">\n        <tr>\n          <th>Qtd.</th>\n          <th>Produto</th>\n          <th>Observações</th>\n        </tr>\n        <tr *ngFor="let produto of pedido.itens">\n          <td>{{produto.quantidade}}</td>\n          <td>{{produto.nomeProd}}</td>\n          <td>{{produto.observacoes}}</td>\n          <!-- <strong>Nome Produto: <strong>{{produto.nomeProd}}</strong></{{produto.quantidade}},> -->\n          <!-- <strong>Quantidade: <strong>{{produto.quantidade}}</strong></p> -->\n          <!-- <p>Produto ID: <strong>{{produto.produtoId}}</strong></p> -->\n          <!-- <strong>Observaçoes: <strong>{{produto.observacoes}}</strong></p> -->\n        </tr>\n      </table>\n      <!-- <p>Usuário ID: <strong>{{pedido.usuarioId}}</strong></p> -->\n      <p>Aceito: <strong> {{ pedido.aceito }}</strong></p>\n      <p>Status: <strong>{{pedido.status}}</strong></p>\n      <!-- <strong>Quantidade Total itens: <strong>{{ contaItem(produtos) }}</strong></p> -->\n      <p>Valor total: <strong> {{ pedido.valorTotal }}</strong></p>\n      <p>Forma de Pagamento: <strong>{{pedido.formaPagamento}}</strong></p>\n      <p>Tempo para Entrega: <strong> {{ pedido.tempoEntrega }}</strong></p>\n      <p>Cliente: <strong> {{ pedido.usuarioNome }}</strong></p>\n\n\n      <div class="enderecoEntrega">\n        <p><strong>Endereço de Entrega</strong></p>\n        <p>Rua: <strong> {{ pedido.enderecoEntrega.rua }}</strong> Nº: <strong>\n            {{pedido.enderecoEntrega.numero }}</strong> Bairro:\n          <strong> {{pedido.enderecoEntrega.bairro }}</strong></p>\n        <p>Cidade: <strong> {{pedido.enderecoEntrega.cidade }}</strong> Estado: <strong>\n            {{pedido.enderecoEntrega.uf }}</strong>\n          Cep: <strong> {{pedido.enderecoEntrega.cep }}</strong></p>\n        <p>Ponto Ref.: <strong> {{pedido.enderecoEntrega.pontoReferencia }}</strong></p>\n        <p>Orientações: <strong> {{pedido.enderecoEntrega.orientacoes }}</strong></p>\n      </div>\n\n\n      <div>\n        <ion-row class="botoes">\n          <button ion-button>Aceitar</button>\n          <button ion-button>Recusar</button>\n          <button ion-button>Chat</button>\n        </ion-row>\n      </div>\n    </ion-card-content>\n  </ion-card>\n  <div>\n    <ion-item no-lines style="background-color: transparent !important;"></ion-item>\n    <ion-item no-lines style="background-color: transparent !important;"></ion-item>\n  </div>\n</ion-content>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\pedidos\pedidos.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["a" /* ActionSheetController */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_http_http__["a" /* HttpProvider */],
-            __WEBPACK_IMPORTED_MODULE_5__providers_alert_alert__["a" /* AlertProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["a" /* ActionSheetController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["a" /* ActionSheetController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__providers_http_http__["a" /* HttpProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_http_http__["a" /* HttpProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__providers_alert_alert__["a" /* AlertProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_alert_alert__["a" /* AlertProvider */]) === "function" && _e || Object])
     ], PedidosPage);
     return PedidosPage;
+    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=pedidos.js.map
@@ -1268,9 +1265,9 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/adm-operador/adm-operador.module#AdmOperadorPageModule', name: 'AdmOperadorPage', segment: 'adm-operador', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/adm-produto/adm-produto.module#AdmProdutoPageModule', name: 'AdmProdutoPage', segment: 'adm-produto', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/adm-produtos/adm-produtos.module#AdmProdutosPageModule', name: 'AdmProdutosPage', segment: 'adm-produtos', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/clientes/clientes.module#ClientesPageModule', name: 'ClientesPage', segment: 'clientes', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/mensagens/mensagens.module#MensagensPageModule', name: 'MensagensPage', segment: 'mensagens', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/clientes/clientes.module#ClientesPageModule', name: 'ClientesPage', segment: 'clientes', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/minha-conta/minha-conta.module#MinhaContaPageModule', name: 'MinhaContaPage', segment: 'minha-conta', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/operadores/operadores.module#OperadoresPageModule', name: 'OperadoresPage', segment: 'operadores', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/pedidos/pedidos.module#PedidosPageModule', name: 'PedidosPage', segment: 'pedidos', priority: 'low', defaultHistory: [] }
@@ -1311,24 +1308,14 @@ var AppModule = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ListaPedidosModel; });
-var ListaPedidosModel = /** @class */ (function () {
-    function ListaPedidosModel() {
-        this.itensGeral = new Array();
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EnderecoEntregaModel; });
+var EnderecoEntregaModel = /** @class */ (function () {
+    function EnderecoEntregaModel() {
     }
-    ListaPedidosModel.getTotalItens = function (itens) {
-        try {
-            var _itens = JSON.parse(itens);
-            return _itens.length;
-        }
-        catch (error) {
-            return 0;
-        }
-    };
-    return ListaPedidosModel;
+    return EnderecoEntregaModel;
 }());
 
-//# sourceMappingURL=ListaPedidosModel.js.map
+//# sourceMappingURL=enderecoModel.js.map
 
 /***/ }),
 
