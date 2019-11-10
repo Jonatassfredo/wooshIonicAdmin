@@ -1,152 +1,57 @@
 webpackJsonp([0],{
 
-/***/ 214:
+/***/ 315:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UsuarioModel; });
-var UsuarioModel = /** @class */ (function () {
-    function UsuarioModel() {
-        this.telefone = 0;
-        this.enderecosEntrega = new Array();
-    }
-    return UsuarioModel;
-}());
-
-//# sourceMappingURL=usuarioModel.js.map
-
-/***/ }),
-
-/***/ 216:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MensagensPage; });
-/* unused harmony export snapshotToArray */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(169);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pedidos_pedidos__ = __webpack_require__(217);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_operador_operador__ = __webpack_require__(59);
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MinhaContaPageModule", function() { return MinhaContaPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_components_module__ = __webpack_require__(333);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__minha_conta__ = __webpack_require__(337);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 
 
 
 
-
-var MensagensPage = /** @class */ (function () {
-    function MensagensPage(navCtrl, navParams) {
-        // this.key = this.navParams.get("key") as string;
-        // this.nickname = this.navParams.get("nickname") as string;
-        // this.data.type = "mensagem";
-        var _this = this;
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.dataSala = { nome: "" };
-        this.ref = __WEBPACK_IMPORTED_MODULE_2_firebase__["database"]().ref("salas/" + this.nicknameModel);
-        this.dataNick = { nickname: "" };
-        this.data = { type: "", nickname: "", mensagem: "" };
-        this.chats = [];
-        this.nickname = "";
-        this.offStatus = false;
-        this.salas = [];
-        this.messageType = "operadorMessage";
-        //this.data.nickname = toString();
-        //5d5bf8a4ccb14a24c081b981
-        // console.log("teste op", OperadorProvider.GetOperador());
-        var _ped = this.navParams.get('_pedido');
-        this.pedido = _ped;
-        this.pedido.usuarioId = _ped.usuarioId;
-        this.nicknameModel = this.pedido.usuarioId;
-        // console.log("teste item", this.pedido.usuarioId);
-        this.ref.on("value", function (resp) {
-            _this.salas = [];
-            _this.salas = snapshotToArray(resp);
-            console.log(_this.salas);
-        });
-        // console.log("id do cara", this.nicknameModel);
-        __WEBPACK_IMPORTED_MODULE_2_firebase__["database"]()
-            .ref("chats/mensagens/" + this.nicknameModel)
-            .on("value", function (resp) {
-            _this.chats = [];
-            _this.chats = snapshotToArray(resp);
-            setTimeout(function () {
-                if (_this.offStatus === false) {
-                    _this.content.scrollToBottom(300);
-                }
-            }, 1000);
-        });
-        console.log("mensagens", this.chats);
+var MinhaContaPageModule = /** @class */ (function () {
+    function MinhaContaPageModule() {
     }
-    MensagensPage.prototype.enviarMensagem = function () {
-        var op = __WEBPACK_IMPORTED_MODULE_4__providers_operador_operador__["a" /* OperadorProvider */].GetOperador();
-        console.log("testeeee", op.nome);
-        if (this.data.mensagem === "") {
-            console.log("mensagen vazia");
-            return;
-        }
-        var newData = __WEBPACK_IMPORTED_MODULE_2_firebase__["database"]()
-            .ref("chats/mensagens/" + this.nicknameModel)
-            .push();
-        newData.set({
-            type: this.messageType,
-            user: op.nome,
-            userID: this.nicknameModel,
-            mensagem: this.data.mensagem,
-            sendDate: Date()
-        });
-        this.data.mensagem = "";
-        console.log("msg", this.data);
-    };
-    MensagensPage.prototype.sair = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__pedidos_pedidos__["a" /* PedidosPage */]);
-    };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Content */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Content */])
-    ], MensagensPage.prototype, "content", void 0);
-    MensagensPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: "page-mensagens",template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\Nova pasta\src\pages\mensagens\mensagens.html"*/'<ion-header>\n    <ion-navbar color="primary">\n        <ion-title>Mensagens</ion-title>\n        <ion-buttons end>\n            <!-- <button ion-button icon-only (click)="sair()">\n                <ion-icon name="exit"></ion-icon>\n            </button> -->\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n    <ion-list>\n        <ion-item *ngFor="let chat of chats" no-lines>\n            <div class="chat-status" text-center *ngIf="chat.mensagentype===\'join\'||chat.type===\'sair\';else message">\n                <span class="chat-date">{{chat.sendDate | date:\'short\'}}</span>\n                <span class="chat-content-center">{{chat.mensagem}}</span>\n            </div>\n            <ng-template #message>\n                <div class="alinhaMsg">\n                    <ion-card class="myMessage" text-right *ngIf="chat.type === \'userMessage\'">\n                        <ion-card-header>\n                            <span class="msg-name">\n                                <strong>Cliente</strong>\n                                em\n                            </span>\n                            <span class="msg-date">{{chat.sendDate | date:\'dd/MM/yyyy\'}}</span>\n                        </ion-card-header>\n                        <ion-card-content>\n                            <div class="chat-message" text-right>\n                                <div class="right-bubble">\n                                    <p class="msg-text" text-wrap>\n                                        {{chat.mensagem}}\n                                    </p>\n                                </div>\n                            </div>\n                        </ion-card-content>\n                    </ion-card>\n                </div>\n                <div class="alinhaMsgOp">\n                    <ion-card class="opMessage" text-left *ngIf="chat.type === \'operadorMessage\'">\n                        <ion-card-header>\n                            <span class="msg-name">\n                                <strong>Operador</strong>\n                                em\n                            </span>\n                            <span class="msg-date">{{chat.sendDate | date:\'dd/MM/yyyy\'}}</span>\n                        </ion-card-header>\n                        <ion-card-content>\n                            <div class="chat-message" text-left>\n                                <div class="right-bubble">\n                                    <p class="msg-text" text-wrap>\n                                        {{chat.mensagem}}\n                                    </p>\n                                </div>\n                            </div>\n                        </ion-card-content>\n                    </ion-card>\n                </div>\n\n\n\n\n\n                <!-- <div class="alinhaMsg"></div> -->\n                <!-- <ion-card text-left *ngIf="messageType === \'operadorMessage\'">\n                    <ion-card-header>\n                        <span class="msg-name">\n                            <strong>Atendente</strong>\n                            em\n                        </span>\n                        <span class="msg-date">\n                            {{chat.sendDate | date:\'dd/MM/yyyy hh:mm\' }}\n                        </span>\n                    </ion-card-header>\n                    <ion-card-content>\n                        <div class="chat-message" text-left>\n                            <div class="left-bubble">\n                                <p>{{chat.mensagem}}</p>\n                            </div>\n                        </div>\n                    </ion-card-content>\n                </ion-card> -->\n            </ng-template>\n        </ion-item>\n    </ion-list>\n</ion-content>\n\n<ion-footer>\n    <ion-grid>\n        <ion-row>\n            <ion-col col-10>\n                <ion-input type="text" placeholder="Escreva uma mensagem" [(ngModel)]="data.mensagem" name="mensagem"\n                    class="fontsize">\n                </ion-input>\n            </ion-col>\n            <ion-col col-2 (click)="enviarMensagem()" class="iconeMsg">\n                <div>\n                    <ion-icon color="primary" name="paper-plane"></ion-icon>\n                </div>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n</ion-footer>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\Nova pasta\src\pages\mensagens\mensagens.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
-    ], MensagensPage);
-    return MensagensPage;
+    MinhaContaPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_3__minha_conta__["a" /* MinhaContaPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_0__components_components_module__["a" /* ComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__minha_conta__["a" /* MinhaContaPage */]),
+            ],
+        })
+    ], MinhaContaPageModule);
+    return MinhaContaPageModule;
 }());
 
-var snapshotToArray = function (snapshot) {
-    var returnArr = [];
-    snapshot.forEach(function (childSnapshot) {
-        var item = childSnapshot.val();
-        item.key = childSnapshot.key;
-        returnArr.push(item);
-    });
-    return returnArr;
-};
-//# sourceMappingURL=mensagens.js.map
+//# sourceMappingURL=minha-conta.module.js.map
 
 /***/ }),
 
-/***/ 217:
+/***/ 318:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PedidosPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_helpers_configHelper__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_http_http__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_helpers_configHelper__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_http_http__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_alert_alert__ = __webpack_require__(58);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_models_enderecoModel__ = __webpack_require__(286);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_alert_alert__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_models_enderecoModel__ = __webpack_require__(319);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -212,6 +117,10 @@ var PedidosPage = /** @class */ (function () {
         this.navCtrl.push('MensagensPage', { _pedido: model });
         console.log("model", model);
     };
+    PedidosPage.prototype.aceitar = function () { };
+    ;
+    PedidosPage.prototype.recusar = function () { };
+    ;
     PedidosPage.prototype.ionViewDidLoad = function () {
         this.GetAllPedidos();
         console.log(this.produtos);
@@ -323,7 +232,7 @@ var PedidosPage = /** @class */ (function () {
     };
     PedidosPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["m" /* Component */])({
-            selector: 'page-pedidos',template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\Nova pasta\src\pages\pedidos\pedidos.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <button ion-button icon-only clear color="light" (click)="adminOptions()">\n      <ion-icon style="border-bottom:20px ;" name="settings"></ion-icon>\n    </button>\n    <ion-title style="width: 85%; display: inline-flex; margin-top: 15px;" align="end">Pedidos</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content no-padding>\n  <ion-card *ngFor="let pedido of pedidos" style="border-radius: 10px;">\n    <ion-card-header icon-left>\n      <ion-icon name="cart"></ion-icon>\n      Pedido realizado em <strong>{{ pedido.dataPedido | date:\'dd/MM/yyyy, HH:mm\' }}</strong>\n    </ion-card-header>\n    <ion-card-content>\n      <table class="tabela">\n        <tr>\n          <th>Qtd.</th>\n          <th>Produto</th>\n          <th>Observações</th>\n        </tr>\n        <tr *ngFor="let produto of pedido.itens">\n          <td>{{produto.quantidade}}</td>\n          <td>{{produto.nomeProd}}</td>\n          <td>{{produto.observacoes}}</td>\n          <!-- <strong>Nome Produto: <strong>{{produto.nomeProd}}</strong></{{produto.quantidade}},> -->\n          <!-- <strong>Quantidade: <strong>{{produto.quantidade}}</strong></p> -->\n          <!-- <p>Produto ID: <strong>{{produto.produtoId}}</strong></p> -->\n          <!-- <strong>Observaçoes: <strong>{{produto.observacoes}}</strong></p> -->\n        </tr>\n      </table>\n      <!-- <p>Usuário ID: <strong>{{pedido.usuarioId}}</strong></p> -->\n      <p>Aceito: <strong> {{ pedido.aceito }}</strong></p>\n      <p>Status: <strong>{{pedido.status}}</strong></p>\n      <!-- <strong>Quantidade Total itens: <strong>{{ contaItem(produtos) }}</strong></p> -->\n      <p>Valor total: <strong> {{ pedido.valorTotal }}</strong></p>\n      <p>Forma de Pagamento: <strong>{{pedido.formaPagamento}}</strong></p>\n      <p>Tempo para Entrega: <strong> {{ pedido.tempoEntrega }}</strong></p>\n      <p>Cliente: <strong> {{ pedido.usuarioNome }}</strong></p>\n      <div class="enderecoEntrega">\n        <p><strong>Endereço de Entrega</strong></p>\n        <p>Rua: <strong> {{ pedido.enderecoEntrega.rua }}</strong> Nº: <strong>\n            {{pedido.enderecoEntrega.numero }}</strong> Bairro:\n          <strong> {{pedido.enderecoEntrega.bairro }}</strong></p>\n        <p>Cidade: <strong> {{pedido.enderecoEntrega.cidade }}</strong> Estado: <strong>\n            {{pedido.enderecoEntrega.uf }}</strong>\n          Cep: <strong> {{pedido.enderecoEntrega.cep }}</strong></p>\n        <p>Ponto Ref.: <strong> {{pedido.enderecoEntrega.pontoReferencia }}</strong></p>\n        <p>Orientações: <strong> {{pedido.enderecoEntrega.orientacoes }}</strong></p>\n      </div>\n      <div>\n        <ion-row class="botoes">\n          <button ion-button>Aceitar</button>\n          <button ion-button>Recusar</button>\n          <button ion-button (click)="mensagens(pedido)">Chat</button>\n        </ion-row>\n      </div>\n    </ion-card-content>\n  </ion-card>\n  <div>\n    <ion-item no-lines style="background-color: transparent !important;"></ion-item>\n    <ion-item no-lines style="background-color: transparent !important;"></ion-item>\n  </div>\n</ion-content>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\Nova pasta\src\pages\pedidos\pedidos.html"*/,
+            selector: 'page-pedidos',template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\pedidos\pedidos.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <button ion-button icon-only clear color="light" (click)="adminOptions()">\n      <ion-icon style="border-bottom:20px ;" name="settings"></ion-icon>\n    </button>\n    <ion-title style="width: 85%; display: inline-flex; margin-top: 15px;" align="end">Pedidos</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content no-padding>\n  <ion-card *ngFor="let pedido of pedidos" style="border-radius: 10px;">\n    <ion-card-header icon-left>\n      <ion-icon name="cart"></ion-icon>\n      Pedido realizado em <strong>{{ pedido.dataPedido | date:\'dd/MM/yyyy, HH:mm\' }}</strong>\n    </ion-card-header>\n    <ion-card-content>\n      <table class="tabela">\n        <tr>\n          <th>Qtd.</th>\n          <th>Produto</th>\n          <th>Observações</th>\n        </tr>\n        <tr *ngFor="let produto of pedido.itens">\n          <td>{{produto.quantidade}}</td>\n          <td>{{produto.nomeProd}}</td>\n          <td>{{produto.observacoes}}</td>\n          <!-- <strong>Nome Produto: <strong>{{produto.nomeProd}}</strong></{{produto.quantidade}},> -->\n          <!-- <strong>Quantidade: <strong>{{produto.quantidade}}</strong></p> -->\n          <!-- <p>Produto ID: <strong>{{produto.produtoId}}</strong></p> -->\n          <!-- <strong>Observaçoes: <strong>{{produto.observacoes}}</strong></p> -->\n        </tr>\n      </table>\n      <!-- <p>Usuário ID: <strong>{{pedido.usuarioId}}</strong></p> -->\n      <p>Aceito: <strong> {{ pedido.aceito }}</strong></p>\n      <p>Status: <strong>{{pedido.status}}</strong></p>\n      <!-- <strong>Quantidade Total itens: <strong>{{ contaItem(produtos) }}</strong></p> -->\n      <p>Valor total: <strong> {{ pedido.valorTotal }}</strong></p>\n      <p>Forma de Pagamento: <strong>{{pedido.formaPagamento}}</strong></p>\n      <p>Tempo para Entrega: <strong> {{ pedido.tempoEntrega }}</strong></p>\n      <p>Cliente: <strong> {{ pedido.usuarioNome }}</strong></p>\n      <div class="enderecoEntrega">\n        <p><strong>Endereço de Entrega</strong></p>\n        <p>Rua: <strong> {{ pedido.enderecoEntrega.rua }}</strong> Nº: <strong>\n            {{pedido.enderecoEntrega.numero }}</strong> Bairro:\n          <strong> {{pedido.enderecoEntrega.bairro }}</strong></p>\n        <p>Cidade: <strong> {{pedido.enderecoEntrega.cidade }}</strong> Estado: <strong>\n            {{pedido.enderecoEntrega.uf }}</strong>\n          Cep: <strong> {{pedido.enderecoEntrega.cep }}</strong></p>\n        <p>Ponto Ref.: <strong> {{pedido.enderecoEntrega.pontoReferencia }}</strong></p>\n        <p>Orientações: <strong> {{pedido.enderecoEntrega.orientacoes }}</strong></p>\n      </div>\n      <div>\n        <ion-row class="botoes">\n          <button ion-button>Aceitar</button>\n          <button ion-button>Recusar</button>\n          <button ion-button (click)="mensagens(pedido)">Chat</button>\n        </ion-row>\n      </div>\n    </ion-card-content>\n  </ion-card>\n  <div>\n    <ion-item no-lines style="background-color: transparent !important;"></ion-item>\n    <ion-item no-lines style="background-color: transparent !important;"></ion-item>\n  </div>\n</ion-content>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\pedidos\pedidos.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["k" /* NavParams */],
@@ -338,7 +247,7 @@ var PedidosPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 286:
+/***/ 319:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -357,44 +266,20 @@ var EnderecoEntregaModel = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MinhaContaPageModule", function() { return MinhaContaPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_components_module__ = __webpack_require__(334);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__minha_conta__ = __webpack_require__(338);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-
-var MinhaContaPageModule = /** @class */ (function () {
-    function MinhaContaPageModule() {
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UsuarioModel; });
+var UsuarioModel = /** @class */ (function () {
+    function UsuarioModel() {
+        this.telefone = 0;
+        this.enderecosEntrega = new Array();
     }
-    MinhaContaPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_3__minha_conta__["a" /* MinhaContaPage */],
-            ],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_0__components_components_module__["a" /* ComponentsModule */],
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__minha_conta__["a" /* MinhaContaPage */]),
-            ],
-        })
-    ], MinhaContaPageModule);
-    return MinhaContaPageModule;
+    return UsuarioModel;
 }());
 
-//# sourceMappingURL=minha-conta.module.js.map
+//# sourceMappingURL=usuarioModel.js.map
 
 /***/ }),
 
-/***/ 322:
+/***/ 321:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -409,15 +294,134 @@ var ProdutoModel = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 334:
+/***/ 322:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MensagensPage; });
+/* unused harmony export snapshotToArray */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(214);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pedidos_pedidos__ = __webpack_require__(318);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_operador_operador__ = __webpack_require__(58);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var MensagensPage = /** @class */ (function () {
+    function MensagensPage(navCtrl, navParams) {
+        // this.key = this.navParams.get("key") as string;
+        // this.nickname = this.navParams.get("nickname") as string;
+        // this.data.type = "mensagem";
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.dataSala = { nome: "" };
+        this.ref = __WEBPACK_IMPORTED_MODULE_2_firebase__["database"]().ref("salas/" + this.nicknameModel);
+        this.dataNick = { nickname: "" };
+        this.data = { type: "", nickname: "", mensagem: "" };
+        this.chats = [];
+        this.nickname = "";
+        this.offStatus = false;
+        this.salas = [];
+        this.messageType = "operadorMessage";
+        //this.data.nickname = toString();
+        //5d5bf8a4ccb14a24c081b981
+        // console.log("teste op", OperadorProvider.GetOperador());
+        var _ped = this.navParams.get('_pedido');
+        this.pedido = _ped;
+        this.pedido.usuarioId = _ped.usuarioId;
+        this.nicknameModel = this.pedido.usuarioId;
+        // console.log("teste item", this.pedido.usuarioId);
+        this.ref.on("value", function (resp) {
+            _this.salas = [];
+            _this.salas = snapshotToArray(resp);
+            console.log(_this.salas);
+        });
+        // console.log("id do cara", this.nicknameModel);
+        __WEBPACK_IMPORTED_MODULE_2_firebase__["database"]()
+            .ref("chats/mensagens/" + this.nicknameModel)
+            .on("value", function (resp) {
+            _this.chats = [];
+            _this.chats = snapshotToArray(resp);
+            setTimeout(function () {
+                if (_this.offStatus === false) {
+                    _this.content.scrollToBottom(300);
+                }
+            }, 1000);
+        });
+        console.log("mensagens", this.chats);
+    }
+    MensagensPage.prototype.enviarMensagem = function () {
+        var op = __WEBPACK_IMPORTED_MODULE_4__providers_operador_operador__["a" /* OperadorProvider */].GetOperador();
+        console.log("testeeee", op.nome);
+        if (this.data.mensagem === "") {
+            console.log("mensagen vazia");
+            return;
+        }
+        var newData = __WEBPACK_IMPORTED_MODULE_2_firebase__["database"]()
+            .ref("chats/mensagens/" + this.nicknameModel)
+            .push();
+        newData.set({
+            type: this.messageType,
+            user: op.nome,
+            userID: this.nicknameModel,
+            mensagem: this.data.mensagem,
+            sendDate: Date()
+        });
+        this.data.mensagem = "";
+        console.log("msg", this.data);
+    };
+    MensagensPage.prototype.sair = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__pedidos_pedidos__["a" /* PedidosPage */]);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Content */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* Content */])
+    ], MensagensPage.prototype, "content", void 0);
+    MensagensPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: "page-mensagens",template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\mensagens\mensagens.html"*/'<ion-header>\n    <ion-navbar color="primary">\n        <ion-title>Mensagens</ion-title>\n        <ion-buttons end>\n            <!-- <button ion-button icon-only (click)="sair()">\n                <ion-icon name="exit"></ion-icon>\n            </button> -->\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n    <ion-list>\n        <ion-item *ngFor="let chat of chats" no-lines>\n            <div class="chat-status" text-center *ngIf="chat.mensagentype===\'join\'||chat.type===\'sair\';else message">\n                <span class="chat-date">{{chat.sendDate | date:\'short\'}}</span>\n                <span class="chat-content-center">{{chat.mensagem}}</span>\n            </div>\n            <ng-template #message>\n                <div class="alinhaMsg">\n                    <ion-card class="myMessage" text-right *ngIf="chat.type === \'userMessage\'">\n                        <ion-card-header>\n                            <span class="msg-name">\n                                <strong>Cliente</strong>\n                                em\n                            </span>\n                            <span class="msg-date">{{chat.sendDate | date:\'dd/MM/yyyy, HH:mm\'}}</span>\n                        </ion-card-header>\n                        <ion-card-content>\n                            <div class="chat-message" text-right>\n                                <div class="right-bubble">\n                                    <p class="msg-text" text-wrap>\n                                        {{chat.mensagem}}\n                                    </p>\n                                </div>\n                            </div>\n                        </ion-card-content>\n                    </ion-card>\n                </div>\n                <div class="alinhaMsgOp">\n                    <ion-card class="opMessage" text-left *ngIf="chat.type === \'operadorMessage\'">\n                        <ion-card-header>\n                            <span class="msg-name">\n                                <strong>Operador</strong>\n                                em\n                            </span>\n                            <span class="msg-date">{{chat.sendDate | date:\'dd/MM/yyyy, HH:mm\'}}</span>\n                        </ion-card-header>\n                        <ion-card-content>\n                            <div class="chat-message" text-left>\n                                <div class="right-bubble">\n                                    <p class="msg-text" text-wrap>\n                                        {{chat.mensagem}}\n                                    </p>\n                                </div>\n                            </div>\n                        </ion-card-content>\n                    </ion-card>\n                </div>\n\n\n\n\n\n                <!-- <div class="alinhaMsg"></div> -->\n                <!-- <ion-card text-left *ngIf="messageType === \'operadorMessage\'">\n                    <ion-card-header>\n                        <span class="msg-name">\n                            <strong>Atendente</strong>\n                            em\n                        </span>\n                        <span class="msg-date">\n                            {{chat.sendDate | date:\'dd/MM/yyyy hh:mm\' }}\n                        </span>\n                    </ion-card-header>\n                    <ion-card-content>\n                        <div class="chat-message" text-left>\n                            <div class="left-bubble">\n                                <p>{{chat.mensagem}}</p>\n                            </div>\n                        </div>\n                    </ion-card-content>\n                </ion-card> -->\n            </ng-template>\n        </ion-item>\n    </ion-list>\n</ion-content>\n\n<ion-footer>\n    <ion-grid>\n        <ion-row>\n            <ion-col col-10>\n                <ion-input type="text" placeholder="Escreva uma mensagem" [(ngModel)]="data.mensagem" name="mensagem"\n                    class="fontsize">\n                </ion-input>\n            </ion-col>\n            <ion-col col-2 (click)="enviarMensagem()" class="iconeMsg">\n                <div>\n                    <ion-icon color="primary" name="paper-plane"></ion-icon>\n                </div>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n</ion-footer>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\mensagens\mensagens.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
+    ], MensagensPage);
+    return MensagensPage;
+}());
+
+var snapshotToArray = function (snapshot) {
+    var returnArr = [];
+    snapshot.forEach(function (childSnapshot) {
+        var item = childSnapshot.val();
+        item.key = childSnapshot.key;
+        returnArr.push(item);
+    });
+    return returnArr;
+};
+//# sourceMappingURL=mensagens.js.map
+
+/***/ }),
+
+/***/ 333:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ComponentsModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__quantidade_quantidade__ = __webpack_require__(335);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tab_tab__ = __webpack_require__(337);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__quantidade_quantidade__ = __webpack_require__(334);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tab_tab__ = __webpack_require__(336);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -447,17 +451,17 @@ var ComponentsModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 335:
+/***/ 334:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return QuantidadeComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_models_produtoModel__ = __webpack_require__(322);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_carrinho_carrinho__ = __webpack_require__(218);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_models_produtoModel__ = __webpack_require__(321);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_carrinho_carrinho__ = __webpack_require__(215);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_enums_AcaoCarrinhoEnum__ = __webpack_require__(336);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_helpers_configHelper__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_enums_AcaoCarrinhoEnum__ = __webpack_require__(335);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_helpers_configHelper__ = __webpack_require__(31);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -520,7 +524,7 @@ var QuantidadeComponent = /** @class */ (function () {
     ], QuantidadeComponent.prototype, "quantidadeAlterada", void 0);
     QuantidadeComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["m" /* Component */])({
-            selector: 'quantidade',template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\Nova pasta\src\components\quantidade\quantidade.html"*/'<div>\n  <button round ion-button icon-only color="light" (click)="remover()">\n    -\n  </button>\n  <span class="numero">{{numero}}</span>\n  <button round ion-button icon-only color="dark" (click)="adicionar()">\n    +\n  </button>\n</div>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\Nova pasta\src\components\quantidade\quantidade.html"*/
+            selector: 'quantidade',template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\components\quantidade\quantidade.html"*/'<div>\n  <button round ion-button icon-only color="light" (click)="remover()">\n    -\n  </button>\n  <span class="numero">{{numero}}</span>\n  <button round ion-button icon-only color="dark" (click)="adicionar()">\n    +\n  </button>\n</div>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\components\quantidade\quantidade.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_carrinho_carrinho__["a" /* CarrinhoProvider */],
             __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["d" /* Events */]])
@@ -532,7 +536,7 @@ var QuantidadeComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 336:
+/***/ 335:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -546,12 +550,12 @@ var AcaoCarrinhoEnum;
 
 /***/ }),
 
-/***/ 337:
+/***/ 336:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_ionic_angular__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -605,7 +609,7 @@ var TabComponent = /** @class */ (function () {
     ], TabComponent.prototype, "pagina", void 0);
     TabComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: "tab",template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\Nova pasta\src\components\tab\tab.html"*/'<ion-footer class="tabs">\n  <div class="tab" *ngFor="let item of tabs" [ngClass]="{\'active\': item.isSelect}" (click)="selecionarTab(item.path)">\n    <ion-icon name="{{item.icon}}"></ion-icon>\n    <p>{{item.label}}</p>\n  </div>\n</ion-footer>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\Nova pasta\src\components\tab\tab.html"*/
+            selector: "tab",template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\components\tab\tab.html"*/'<ion-footer class="tabs">\n  <div class="tab" *ngFor="let item of tabs" [ngClass]="{\'active\': item.isSelect}" (click)="selecionarTab(item.path)">\n    <ion-icon name="{{item.icon}}"></ion-icon>\n    <p>{{item.label}}</p>\n  </div>\n</ion-footer>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\components\tab\tab.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavController */]])
     ], TabComponent);
@@ -616,19 +620,19 @@ var TabComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 338:
+/***/ 337:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MinhaContaPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app_models_usuarioModel__ = __webpack_require__(214);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_alert_alert__ = __webpack_require__(58);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_camera_camera__ = __webpack_require__(213);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_helpers_configHelper__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_usuario_usuario__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app_models_usuarioModel__ = __webpack_require__(320);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_alert_alert__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_camera_camera__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_helpers_configHelper__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_usuario_usuario__ = __webpack_require__(212);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__mensagens_mensagens__ = __webpack_require__(216);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ionic_angular__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__mensagens_mensagens__ = __webpack_require__(322);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ionic_angular__ = __webpack_require__(27);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -802,7 +806,7 @@ var MinhaContaPage = /** @class */ (function () {
     };
     MinhaContaPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_5__angular_core__["m" /* Component */])({
-            selector: "page-minha-conta",template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\Nova pasta\src\pages\minha-conta\minha-conta.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-title class="titulo">Minha Conta</ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only (click)="sair()">\n        <p class="sair">Sair</p>\n        <ion-icon name="exit"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n<ion-content>\n  <div class="imagem" [ngStyle]="{\'background-image\': \'url(\' + usuarioLogado.foto + \')\'}" (click)="mudarFoto()">\n  </div>\n  <div class="formulario">\n    <div class="btnSuporte">\n      <button ion-button round class="btnMsg" (click)="mensagens()">\n        <ion-icon name="chatboxes"></ion-icon>\n      </button>\n      <p class="suporte">Suporte</p>\n    </div>\n    <p>Nome</p>\n    <input type="text" placeholder="Nome" [(ngModel)]="usuarioLogado.nome">\n    <p>E-mail</p>\n    <input type="text" placeholder="Email" [(ngModel)]="usuarioLogado.email">\n    <p>CPF</p>\n    <input type="number" placeholder="CPF" [(ngModel)]="usuarioLogado.cpf" disabled="true">\n    <!-- <P>Telefone</P>\n        <input type="number" placeholder="Telefone" [(ngModel)]="usuarioLogado.telefone"> -->\n\n    <div class="botaoEndereco">\n      <button ion-button outline color="primary" round block (click)="adicionarEndereco()" style="margin-top: 20px;">\n        Endereços de entrega\n      </button>\n    </div>\n    <div class="botao">\n      <button ion-button outline color="primary" round block (click)="salvar()" style="margin-top: 10px;">\n        Salvar os dados\n      </button>\n    </div>\n  </div>\n  <div>\n    <ion-item no-lines style="background-color: transparent !important;"></ion-item>\n    <ion-item no-lines style="background-color: transparent !important;"></ion-item>\n  </div>\n</ion-content>\n<tab [pagina]="\'Minha Conta\'"></tab>\n'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\Nova pasta\src\pages\minha-conta\minha-conta.html"*/
+            selector: "page-minha-conta",template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\minha-conta\minha-conta.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-title class="titulo">Minha Conta</ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only (click)="sair()">\n        <p class="sair">Sair</p>\n        <ion-icon name="exit"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n<ion-content>\n  <div class="imagem" [ngStyle]="{\'background-image\': \'url(\' + usuarioLogado.foto + \')\'}" (click)="mudarFoto()">\n  </div>\n  <div class="formulario">\n    <div class="btnSuporte">\n      <button ion-button round class="btnMsg" (click)="mensagens()">\n        <ion-icon name="chatboxes"></ion-icon>\n      </button>\n      <p class="suporte">Suporte</p>\n    </div>\n    <p>Nome</p>\n    <input type="text" placeholder="Nome" [(ngModel)]="usuarioLogado.nome">\n    <p>E-mail</p>\n    <input type="text" placeholder="Email" [(ngModel)]="usuarioLogado.email">\n    <p>CPF</p>\n    <input type="number" placeholder="CPF" [(ngModel)]="usuarioLogado.cpf" disabled="true">\n    <!-- <P>Telefone</P>\n        <input type="number" placeholder="Telefone" [(ngModel)]="usuarioLogado.telefone"> -->\n\n    <div class="botaoEndereco">\n      <button ion-button outline color="primary" round block (click)="adicionarEndereco()" style="margin-top: 20px;">\n        Endereços de entrega\n      </button>\n    </div>\n    <div class="botao">\n      <button ion-button outline color="primary" round block (click)="salvar()" style="margin-top: 10px;">\n        Salvar os dados\n      </button>\n    </div>\n  </div>\n  <div>\n    <ion-item no-lines style="background-color: transparent !important;"></ion-item>\n    <ion-item no-lines style="background-color: transparent !important;"></ion-item>\n  </div>\n</ion-content>\n<tab [pagina]="\'Minha Conta\'"></tab>\n'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\minha-conta\minha-conta.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_7_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_7_ionic_angular__["k" /* NavParams */],

@@ -33,6 +33,9 @@ export class PedidosPage {
     console.log("model", model);
   }
 
+  aceitar() { };
+  recusar() { };
+
   ionViewDidLoad() {
     this.GetAllPedidos();
     console.log(this.produtos);

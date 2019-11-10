@@ -5,10 +5,10 @@ webpackJsonp([3],{
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdmCategoriaPageModule", function() { return AdmCategoriaPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdmProdutoPageModule", function() { return AdmProdutoPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__adm_categoria__ = __webpack_require__(323);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__adm_produto__ = __webpack_require__(329);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,37 +18,53 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AdmCategoriaPageModule = /** @class */ (function () {
-    function AdmCategoriaPageModule() {
+var AdmProdutoPageModule = /** @class */ (function () {
+    function AdmProdutoPageModule() {
     }
-    AdmCategoriaPageModule = __decorate([
+    AdmProdutoPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__adm_categoria__["a" /* AdmCategoriaPage */],
+                __WEBPACK_IMPORTED_MODULE_2__adm_produto__["a" /* AdmProdutoPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__adm_categoria__["a" /* AdmCategoriaPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__adm_produto__["a" /* AdmProdutoPage */]),
             ],
         })
-    ], AdmCategoriaPageModule);
-    return AdmCategoriaPageModule;
+    ], AdmProdutoPageModule);
+    return AdmProdutoPageModule;
 }());
 
-//# sourceMappingURL=adm-categoria.module.js.map
+//# sourceMappingURL=adm-produto.module.js.map
 
 /***/ }),
 
-/***/ 323:
+/***/ 321:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdmCategoriaPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_alert_alert__ = __webpack_require__(58);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_categoria_categoria__ = __webpack_require__(212);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_models_categoriaModel__ = __webpack_require__(324);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_camera_camera__ = __webpack_require__(213);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProdutoModel; });
+var ProdutoModel = /** @class */ (function () {
+    function ProdutoModel() {
+    }
+    return ProdutoModel;
+}());
+
+//# sourceMappingURL=produtoModel.js.map
+
+/***/ }),
+
+/***/ 329:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdmProdutoPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_camera_camera__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_categoria_categoria__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_produto_produto__ = __webpack_require__(213);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_models_produtoModel__ = __webpack_require__(321);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_alert_alert__ = __webpack_require__(108);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -99,36 +115,66 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
-var AdmCategoriaPage = /** @class */ (function () {
-    function AdmCategoriaPage(navCtrl, navParams, actionSheetCtrl, platform, cameraSrv, categoriaSrv, alertSrv) {
+
+var AdmProdutoPage = /** @class */ (function () {
+    function AdmProdutoPage(navCtrl, navParams, actionSheetCtrl, platform, cameraSrv, categoriaSrv, produtoSrv, alertSrv) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.actionSheetCtrl = actionSheetCtrl;
         this.platform = platform;
         this.cameraSrv = cameraSrv;
         this.categoriaSrv = categoriaSrv;
+        this.produtoSrv = produtoSrv;
         this.alertSrv = alertSrv;
-        var _categ = this.navParams.get('_categoria');
-        if (_categ)
-            this.categoria = _categ;
+        this.categorias = new Array();
+        var _prod = this.navParams.get('_produto');
+        console.log("teste item", _prod);
+        if (_prod && _prod._id) {
+            this.produto = _prod;
+            this.produto.categoriaId = _prod.categoriaId._id;
+        }
         else
-            this.categoria = new __WEBPACK_IMPORTED_MODULE_4__app_models_categoriaModel__["a" /* CategoriaModel */]();
+            this.produto = new __WEBPACK_IMPORTED_MODULE_5__app_models_produtoModel__["a" /* ProdutoModel */]();
+        this.loadData();
     }
-    AdmCategoriaPage.prototype.excluir = function () {
+    AdmProdutoPage.prototype.loadData = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var categoriasResult, error_1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, this.categoriaSrv.get()];
+                    case 1:
+                        categoriasResult = _a.sent();
+                        if (categoriasResult.success) {
+                            this.categorias = categoriasResult.data;
+                        }
+                        return [3 /*break*/, 3];
+                    case 2:
+                        error_1 = _a.sent();
+                        console.log('Erro ao carregar as categorias', error_1);
+                        return [3 /*break*/, 3];
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    AdmProdutoPage.prototype.excluir = function () {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
                 try {
-                    this.alertSrv.confirm('Excluir?', "Deseja realmente excluir a categoria " + this.categoria.titulo + "?", function () { return __awaiter(_this, void 0, void 0, function () {
+                    this.alertSrv.confirm('Excluir?', "Deseja realmente excluir o produto " + this.produto.nome + "?", function () { return __awaiter(_this, void 0, void 0, function () {
                         var excluirResult;
                         return __generator(this, function (_a) {
                             switch (_a.label) {
-                                case 0: return [4 /*yield*/, this.categoriaSrv.delete(this.categoria._id)];
+                                case 0: return [4 /*yield*/, this.produtoSrv.delete(this.produto._id)];
                                 case 1:
                                     excluirResult = _a.sent();
                                     if (excluirResult.success) {
-                                        this.alertSrv.toast('Categoria excluída com sucesso!', 'bottom');
-                                        this.navCtrl.push('AdmCategoriasPage');
+                                        this.alertSrv.toast('Produto excluído com sucesso!', 'bottom');
+                                        this.navCtrl.push('AdmProdutosPage');
                                     }
                                     return [2 /*return*/];
                             }
@@ -142,35 +188,35 @@ var AdmCategoriaPage = /** @class */ (function () {
             });
         });
     };
-    AdmCategoriaPage.prototype.salvar = function () {
+    AdmProdutoPage.prototype.salvar = function () {
         return __awaiter(this, void 0, void 0, function () {
             var sucesso, cadastroResult, updateResult;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         sucesso = false;
-                        if (!!this.categoria._id) return [3 /*break*/, 2];
-                        return [4 /*yield*/, this.categoriaSrv.post(this.categoria)];
+                        if (!!this.produto._id) return [3 /*break*/, 2];
+                        return [4 /*yield*/, this.produtoSrv.post(this.produto)];
                     case 1:
                         cadastroResult = _a.sent();
                         sucesso = cadastroResult.success;
                         return [3 /*break*/, 4];
-                    case 2: return [4 /*yield*/, this.categoriaSrv.put(this.categoria._id, this.categoria)];
+                    case 2: return [4 /*yield*/, this.produtoSrv.put(this.produto._id, this.produto)];
                     case 3:
                         updateResult = _a.sent();
                         sucesso = updateResult.success;
                         _a.label = 4;
                     case 4:
                         if (sucesso) {
-                            this.alertSrv.toast('Categoria salva com sucesso!', 'bottom');
-                            this.navCtrl.push('AdmCategoriasPage');
+                            this.alertSrv.toast('Produto salvo com sucesso!', 'bottom');
+                            this.navCtrl.push('AdmProdutosPage');
                         }
                         return [2 /*return*/];
                 }
             });
         });
     };
-    AdmCategoriaPage.prototype.getPictureOption = function () {
+    AdmProdutoPage.prototype.getPictureOption = function () {
         var _this = this;
         var actionSheet = this.actionSheetCtrl.create({
             title: 'Adicionar foto',
@@ -178,7 +224,7 @@ var AdmCategoriaPage = /** @class */ (function () {
                 {
                     text: 'Tirar Foto', handler: function () {
                         _this.cameraSrv.takePicture(function (photo) {
-                            _this.categoria.foto = photo;
+                            _this.produto.foto = photo;
                         });
                     },
                     icon: this.platform.is('ios') ? null : 'camera'
@@ -187,7 +233,7 @@ var AdmCategoriaPage = /** @class */ (function () {
                     text: 'Pegar galeria',
                     handler: (function () {
                         _this.cameraSrv.getPictureFromGalery(function (photo) {
-                            _this.categoria.foto = photo;
+                            _this.produto.foto = photo;
                         });
                     }),
                     icon: this.platform.is('ios') ? null : 'images'
@@ -204,37 +250,23 @@ var AdmCategoriaPage = /** @class */ (function () {
         });
         actionSheet.present();
     };
-    AdmCategoriaPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
-            selector: 'page-adm-categoria',template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\Nova pasta\src\pages\adm-categoria\adm-categoria.html"*/'<ion-header>\n    <ion-navbar color="primary">\n        <ion-title>Categoria</ion-title>\n        <ion-buttons right>\n            <button ion-button clear (click)="salvar()">\n                Salvar\n            </button>\n            <button *ngIf="categoria._id" ion-button icon-only (click)="excluir()">\n                <ion-icon name="trash"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content no-padding>\n    <ion-list no-lines>\n        <ion-item>\n            <ion-label floating>Título</ion-label>\n            <ion-input [(ngModel)]="categoria.titulo" type="text"></ion-input>\n        </ion-item>\n        <ion-item>\n            <ion-label floating>Descrição</ion-label>\n            <ion-textarea [(ngModel)]="categoria.descricao" rows="4"></ion-textarea>\n        </ion-item>\n        <ion-item text-center>\n            <button ion-button clear (click)="getPictureOption()">\n                <ion-icon name="camera" item-left></ion-icon>\n                Selecionar Foto\n            </button>\n        </ion-item>\n        <ion-item *ngIf="categoria.foto">\n            <img [src]="categoria.foto">\n        </ion-item>\n    </ion-list>\n</ion-content>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\Nova pasta\src\pages\adm-categoria\adm-categoria.html"*/,
+    AdmProdutoPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-adm-produto',template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\adm-produto\adm-produto.html"*/'<ion-header>\n    <ion-navbar color="primary">\n        <ion-title>Produto</ion-title>\n        <ion-buttons right>\n            <button ion-button clear (click)="salvar()">\n                Salvar\n            </button>\n            <button *ngIf="produto._id" ion-button icon-only (click)="excluir()">\n                <ion-icon name="trash"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content no-padding>\n    <ion-list no-lines>\n        <ion-item>\n            <ion-label floating>Título</ion-label>\n            <ion-input [(ngModel)]="produto.nome" type="text"></ion-input>\n        </ion-item>\n        <ion-item>\n            <ion-label floating>Preço</ion-label>\n            <ion-input type="tel" [(ngModel)]="produto.preco"></ion-input>\n        </ion-item>\n        <ion-item>\n            <ion-label floating>Descrição</ion-label>\n            <ion-textarea [(ngModel)]="produto.descricao" rows="4"></ion-textarea>\n        </ion-item>\n        <ion-item>\n            <ion-label>Ativo</ion-label>\n            <ion-toggle [(ngModel)]="produto.ativo"></ion-toggle>\n        </ion-item>\n        <ion-item>\n            <ion-label>Categoria</ion-label>\n            <ion-select [(ngModel)]="produto.categoriaId">\n                <ion-option value="{{item._id}}" *ngFor="let item of categorias">{{item.titulo}}</ion-option>\n            </ion-select>\n        </ion-item>\n        <ion-item text-center>\n            <button ion-button clear (click)="getPictureOption()">\n                <ion-icon name="camera" item-left></ion-icon>\n                Selecionar Foto\n            </button>\n        </ion-item>\n        <ion-item *ngIf="produto.foto">\n            <img [src]="produto.foto">\n        </ion-item>\n    </ion-list>\n</ion-content>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\adm-produto\adm-produto.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* ActionSheetController */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["l" /* Platform */],
-            __WEBPACK_IMPORTED_MODULE_5__providers_camera_camera__["a" /* CameraProvider */],
-            __WEBPACK_IMPORTED_MODULE_1__providers_categoria_categoria__["a" /* CategoriaProvider */],
-            __WEBPACK_IMPORTED_MODULE_0__providers_alert_alert__["a" /* AlertProvider */]])
-    ], AdmCategoriaPage);
-    return AdmCategoriaPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_camera_camera__["a" /* CameraProvider */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_categoria_categoria__["a" /* CategoriaProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_produto_produto__["a" /* ProdutoProvider */],
+            __WEBPACK_IMPORTED_MODULE_6__providers_alert_alert__["a" /* AlertProvider */]])
+    ], AdmProdutoPage);
+    return AdmProdutoPage;
 }());
 
-//# sourceMappingURL=adm-categoria.js.map
-
-/***/ }),
-
-/***/ 324:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CategoriaModel; });
-var CategoriaModel = /** @class */ (function () {
-    function CategoriaModel() {
-    }
-    return CategoriaModel;
-}());
-
-//# sourceMappingURL=categoriaModel.js.map
+//# sourceMappingURL=adm-produto.js.map
 
 /***/ })
 

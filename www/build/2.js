@@ -1,14 +1,14 @@
 webpackJsonp([2],{
 
-/***/ 313:
+/***/ 308:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdmOperadorPageModule", function() { return AdmOperadorPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdmClientePageModule", function() { return AdmClientePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__adm_operador__ = __webpack_require__(327);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__adm_cliente__ = __webpack_require__(326);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,36 +18,53 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AdmOperadorPageModule = /** @class */ (function () {
-    function AdmOperadorPageModule() {
+var AdmClientePageModule = /** @class */ (function () {
+    function AdmClientePageModule() {
     }
-    AdmOperadorPageModule = __decorate([
+    AdmClientePageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__adm_operador__["a" /* AdmOperadorPage */],
+                __WEBPACK_IMPORTED_MODULE_2__adm_cliente__["a" /* AdmClientePage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__adm_operador__["a" /* AdmOperadorPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__adm_cliente__["a" /* AdmClientePage */]),
             ],
         })
-    ], AdmOperadorPageModule);
-    return AdmOperadorPageModule;
+    ], AdmClientePageModule);
+    return AdmClientePageModule;
 }());
 
-//# sourceMappingURL=adm-operador.module.js.map
+//# sourceMappingURL=adm-cliente.module.js.map
 
 /***/ }),
 
-/***/ 327:
+/***/ 320:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdmOperadorPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UsuarioModel; });
+var UsuarioModel = /** @class */ (function () {
+    function UsuarioModel() {
+        this.telefone = 0;
+        this.enderecosEntrega = new Array();
+    }
+    return UsuarioModel;
+}());
+
+//# sourceMappingURL=usuarioModel.js.map
+
+/***/ }),
+
+/***/ 326:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdmClientePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_models_operadorModel__ = __webpack_require__(328);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_alert_alert__ = __webpack_require__(58);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_operador_operador__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_models_usuarioModel__ = __webpack_require__(320);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_usuario_usuario__ = __webpack_require__(212);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_alert_alert__ = __webpack_require__(108);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -97,110 +114,66 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
-var AdmOperadorPage = /** @class */ (function () {
-    function AdmOperadorPage(navCtrl, navParams, usuarioSrv, alertSrv, operadorSrv) {
+var AdmClientePage = /** @class */ (function () {
+    function AdmClientePage(navCtrl, navParams, usuarioSrv, alertSrv) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.usuarioSrv = usuarioSrv;
         this.alertSrv = alertSrv;
-        this.operadorSrv = operadorSrv;
-        var _cli = this.navParams.get('_operador');
+        var _cli = this.navParams.get('_cliente');
         console.log("teste item", _cli);
         if (_cli && _cli._id) {
-            this.operador = _cli;
+            this.cliente = _cli;
         }
         else
-            this.operador = new __WEBPACK_IMPORTED_MODULE_2__app_models_operadorModel__["a" /* OperadorModel */]();
+            this.cliente = new __WEBPACK_IMPORTED_MODULE_2__app_models_usuarioModel__["a" /* UsuarioModel */]();
     }
-    AdmOperadorPage.prototype.excluir = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            return __generator(this, function (_a) {
-                try {
-                    this.alertSrv.confirm('Excluir?', "Deseja realmente excluir o operador " + this.operador.nome + "?", function () { return __awaiter(_this, void 0, void 0, function () {
-                        var excluirResult;
-                        return __generator(this, function (_a) {
-                            switch (_a.label) {
-                                case 0: return [4 /*yield*/, this.operadorSrv.delete(this.operador._id)];
-                                case 1:
-                                    excluirResult = _a.sent();
-                                    if (excluirResult.success) {
-                                        this.alertSrv.toast('Produto excluído com sucesso!', 'bottom');
-                                        this.navCtrl.push('OperadoresPage');
-                                    }
-                                    return [2 /*return*/];
-                            }
-                        });
-                    }); });
-                }
-                catch (error) {
-                    console.log('Erro ao excluir', error);
-                }
-                return [2 /*return*/];
-            });
-        });
-    };
-    AdmOperadorPage.prototype.salvar = function () {
+    AdmClientePage.prototype.salvar = function () {
         return __awaiter(this, void 0, void 0, function () {
             var sucesso, cadastroResult, updateResult;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         sucesso = false;
-                        if (!!this.operador._id) return [3 /*break*/, 2];
-                        return [4 /*yield*/, this.usuarioSrv.post(this.operador)];
+                        if (!!this.cliente._id) return [3 /*break*/, 2];
+                        return [4 /*yield*/, this.usuarioSrv.post(this.cliente)];
                     case 1:
                         cadastroResult = _a.sent();
                         sucesso = cadastroResult.success;
                         return [3 /*break*/, 4];
-                    case 2: return [4 /*yield*/, this.usuarioSrv.put(this.operador._id, this.operador)];
+                    case 2: return [4 /*yield*/, this.usuarioSrv.put(this.cliente._id, this.cliente)];
                     case 3:
                         updateResult = _a.sent();
-                        console.log("put operador", this.operador);
+                        console.log("put cliente", this.cliente);
                         sucesso = updateResult.success;
                         _a.label = 4;
                     case 4:
                         if (sucesso) {
                             this.alertSrv.toast('Produto salvo com sucesso!', 'bottom');
-                            this.navCtrl.push('OperadoresPage');
+                            // this.navCtrl.setRoot('ClientesPage');
+                            this.navCtrl.push('ClientesPage');
                         }
                         return [2 /*return*/];
                 }
             });
         });
     };
-    AdmOperadorPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad AdmOperadorPage');
+    AdmClientePage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad AdmClientePage');
     };
-    AdmOperadorPage = __decorate([
+    AdmClientePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-adm-operador',template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\Nova pasta\src\pages\adm-operador\adm-operador.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>Clientes</ion-title>\n    <ion-buttons right>\n      <button ion-button clear (click)="salvar()">\n        Salvar\n      </button>\n      <button *ngIf="operador._id" ion-button icon-only (click)="excluir()">\n        <ion-icon name="trash"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n<ion-content no-padding>\n  <ion-list no-lines>\n    <ion-item>\n      <ion-label floating>Nome do Operador </ion-label>\n      <ion-input [(ngModel)]="operador.nome" type="text"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Senha</ion-label>\n      <ion-input [(ngModel)]="operador.senha" type="password"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Senha Confirmação</ion-label>\n      <ion-input [(ngModel)]="operador.senhaConfirmacao" type="password"></ion-input>\n    </ion-item>\n    <!-- <ion-item>\n      <ion-label>Ativo</ion-label>\n      <ion-toggle [(ngModel)]="operador.ativo"></ion-toggle>\n    </ion-item> -->\n    <ion-item text-center>\n    </ion-item>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\Nova pasta\src\pages\adm-operador\adm-operador.html"*/,
+            selector: 'page-adm-cliente',template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\adm-cliente\adm-cliente.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>Clientes</ion-title>\n    <ion-buttons right>\n      <button ion-button clear (click)="salvar()">\n        Salvar\n      </button>\n      <button *ngIf="cliente._id" ion-button icon-only>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n<ion-content no-padding>\n  <ion-list no-lines>\n    <ion-item>\n      <ion-label floating>Nome do Cliente</ion-label>\n      <ion-input disabled [(ngModel)]="cliente.nome" type="text"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>CPF</ion-label>\n      <ion-input disabled type="number" [(ngModel)]="cliente.cpf"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Email</ion-label>\n      <ion-input disabled type="email" [(ngModel)]="cliente.email"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Ativo</ion-label>\n      <ion-toggle [(ngModel)]="cliente.ativo"></ion-toggle>\n    </ion-item>\n    <ion-item text-center>\n    </ion-item>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\adm-cliente\adm-cliente.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_operador_operador__["a" /* OperadorProvider */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_alert_alert__["a" /* AlertProvider */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_operador_operador__["a" /* OperadorProvider */]])
-    ], AdmOperadorPage);
-    return AdmOperadorPage;
+            __WEBPACK_IMPORTED_MODULE_3__providers_usuario_usuario__["a" /* UsuarioProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_alert_alert__["a" /* AlertProvider */]])
+    ], AdmClientePage);
+    return AdmClientePage;
 }());
 
-//# sourceMappingURL=adm-operador.js.map
-
-/***/ }),
-
-/***/ 328:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OperadorModel; });
-var OperadorModel = /** @class */ (function () {
-    function OperadorModel() {
-    }
-    return OperadorModel;
-}());
-
-//# sourceMappingURL=operadorModel.js.map
+//# sourceMappingURL=adm-cliente.js.map
 
 /***/ })
 

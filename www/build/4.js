@@ -1,14 +1,14 @@
 webpackJsonp([4],{
 
-/***/ 319:
+/***/ 309:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OperadoresPageModule", function() { return OperadoresPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdmOperadorPageModule", function() { return AdmOperadorPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__operadores__ = __webpack_require__(333);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__adm_operador__ = __webpack_require__(327);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,35 +18,36 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var OperadoresPageModule = /** @class */ (function () {
-    function OperadoresPageModule() {
+var AdmOperadorPageModule = /** @class */ (function () {
+    function AdmOperadorPageModule() {
     }
-    OperadoresPageModule = __decorate([
+    AdmOperadorPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__operadores__["a" /* OperadoresPage */],
+                __WEBPACK_IMPORTED_MODULE_2__adm_operador__["a" /* AdmOperadorPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__operadores__["a" /* OperadoresPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__adm_operador__["a" /* AdmOperadorPage */]),
             ],
         })
-    ], OperadoresPageModule);
-    return OperadoresPageModule;
+    ], AdmOperadorPageModule);
+    return AdmOperadorPageModule;
 }());
 
-//# sourceMappingURL=operadores.module.js.map
+//# sourceMappingURL=adm-operador.module.js.map
 
 /***/ }),
 
-/***/ 333:
+/***/ 327:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OperadoresPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdmOperadorPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_helpers_configHelper__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_http_http__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_models_operadorModel__ = __webpack_require__(328);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_alert_alert__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_operador_operador__ = __webpack_require__(58);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -95,57 +96,111 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
-var OperadoresPage = /** @class */ (function () {
-    // url: string = `${ConfigHelper.Url}usuario`;
-    function OperadoresPage(navCtrl, navParams, http) {
+
+var AdmOperadorPage = /** @class */ (function () {
+    function AdmOperadorPage(navCtrl, navParams, usuarioSrv, alertSrv, operadorSrv) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.http = http;
-        this.lista = new Array();
+        this.usuarioSrv = usuarioSrv;
+        this.alertSrv = alertSrv;
+        this.operadorSrv = operadorSrv;
+        var _cli = this.navParams.get('_operador');
+        console.log("teste item", _cli);
+        if (_cli && _cli._id) {
+            this.operador = _cli;
+        }
+        else
+            this.operador = new __WEBPACK_IMPORTED_MODULE_2__app_models_operadorModel__["a" /* OperadorModel */]();
     }
-    OperadoresPage.prototype.GetAllOperadores = function () {
+    AdmOperadorPage.prototype.excluir = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var operadoresResult, error_1;
+            var _this = this;
+            return __generator(this, function (_a) {
+                try {
+                    this.alertSrv.confirm('Excluir?', "Deseja realmente excluir o operador " + this.operador.nome + "?", function () { return __awaiter(_this, void 0, void 0, function () {
+                        var excluirResult;
+                        return __generator(this, function (_a) {
+                            switch (_a.label) {
+                                case 0: return [4 /*yield*/, this.operadorSrv.delete(this.operador._id)];
+                                case 1:
+                                    excluirResult = _a.sent();
+                                    if (excluirResult.success) {
+                                        this.alertSrv.toast('Produto excluído com sucesso!', 'bottom');
+                                        this.navCtrl.push('OperadoresPage');
+                                    }
+                                    return [2 /*return*/];
+                            }
+                        });
+                    }); });
+                }
+                catch (error) {
+                    console.log('Erro ao excluir', error);
+                }
+                return [2 /*return*/];
+            });
+        });
+    };
+    AdmOperadorPage.prototype.salvar = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var sucesso, cadastroResult, updateResult;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.http.get(__WEBPACK_IMPORTED_MODULE_2__app_helpers_configHelper__["a" /* ConfigHelper */].Url + "operador")];
+                        sucesso = false;
+                        if (!!this.operador._id) return [3 /*break*/, 2];
+                        return [4 /*yield*/, this.usuarioSrv.post(this.operador)];
                     case 1:
-                        operadoresResult = _a.sent();
-                        if (operadoresResult.success) {
-                            this.lista = operadoresResult.data;
-                            console.log(this.lista);
-                            return [2 /*return*/, operadoresResult];
+                        cadastroResult = _a.sent();
+                        sucesso = cadastroResult.success;
+                        return [3 /*break*/, 4];
+                    case 2: return [4 /*yield*/, this.usuarioSrv.put(this.operador._id, this.operador)];
+                    case 3:
+                        updateResult = _a.sent();
+                        console.log("put operador", this.operador);
+                        sucesso = updateResult.success;
+                        _a.label = 4;
+                    case 4:
+                        if (sucesso) {
+                            this.alertSrv.toast('Produto salvo com sucesso!', 'bottom');
+                            this.navCtrl.push('OperadoresPage');
                         }
-                        return [3 /*break*/, 3];
-                    case 2:
-                        error_1 = _a.sent();
-                        console.log('Problema ao carregar os pedidos, motivo: ', error_1);
-                        return [3 /*break*/, 3];
-                    case 3: return [2 /*return*/];
+                        return [2 /*return*/];
                 }
             });
         });
     };
-    OperadoresPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad OperadoresPage');
-        this.GetAllOperadores();
+    AdmOperadorPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad AdmOperadorPage');
     };
-    OperadoresPage.prototype.addOrEdit = function (model) {
-        this.navCtrl.push('AdmOperadorPage', { _operador: model });
-        console.log("model", model);
-    };
-    OperadoresPage = __decorate([
+    AdmOperadorPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-operadores',template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\Nova pasta\src\pages\operadores\operadores.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>Clientes</ion-title>\n    <ion-buttons right>\n      <button ion-button icon-only (click)="addOrEdit({})">\n        <ion-icon name="add"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n<ion-content no-padding>\n  <ion-list lines *ngIf="!isLoading">\n    <ion-item text-wrap *ngIf="lista.length == 0">\n      Não há nenhum cliente cadastrado.\n    </ion-item>\n    <ion-item *ngFor="let item of lista" text-wrap (click)="addOrEdit(item)">\n      {{ item.nome }}\n      <ion-note item-end>\n        ID: {{ item._id}}\n      </ion-note>\n    </ion-item>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\Nova pasta\src\pages\operadores\operadores.html"*/,
+            selector: 'page-adm-operador',template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\adm-operador\adm-operador.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>Clientes</ion-title>\n    <ion-buttons right>\n      <button ion-button clear (click)="salvar()">\n        Salvar\n      </button>\n      <button *ngIf="operador._id" ion-button icon-only (click)="excluir()">\n        <ion-icon name="trash"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n<ion-content no-padding>\n  <ion-list no-lines>\n    <ion-item>\n      <ion-label floating>Nome do Operador </ion-label>\n      <ion-input [(ngModel)]="operador.nome" type="text"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Senha</ion-label>\n      <ion-input [(ngModel)]="operador.senha" type="password"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Senha Confirmação</ion-label>\n      <ion-input [(ngModel)]="operador.senhaConfirmacao" type="password"></ion-input>\n    </ion-item>\n    <!-- <ion-item>\n      <ion-label>Ativo</ion-label>\n      <ion-toggle [(ngModel)]="operador.ativo"></ion-toggle>\n    </ion-item> -->\n    <ion-item text-center>\n    </ion-item>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\adm-operador\adm-operador.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_http_http__["a" /* HttpProvider */]])
-    ], OperadoresPage);
-    return OperadoresPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_operador_operador__["a" /* OperadorProvider */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_alert_alert__["a" /* AlertProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_operador_operador__["a" /* OperadorProvider */]])
+    ], AdmOperadorPage);
+    return AdmOperadorPage;
 }());
 
-//# sourceMappingURL=operadores.js.map
+//# sourceMappingURL=adm-operador.js.map
+
+/***/ }),
+
+/***/ 328:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OperadorModel; });
+var OperadorModel = /** @class */ (function () {
+    function OperadorModel() {
+    }
+    return OperadorModel;
+}());
+
+//# sourceMappingURL=operadorModel.js.map
 
 /***/ })
 

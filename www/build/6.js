@@ -1,14 +1,14 @@
 webpackJsonp([6],{
 
-/***/ 316:
+/***/ 306:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ClientesPageModule", function() { return ClientesPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdmCategoriaPageModule", function() { return AdmCategoriaPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__clientes__ = __webpack_require__(331);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__adm_categoria__ = __webpack_require__(323);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,35 +18,37 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ClientesPageModule = /** @class */ (function () {
-    function ClientesPageModule() {
+var AdmCategoriaPageModule = /** @class */ (function () {
+    function AdmCategoriaPageModule() {
     }
-    ClientesPageModule = __decorate([
+    AdmCategoriaPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__clientes__["a" /* ClientesPage */],
+                __WEBPACK_IMPORTED_MODULE_2__adm_categoria__["a" /* AdmCategoriaPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__clientes__["a" /* ClientesPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__adm_categoria__["a" /* AdmCategoriaPage */]),
             ],
         })
-    ], ClientesPageModule);
-    return ClientesPageModule;
+    ], AdmCategoriaPageModule);
+    return AdmCategoriaPageModule;
 }());
 
-//# sourceMappingURL=clientes.module.js.map
+//# sourceMappingURL=adm-categoria.module.js.map
 
 /***/ }),
 
-/***/ 331:
+/***/ 323:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ClientesPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_helpers_configHelper__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_http_http__ = __webpack_require__(23);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdmCategoriaPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_alert_alert__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_categoria_categoria__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_models_categoriaModel__ = __webpack_require__(324);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_camera_camera__ = __webpack_require__(211);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -95,57 +97,144 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
-var ClientesPage = /** @class */ (function () {
-    // url: string = `${ConfigHelper.Url}usuario`;
-    function ClientesPage(navCtrl, navParams, http) {
+
+
+var AdmCategoriaPage = /** @class */ (function () {
+    function AdmCategoriaPage(navCtrl, navParams, actionSheetCtrl, platform, cameraSrv, categoriaSrv, alertSrv) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.http = http;
-        this.lista = new Array();
+        this.actionSheetCtrl = actionSheetCtrl;
+        this.platform = platform;
+        this.cameraSrv = cameraSrv;
+        this.categoriaSrv = categoriaSrv;
+        this.alertSrv = alertSrv;
+        var _categ = this.navParams.get('_categoria');
+        if (_categ)
+            this.categoria = _categ;
+        else
+            this.categoria = new __WEBPACK_IMPORTED_MODULE_4__app_models_categoriaModel__["a" /* CategoriaModel */]();
     }
-    ClientesPage.prototype.GetAllClientes = function () {
+    AdmCategoriaPage.prototype.excluir = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var usuariosResult, error_1;
+            var _this = this;
+            return __generator(this, function (_a) {
+                try {
+                    this.alertSrv.confirm('Excluir?', "Deseja realmente excluir a categoria " + this.categoria.titulo + "?", function () { return __awaiter(_this, void 0, void 0, function () {
+                        var excluirResult;
+                        return __generator(this, function (_a) {
+                            switch (_a.label) {
+                                case 0: return [4 /*yield*/, this.categoriaSrv.delete(this.categoria._id)];
+                                case 1:
+                                    excluirResult = _a.sent();
+                                    if (excluirResult.success) {
+                                        this.alertSrv.toast('Categoria excluída com sucesso!', 'bottom');
+                                        this.navCtrl.push('AdmCategoriasPage');
+                                    }
+                                    return [2 /*return*/];
+                            }
+                        });
+                    }); });
+                }
+                catch (error) {
+                    console.log('Erro ao excluir', error);
+                }
+                return [2 /*return*/];
+            });
+        });
+    };
+    AdmCategoriaPage.prototype.salvar = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var sucesso, cadastroResult, updateResult;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 2, , 3]);
-                        return [4 /*yield*/, this.http.get(__WEBPACK_IMPORTED_MODULE_2__app_helpers_configHelper__["a" /* ConfigHelper */].Url + "usuario")];
+                        sucesso = false;
+                        if (!!this.categoria._id) return [3 /*break*/, 2];
+                        return [4 /*yield*/, this.categoriaSrv.post(this.categoria)];
                     case 1:
-                        usuariosResult = _a.sent();
-                        if (usuariosResult.success) {
-                            this.lista = usuariosResult.data;
-                            console.log(this.lista);
-                            return [2 /*return*/, usuariosResult];
+                        cadastroResult = _a.sent();
+                        sucesso = cadastroResult.success;
+                        return [3 /*break*/, 4];
+                    case 2: return [4 /*yield*/, this.categoriaSrv.put(this.categoria._id, this.categoria)];
+                    case 3:
+                        updateResult = _a.sent();
+                        sucesso = updateResult.success;
+                        _a.label = 4;
+                    case 4:
+                        if (sucesso) {
+                            this.alertSrv.toast('Categoria salva com sucesso!', 'bottom');
+                            this.navCtrl.push('AdmCategoriasPage');
                         }
-                        return [3 /*break*/, 3];
-                    case 2:
-                        error_1 = _a.sent();
-                        console.log('Problema ao carregar os pedidos, motivo: ', error_1);
-                        return [3 /*break*/, 3];
-                    case 3: return [2 /*return*/];
+                        return [2 /*return*/];
                 }
             });
         });
     };
-    ClientesPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad ClientesPage');
-        this.GetAllClientes();
+    AdmCategoriaPage.prototype.getPictureOption = function () {
+        var _this = this;
+        var actionSheet = this.actionSheetCtrl.create({
+            title: 'Adicionar foto',
+            buttons: [
+                {
+                    text: 'Tirar Foto', handler: function () {
+                        _this.cameraSrv.takePicture(function (photo) {
+                            _this.categoria.foto = photo;
+                        });
+                    },
+                    icon: this.platform.is('ios') ? null : 'camera'
+                },
+                {
+                    text: 'Pegar galeria',
+                    handler: (function () {
+                        _this.cameraSrv.getPictureFromGalery(function (photo) {
+                            _this.categoria.foto = photo;
+                        });
+                    }),
+                    icon: this.platform.is('ios') ? null : 'images'
+                },
+                {
+                    text: 'Cancelar',
+                    role: 'destructive',
+                    icon: this.platform.is('ios') ? null : 'close',
+                    handler: function () {
+                        //Cancela a ação
+                    }
+                }
+            ]
+        });
+        actionSheet.present();
     };
-    ClientesPage.prototype.addOrEdit = function (model) {
-        this.navCtrl.push('AdmClientePage', { _cliente: model });
-        console.log("model", model);
-    };
-    ClientesPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-clientes',template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\Nova pasta\src\pages\clientes\clientes.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>Clientes</ion-title>\n    <ion-buttons right>\n      <button ion-button icon-only (click)="addOrEdit({})">\n        <ion-icon name="add"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n<ion-content no-padding>\n  <ion-list lines *ngIf="!isLoading">\n    <ion-item text-wrap *ngIf="lista.length == 0">\n      Não há nenhum cliente cadastrado.\n    </ion-item>\n    <ion-item *ngFor="let item of lista" text-wrap (click)="addOrEdit(item)">\n      {{ item.nome }}\n      <ion-note item-end>\n        CPF : {{ item.cpf }}\n      </ion-note>\n    </ion-item>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\Nova pasta\src\pages\clientes\clientes.html"*/,
+    AdmCategoriaPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
+            selector: 'page-adm-categoria',template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\adm-categoria\adm-categoria.html"*/'<ion-header>\n    <ion-navbar color="primary">\n        <ion-title>Categoria</ion-title>\n        <ion-buttons right>\n            <button ion-button clear (click)="salvar()">\n                Salvar\n            </button>\n            <button *ngIf="categoria._id" ion-button icon-only (click)="excluir()">\n                <ion-icon name="trash"></ion-icon>\n            </button>\n        </ion-buttons>\n    </ion-navbar>\n</ion-header>\n<ion-content no-padding>\n    <ion-list no-lines>\n        <ion-item>\n            <ion-label floating>Título</ion-label>\n            <ion-input [(ngModel)]="categoria.titulo" type="text"></ion-input>\n        </ion-item>\n        <ion-item>\n            <ion-label floating>Descrição</ion-label>\n            <ion-textarea [(ngModel)]="categoria.descricao" rows="4"></ion-textarea>\n        </ion-item>\n        <ion-item text-center>\n            <button ion-button clear (click)="getPictureOption()">\n                <ion-icon name="camera" item-left></ion-icon>\n                Selecionar Foto\n            </button>\n        </ion-item>\n        <ion-item *ngIf="categoria.foto">\n            <img [src]="categoria.foto">\n        </ion-item>\n    </ion-list>\n</ion-content>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\adm-categoria\adm-categoria.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_http_http__["a" /* HttpProvider */]])
-    ], ClientesPage);
-    return ClientesPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["a" /* ActionSheetController */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["l" /* Platform */],
+            __WEBPACK_IMPORTED_MODULE_5__providers_camera_camera__["a" /* CameraProvider */],
+            __WEBPACK_IMPORTED_MODULE_1__providers_categoria_categoria__["a" /* CategoriaProvider */],
+            __WEBPACK_IMPORTED_MODULE_0__providers_alert_alert__["a" /* AlertProvider */]])
+    ], AdmCategoriaPage);
+    return AdmCategoriaPage;
 }());
 
-//# sourceMappingURL=clientes.js.map
+//# sourceMappingURL=adm-categoria.js.map
+
+/***/ }),
+
+/***/ 324:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CategoriaModel; });
+var CategoriaModel = /** @class */ (function () {
+    function CategoriaModel() {
+    }
+    return CategoriaModel;
+}());
+
+//# sourceMappingURL=categoriaModel.js.map
 
 /***/ })
 

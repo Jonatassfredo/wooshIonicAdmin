@@ -1,31 +1,14 @@
 webpackJsonp([8],{
 
-/***/ 214:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UsuarioModel; });
-var UsuarioModel = /** @class */ (function () {
-    function UsuarioModel() {
-        this.telefone = 0;
-        this.enderecosEntrega = new Array();
-    }
-    return UsuarioModel;
-}());
-
-//# sourceMappingURL=usuarioModel.js.map
-
-/***/ }),
-
-/***/ 312:
+/***/ 313:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdmClientePageModule", function() { return AdmClientePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__adm_cliente__ = __webpack_require__(326);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(332);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -35,36 +18,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AdmClientePageModule = /** @class */ (function () {
-    function AdmClientePageModule() {
+var LoginPageModule = /** @class */ (function () {
+    function LoginPageModule() {
     }
-    AdmClientePageModule = __decorate([
+    LoginPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__adm_cliente__["a" /* AdmClientePage */],
+                __WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__adm_cliente__["a" /* AdmClientePage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */]),
             ],
         })
-    ], AdmClientePageModule);
-    return AdmClientePageModule;
+    ], LoginPageModule);
+    return LoginPageModule;
 }());
 
-//# sourceMappingURL=adm-cliente.module.js.map
+//# sourceMappingURL=login.module.js.map
 
 /***/ }),
 
-/***/ 326:
+/***/ 332:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdmClientePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_models_usuarioModel__ = __webpack_require__(214);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_usuario_usuario__ = __webpack_require__(109);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_alert_alert__ = __webpack_require__(58);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_operador_operador__ = __webpack_require__(58);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -112,68 +93,46 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
-
-
-var AdmClientePage = /** @class */ (function () {
-    function AdmClientePage(navCtrl, navParams, usuarioSrv, alertSrv) {
+var LoginPage = /** @class */ (function () {
+    function LoginPage(navCtrl, navParams, operadorSrv) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.usuarioSrv = usuarioSrv;
-        this.alertSrv = alertSrv;
-        var _cli = this.navParams.get('_cliente');
-        console.log("teste item", _cli);
-        if (_cli && _cli._id) {
-            this.cliente = _cli;
-        }
-        else
-            this.cliente = new __WEBPACK_IMPORTED_MODULE_2__app_models_usuarioModel__["a" /* UsuarioModel */]();
+        this.operadorSrv = operadorSrv;
+        this.form = {};
     }
-    AdmClientePage.prototype.salvar = function () {
+    LoginPage.prototype.login = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var sucesso, cadastroResult, updateResult;
+            var result;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        sucesso = false;
-                        if (!!this.cliente._id) return [3 /*break*/, 2];
-                        return [4 /*yield*/, this.usuarioSrv.post(this.cliente)];
+                    case 0: return [4 /*yield*/, this.operadorSrv.autenticate(this.form.nome, this.form.senha)];
                     case 1:
-                        cadastroResult = _a.sent();
-                        sucesso = cadastroResult.success;
-                        return [3 /*break*/, 4];
-                    case 2: return [4 /*yield*/, this.usuarioSrv.put(this.cliente._id, this.cliente)];
-                    case 3:
-                        updateResult = _a.sent();
-                        console.log("put cliente", this.cliente);
-                        sucesso = updateResult.success;
-                        _a.label = 4;
-                    case 4:
-                        if (sucesso) {
-                            this.alertSrv.toast('Produto salvo com sucesso!', 'bottom');
-                            // this.navCtrl.setRoot('ClientesPage');
-                            this.navCtrl.push('ClientesPage');
+                        result = _a.sent();
+                        if (result.success) {
+                            __WEBPACK_IMPORTED_MODULE_2__providers_operador_operador__["a" /* OperadorProvider */].RegisterLogin(result.data);
+                            this.navCtrl.push("PedidosPage");
                         }
+                        console.log(result);
                         return [2 /*return*/];
                 }
             });
         });
     };
-    AdmClientePage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad AdmClientePage');
+    LoginPage.prototype.cadastrar = function () {
+        this.navCtrl.push("CadastroPage");
     };
-    AdmClientePage = __decorate([
+    LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-adm-cliente',template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\Nova pasta\src\pages\adm-cliente\adm-cliente.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>Clientes</ion-title>\n    <ion-buttons right>\n      <button ion-button clear (click)="salvar()">\n        Salvar\n      </button>\n      <button *ngIf="cliente._id" ion-button icon-only>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n<ion-content no-padding>\n  <ion-list no-lines>\n    <ion-item>\n      <ion-label floating>Nome do Cliente</ion-label>\n      <ion-input disabled [(ngModel)]="cliente.nome" type="text"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>CPF</ion-label>\n      <ion-input disabled type="number" [(ngModel)]="cliente.cpf"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label floating>Email</ion-label>\n      <ion-input disabled type="email" [(ngModel)]="cliente.email"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Ativo</ion-label>\n      <ion-toggle [(ngModel)]="cliente.ativo"></ion-toggle>\n    </ion-item>\n    <ion-item text-center>\n    </ion-item>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\Nova pasta\src\pages\adm-cliente\adm-cliente.html"*/,
+            selector: "page-login",template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\login\login.html"*/'<ion-content padding class="backImage">\n  <div>\n    <img src="assets/imagens/logo.png" class="logo">\n  </div>\n  <p class="cadastroQuest">Woosh Manager</p>\n  <ion-list no-lines class="list-transparent">\n    <ion-item>\n      <ion-input [(ngModel)]="form.nome" type="text" placeholder="Operador"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-input [(ngModel)]="form.senha" type="password" placeholder="Senha"></ion-input>\n    </ion-item>\n  </ion-list>\n  <div>\n    <ion-grid>\n      <ion-row>\n        <button ion-button color="secondary" block round (click)="login()" class=\'botao\' style="margin-top: 20%">\n          Efetuar Login\n        </button>\n      </ion-row>\n    </ion-grid>\n  </div>\n</ion-content>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\login\login.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_usuario_usuario__["a" /* UsuarioProvider */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_alert_alert__["a" /* AlertProvider */]])
-    ], AdmClientePage);
-    return AdmClientePage;
+            __WEBPACK_IMPORTED_MODULE_2__providers_operador_operador__["a" /* OperadorProvider */]])
+    ], LoginPage);
+    return LoginPage;
 }());
 
-//# sourceMappingURL=adm-cliente.js.map
+//# sourceMappingURL=login.js.map
 
 /***/ })
 
