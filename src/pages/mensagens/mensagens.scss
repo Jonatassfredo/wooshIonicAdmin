@@ -2,6 +2,16 @@ page-mensagens {
     .alinhaMsg {
         margin-left: 40px;
     }
+    .alinhaMsgOp {
+        margin-right: 40px;
+    }
+    .opMessage {
+        background-color: darkred;
+        //border-radius: 25px;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        border-bottom-right-radius: 25px
+    }
     .myMessage {
         background-color: darkred;
         //border-radius: 25px;
@@ -9,6 +19,7 @@ page-mensagens {
         border-top-right-radius: 25px;
         border-bottom-left-radius: 25px
     }
+
     .msg-name {
         color: #ffffff7e
     }

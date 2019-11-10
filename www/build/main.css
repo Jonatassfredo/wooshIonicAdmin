@@ -28176,6 +28176,17 @@ page-mensagens .alinhaMsg {
   margin-left: 40px;
 }
 
+page-mensagens .alinhaMsgOp {
+  margin-right: 40px;
+}
+
+page-mensagens .opMessage {
+  background-color: darkred;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
 page-mensagens .myMessage {
   background-color: darkred;
   border-top-left-radius: 25px;

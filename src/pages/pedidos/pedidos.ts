@@ -27,6 +27,12 @@ export class PedidosPage {
     private alertSrv: AlertProvider) {
 
   }
+
+  mensagens(model?: ListaPedidosModel): void {
+    this.navCtrl.push('MensagensPage', { _pedido: model });
+    console.log("model", model);
+  }
+
   ionViewDidLoad() {
     this.GetAllPedidos();
     console.log(this.produtos);

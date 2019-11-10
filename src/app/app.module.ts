@@ -32,14 +32,14 @@ import { CameraProvider } from "../providers/camera/camera";
 import { ProdutoProvider } from "../providers/produto/produto";
 import { CarrinhoProvider } from "../providers/carrinho/carrinho";
 import { EnderecoEntregaProvider } from "../providers/endereco/endereco";
-import { MensagensPage } from "./../pages/mensagens/mensagens";
+// import { MensagensPage } from "./../pages/mensagens/mensagens";
 import { OperadorProvider } from "../providers/operador/operador";
 
 @NgModule({
-  declarations: [MyApp, MensagensPage],
+  declarations: [MyApp,],
   imports: [BrowserModule, HttpClientModule, IonicModule.forRoot(MyApp)],
   bootstrap: [IonicApp],
-  entryComponents: [MyApp, MensagensPage],
+  entryComponents: [MyApp,],
   providers: [
     StatusBar,
     SplashScreen,
@@ -57,7 +57,7 @@ import { OperadorProvider } from "../providers/operador/operador";
     ProdutoProvider,
     CarrinhoProvider,
     EnderecoEntregaProvider,
-    MensagensPage,
+    // MensagensPage,
     OperadorProvider
   ]
 })
