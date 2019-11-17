@@ -125,11 +125,11 @@ var map = {
 		0
 	],
 	"../pages/operadores/operadores.module": [
-		317,
+		316,
 		7
 	],
 	"../pages/pedidos/pedidos.module": [
-		316,
+		317,
 		5
 	]
 };
@@ -837,8 +837,8 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/mensagens/mensagens.module#MensagensPageModule', name: 'MensagensPage', segment: 'mensagens', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/minha-conta/minha-conta.module#MinhaContaPageModule', name: 'MinhaContaPage', segment: 'minha-conta', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/pedidos/pedidos.module#PedidosPageModule', name: 'PedidosPage', segment: 'pedidos', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/operadores/operadores.module#OperadoresPageModule', name: 'OperadoresPage', segment: 'operadores', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/operadores/operadores.module#OperadoresPageModule', name: 'OperadoresPage', segment: 'operadores', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/pedidos/pedidos.module#PedidosPageModule', name: 'PedidosPage', segment: 'pedidos', priority: 'low', defaultHistory: [] }
                     ]
                 })],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicApp */]],

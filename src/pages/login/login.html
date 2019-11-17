@@ -1,23 +1,25 @@
-<ion-content padding class="backImage">
-  <div>
-    <img src="assets/imagens/logo.png" class="logo">
-  </div>
-  <p class="cadastroQuest">Woosh Manager</p>
-  <ion-list no-lines class="list-transparent">
-    <ion-item>
-      <ion-input [(ngModel)]="form.nome" type="text" placeholder="Operador"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input [(ngModel)]="form.senha" type="password" placeholder="Senha"></ion-input>
-    </ion-item>
-  </ion-list>
-  <div>
-    <ion-grid>
-      <ion-row>
-        <button ion-button color="secondary" block round (click)="login()" class='botao' style="margin-top: 20%">
-          Efetuar Login
-        </button>
-      </ion-row>
-    </ion-grid>
-  </div>
-</ion-content>
+<ion-card class="card">
+  <ion-content padding class="backImage">
+    <div>
+      <img src="assets/imagens/logo.png" class="logo">
+    </div>
+    <p class="cadastroQuest">Woosh Manager</p>
+    <ion-list no-lines class="list-transparent">
+      <ion-item>
+        <ion-input [(ngModel)]="form.nome" type="text" placeholder="Operador"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input [(ngModel)]="form.senha" type="password" placeholder="Senha"></ion-input>
+      </ion-item>
+    </ion-list>
+    <div>
+      <ion-grid>
+        <ion-row>
+          <button ion-button color="secondary" block round (click)="login()" class='botao' style="margin-top: 20%">
+            Efetuar Login
+          </button>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </ion-content>
+</ion-card>

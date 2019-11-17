@@ -110,7 +110,7 @@ var LoginPage = /** @class */ (function () {
                         result = _a.sent();
                         if (result.success) {
                             __WEBPACK_IMPORTED_MODULE_2__providers_operador_operador__["a" /* OperadorProvider */].RegisterLogin(result.data);
-                            this.navCtrl.push("PedidosPage");
+                            this.navCtrl.setRoot("PedidosPage");
                         }
                         console.log(result);
                         return [2 /*return*/];
@@ -123,7 +123,7 @@ var LoginPage = /** @class */ (function () {
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: "page-login",template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\login\login.html"*/'<ion-content padding class="backImage">\n  <div>\n    <img src="assets/imagens/logo.png" class="logo">\n  </div>\n  <p class="cadastroQuest">Woosh Manager</p>\n  <ion-list no-lines class="list-transparent">\n    <ion-item>\n      <ion-input [(ngModel)]="form.nome" type="text" placeholder="Operador"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-input [(ngModel)]="form.senha" type="password" placeholder="Senha"></ion-input>\n    </ion-item>\n  </ion-list>\n  <div>\n    <ion-grid>\n      <ion-row>\n        <button ion-button color="secondary" block round (click)="login()" class=\'botao\' style="margin-top: 20%">\n          Efetuar Login\n        </button>\n      </ion-row>\n    </ion-grid>\n  </div>\n</ion-content>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\login\login.html"*/
+            selector: "page-login",template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\login\login.html"*/'<ion-card class="card">\n  <ion-content padding class="backImage">\n    <div>\n      <img src="assets/imagens/logo.png" class="logo">\n    </div>\n    <p class="cadastroQuest">Woosh Manager</p>\n    <ion-list no-lines class="list-transparent">\n      <ion-item>\n        <ion-input [(ngModel)]="form.nome" type="text" placeholder="Operador"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-input [(ngModel)]="form.senha" type="password" placeholder="Senha"></ion-input>\n      </ion-item>\n    </ion-list>\n    <div>\n      <ion-grid>\n        <ion-row>\n          <button ion-button color="secondary" block round (click)="login()" class=\'botao\' style="margin-top: 20%">\n            Efetuar Login\n          </button>\n        </ion-row>\n      </ion-grid>\n    </div>\n  </ion-content>\n</ion-card>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\login\login.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],

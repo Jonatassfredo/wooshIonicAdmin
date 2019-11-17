@@ -28172,6 +28172,15 @@ page-login .cadastroQuest {
   font-size: 40px;
 }
 
+page-login .card {
+  height: 650px;
+  width: 750px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+}
+
 page-mensagens .alinhaMsg {
   margin-left: 40px;
 }

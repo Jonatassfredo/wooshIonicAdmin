@@ -33,8 +33,19 @@ export class PedidosPage {
     console.log("model", model);
   }
 
-  aceitar() { };
-  recusar() { };
+  aceitar(model?: ListaPedidosModel): Promise<HttpResultModel> {
+    model.status = "Pedido Aceito";
+    let pedidosResult = this.http.put(`${ConfigHelper.Url}pedido/${model._id}`, { _pedido: model.status = "Pedido Aceito" })
+    console.log(pedidosResult);
+    console.log(model);
+    return pedidosResult;
+  };
+
+  async recusar(model?: ListaPedidosModel): Promise<HttpResultModel> {
+    let pedidosResult = await this.http.put(`${ConfigHelper.Url}pedido/${model._id}`, { _pedido: model.status = 'Pedido Recusado' })
+    console.log(pedidosResult);
+    return pedidosResult;
+  };
 
   ionViewDidLoad() {
     this.GetAllPedidos();

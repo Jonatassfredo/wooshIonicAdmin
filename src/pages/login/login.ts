@@ -23,7 +23,7 @@ export class LoginPage {
     );
     if (result.success) {
       OperadorProvider.RegisterLogin(result.data);
-      this.navCtrl.push("PedidosPage");
+      this.navCtrl.setRoot("PedidosPage");
     }
     console.log(result);
   }

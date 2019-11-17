@@ -1,9 +1,9 @@
 <ion-header>
   <ion-navbar color="primary">
     <button ion-button icon-only clear color="light" (click)="adminOptions()">
-      <ion-icon style="border-bottom:20px ;" name="settings"></ion-icon>
+      <ion-icon style="margin-bottom:10px ;" name="settings"></ion-icon>
     </button>
-    <ion-title style="width: 85%; display: inline-flex; margin-top: 15px;" align="end">Pedidos</ion-title>
+    <ion-title style="width: 85%; display: inline-flex; margin-top: 10px;">Pedidos</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content no-padding>
@@ -30,7 +30,7 @@
         </tr>
       </table>
       <!-- <p>Usuário ID: <strong>{{pedido.usuarioId}}</strong></p> -->
-      <p>Aceito: <strong> {{ pedido.aceito }}</strong></p>
+      <!-- <strong>Aceito: <strong> {{ pedido.aceito }}</strong></p> -->
       <p>Status: <strong>{{pedido.status}}</strong></p>
       <!-- <strong>Quantidade Total itens: <strong>{{ contaItem(produtos) }}</strong></p> -->
       <p>Valor total: <strong> {{ pedido.valorTotal }}</strong></p>
@@ -50,8 +50,9 @@
       </div>
       <div>
         <ion-row class="botoes">
-          <button ion-button>Aceitar</button>
-          <button ion-button>Recusar</button>
+          <button ion-button (click)="aceitar(pedido)">Aceitar</button>
+          <button ion-button (click)="recusar(pedido)">Recusar</button>
+          <button ion-button (click)="mensagens(pedido)">Chat</button>
           <button ion-button (click)="mensagens(pedido)">Chat</button>
         </ion-row>
       </div>
