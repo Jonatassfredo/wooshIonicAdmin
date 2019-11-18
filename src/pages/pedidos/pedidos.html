@@ -35,7 +35,7 @@
       <!-- <strong>Quantidade Total itens: <strong>{{ contaItem(produtos) }}</strong></p> -->
       <p>Valor total: <strong> {{ pedido.valorTotal }}</strong></p>
       <p>Forma de Pagamento: <strong>{{pedido.formaPagamento}}</strong></p>
-      <p>Tempo para Entrega: <strong> {{ pedido.tempoEntrega }}</strong></p>
+      <p>Status Entrega: <strong> {{ pedido.tempoEntrega }}</strong></p>
       <p>Cliente: <strong> {{ pedido.usuarioNome }}</strong></p>
       <div class="enderecoEntrega">
         <p><strong>Endereço de Entrega</strong></p>
@@ -52,8 +52,18 @@
         <ion-row class="botoes">
           <button ion-button (click)="aceitar(pedido)">Aceitar</button>
           <button ion-button (click)="recusar(pedido)">Recusar</button>
+          <button ion-button (click)="saiuEntrega(pedido)">Saiu p/ Entrega</button>
+          <button ion-button> Tempo Entrega
+            <ion-select (blur)="salvarPedido(pedido)" [(ngModel)]="pedido.tempoEntrega" interface="popover">
+              <ion-label>Tempo</ion-label>
+              <ion-option value="15">15 min</ion-option>
+              <ion-option value="30">30 min</ion-option>
+              <ion-option value="45">45 min</ion-option>
+              <ion-option value="60">60 min</ion-option>
+            </ion-select>
+          </button>
           <button ion-button (click)="mensagens(pedido)">Chat</button>
-          <button ion-button (click)="mensagens(pedido)">Chat</button>
+          <button ion-button>Imprimir</button>
         </ion-row>
       </div>
     </ion-card-content>

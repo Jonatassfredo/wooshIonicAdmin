@@ -33,17 +33,30 @@ export class PedidosPage {
     console.log("model", model);
   }
 
-  aceitar(model?: ListaPedidosModel): Promise<HttpResultModel> {
-    model.status = "Pedido Aceito";
-    let pedidosResult = this.http.put(`${ConfigHelper.Url}pedido/${model._id}`, { _pedido: model.status = "Pedido Aceito" })
+
+  salvarPedido(model?: ListaPedidosModel): Promise<HttpResultModel> {
+    let pedidosResult = this.http.put(`${ConfigHelper.Url}pedido/${model._id}`, model)
     console.log(pedidosResult);
     console.log(model);
+    console.log("teste");
     return pedidosResult;
   };
 
-  async recusar(model?: ListaPedidosModel): Promise<HttpResultModel> {
-    let pedidosResult = await this.http.put(`${ConfigHelper.Url}pedido/${model._id}`, { _pedido: model.status = 'Pedido Recusado' })
-    console.log(pedidosResult);
+  aceitar(model?: ListaPedidosModel): Promise<HttpResultModel> {
+    model.status = "Pedido Aceito";
+    let pedidosResult = this.http.put(`${ConfigHelper.Url}pedido/${model._id}`, model)
+    return pedidosResult;
+  };
+
+  recusar(model?: ListaPedidosModel): Promise<HttpResultModel> {
+    model.status = "Pedido Recusado";
+    let pedidosResult = this.http.put(`${ConfigHelper.Url}pedido/${model._id}`, model)
+    return pedidosResult;
+  };
+
+  saiuEntrega(model?: ListaPedidosModel): Promise<HttpResultModel> {
+    model.status = "Saiu para Entrega";
+    let pedidosResult = this.http.put(`${ConfigHelper.Url}pedido/${model._id}`, model)
     return pedidosResult;
   };
 
@@ -135,16 +148,6 @@ export class PedidosPage {
       let pedidosResult = await this.http.get(`${ConfigHelper.Url}pedido/getAll`);
       if (pedidosResult.success) {
         this.pedidos = <Array<ListaPedidosModel>>pedidosResult.data;
-
-        // for (let i = 0; i < this.pedidos.length; i++) {
-        //   const pedido = this.pedidos[i];
-        //   this.enderecoEntrega = pedido.enderecoEntrega;
-        // }
-
-        // this.enderecoEntregaId = await this.http.get(`${ConfigHelper.Url}enderecoEntrega/${this.enderecoEntregaId}`);
-        // this.enderecoEntrega = this.enderecoEntregaId.data;
-        // console.log("asdklmsakldslak", this.enderecoEntrega);
-
         console.log(this.pedidos);
         return pedidosResult;
       }
