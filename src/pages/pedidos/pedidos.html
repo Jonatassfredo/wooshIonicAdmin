@@ -53,15 +53,18 @@
           <button ion-button (click)="aceitar(pedido)">Aceitar</button>
           <button ion-button (click)="recusar(pedido)">Recusar</button>
           <button ion-button (click)="saiuEntrega(pedido)">Saiu p/ Entrega</button>
-          <button ion-button> Tempo Entrega
-            <ion-select (blur)="salvarPedido(pedido)" [(ngModel)]="pedido.tempoEntrega" interface="popover">
-              <ion-label>Tempo</ion-label>
-              <ion-option value="15">15 min</ion-option>
-              <ion-option value="30">30 min</ion-option>
-              <ion-option value="45">45 min</ion-option>
-              <ion-option value="60">60 min</ion-option>
-            </ion-select>
-          </button>
+          <div>
+            <button (click)="salvarPedido(pedido)" ion-button>Definir</button>
+            <button ion-button style="width: 200px;">
+              <ion-select [(ngModel)]="pedido.tempoEntrega" interface="popover">
+                <ion-label>Tempo</ion-label>
+                <ion-option value="15">15 min</ion-option>
+                <ion-option value="30">30 min</ion-option>
+                <ion-option value="45">45 min</ion-option>
+                <ion-option value="60">60 min</ion-option>
+              </ion-select>
+            </button>
+          </div>
           <button ion-button (click)="mensagens(pedido)">Chat</button>
           <button ion-button>Imprimir</button>
         </ion-row>
