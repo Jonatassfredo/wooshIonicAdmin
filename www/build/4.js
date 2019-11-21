@@ -125,8 +125,8 @@ var AdmOperadorPage = /** @class */ (function () {
                                 case 1:
                                     excluirResult = _a.sent();
                                     if (excluirResult.success) {
-                                        this.alertSrv.toast('Produto excluído com sucesso!', 'bottom');
-                                        this.navCtrl.push('OperadoresPage');
+                                        this.alertSrv.toast('Operador excluído com sucesso!', 'bottom');
+                                        this.navCtrl.push('PedidosPage');
                                     }
                                     return [2 /*return*/];
                             }
@@ -161,8 +161,8 @@ var AdmOperadorPage = /** @class */ (function () {
                         _a.label = 4;
                     case 4:
                         if (sucesso) {
-                            this.alertSrv.toast('Produto salvo com sucesso!', 'bottom');
-                            this.navCtrl.push('OperadoresPage');
+                            this.alertSrv.toast('Operador salvo com sucesso!', 'bottom');
+                            this.navCtrl.push('PedidosPage');
                         }
                         return [2 /*return*/];
                 }

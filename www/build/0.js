@@ -52,6 +52,9 @@ var MinhaContaPageModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_alert_alert__ = __webpack_require__(108);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_models_enderecoModel__ = __webpack_require__(319);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_firebase__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_operador_operador__ = __webpack_require__(58);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -102,6 +105,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
+
+
 var PedidosPage = /** @class */ (function () {
     function PedidosPage(navCtrl, navParams, actionSheetCtrl, http, alertSrv) {
         this.navCtrl = navCtrl;
@@ -126,20 +131,42 @@ var PedidosPage = /** @class */ (function () {
     };
     ;
     PedidosPage.prototype.aceitar = function (model) {
+        if (model.status !== "Aguardando") {
+            this.alertSrv.toast('Este pedido já foi recusado ou aceito!', 'bottom');
+            return;
+        }
         model.status = "Pedido Aceito";
         var pedidosResult = this.http.put(__WEBPACK_IMPORTED_MODULE_1__app_helpers_configHelper__["a" /* ConfigHelper */].Url + "pedido/" + model._id, model);
+        this.enviarMensagem(model.usuarioId, "Woooooooosh! Seu pedido foi aceito, já estamos preparando ele e assim que sair para a entrega te avisamos aqui ;)");
+        this.alertSrv.toast('Pedido aceito com sucesso!', 'bottom');
         return pedidosResult;
     };
     ;
     PedidosPage.prototype.recusar = function (model) {
+        if (model.status !== "Aguardando") {
+            this.alertSrv.toast('Este pedido já foi recusado ou aceito!', 'bottom');
+            return;
+        }
         model.status = "Pedido Recusado";
         var pedidosResult = this.http.put(__WEBPACK_IMPORTED_MODULE_1__app_helpers_configHelper__["a" /* ConfigHelper */].Url + "pedido/" + model._id, model);
+        this.enviarMensagem(model.usuarioId, "Lamentamos mas seu pedido foi recusado :(");
+        this.alertSrv.toast('Pedido recusado com sucesso!', 'bottom');
         return pedidosResult;
     };
     ;
     PedidosPage.prototype.saiuEntrega = function (model) {
+        if (model.status === "Pedido Recusado") {
+            this.alertSrv.toast('Este pedido foi recusado!', 'bottom');
+            return;
+        }
+        if (model.status === "Saiu para Entrega") {
+            this.alertSrv.toast('Já definido como "Saiu para Entrega"!', 'bottom');
+            return;
+        }
         model.status = "Saiu para Entrega";
         var pedidosResult = this.http.put(__WEBPACK_IMPORTED_MODULE_1__app_helpers_configHelper__["a" /* ConfigHelper */].Url + "pedido/" + model._id, model);
+        this.enviarMensagem(model.usuarioId, "Seu pedido saiu para entrega :D");
+        this.alertSrv.toast('Definido como "Saiu para entrega" sucesso!', 'bottom');
         return pedidosResult;
     };
     ;
@@ -245,17 +272,28 @@ var PedidosPage = /** @class */ (function () {
             });
         });
     };
+    PedidosPage.prototype.enviarMensagem = function (idUser, mensagem) {
+        var op = __WEBPACK_IMPORTED_MODULE_7__providers_operador_operador__["a" /* OperadorProvider */].GetOperador();
+        var newData = __WEBPACK_IMPORTED_MODULE_6_firebase___default.a
+            .database()
+            .ref("chats/mensagens/" + idUser)
+            .push();
+        newData.set({
+            type: "operadorMessage",
+            user: op.nome,
+            userID: null,
+            mensagem: mensagem,
+            sendDate: Date()
+        });
+    };
     PedidosPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["m" /* Component */])({
             selector: 'page-pedidos',template:/*ion-inline-start:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\pedidos\pedidos.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <button ion-button icon-only clear color="light" (click)="adminOptions()">\n      <ion-icon style="margin-bottom:10px ;" name="settings"></ion-icon>\n    </button>\n    <ion-title style="width: 85%; display: inline-flex; margin-top: 10px;">Pedidos</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content no-padding>\n  <ion-card *ngFor="let pedido of pedidos" style="border-radius: 10px;">\n    <ion-card-header icon-left>\n      <ion-icon name="cart"></ion-icon>\n      Pedido realizado em <strong>{{ pedido.dataPedido | date:\'dd/MM/yyyy, HH:mm\' }}</strong>\n    </ion-card-header>\n    <ion-card-content>\n      <table class="tabela">\n        <tr>\n          <th>Qtd.</th>\n          <th>Produto</th>\n          <th>Observações</th>\n        </tr>\n        <tr *ngFor="let produto of pedido.itens">\n          <td>{{produto.quantidade}}</td>\n          <td>{{produto.nomeProd}}</td>\n          <td>{{produto.observacoes}}</td>\n          <!-- <strong>Nome Produto: <strong>{{produto.nomeProd}}</strong></{{produto.quantidade}},> -->\n          <!-- <strong>Quantidade: <strong>{{produto.quantidade}}</strong></p> -->\n          <!-- <p>Produto ID: <strong>{{produto.produtoId}}</strong></p> -->\n          <!-- <strong>Observaçoes: <strong>{{produto.observacoes}}</strong></p> -->\n        </tr>\n      </table>\n      <!-- <p>Usuário ID: <strong>{{pedido.usuarioId}}</strong></p> -->\n      <!-- <strong>Aceito: <strong> {{ pedido.aceito }}</strong></p> -->\n      <p>Status: <strong>{{pedido.status}}</strong></p>\n      <!-- <strong>Quantidade Total itens: <strong>{{ contaItem(produtos) }}</strong></p> -->\n      <p>Valor total: <strong> {{ pedido.valorTotal }}</strong></p>\n      <p>Forma de Pagamento: <strong>{{pedido.formaPagamento}}</strong></p>\n      <p>Status Entrega: <strong> {{ pedido.tempoEntrega }}</strong></p>\n      <p>Cliente: <strong> {{ pedido.usuarioNome }}</strong></p>\n      <div class="enderecoEntrega">\n        <p><strong>Endereço de Entrega</strong></p>\n        <p>Rua: <strong> {{ pedido.enderecoEntrega.rua }}</strong> Nº: <strong>\n            {{pedido.enderecoEntrega.numero }}</strong> Bairro:\n          <strong> {{pedido.enderecoEntrega.bairro }}</strong></p>\n        <p>Cidade: <strong> {{pedido.enderecoEntrega.cidade }}</strong> Estado: <strong>\n            {{pedido.enderecoEntrega.uf }}</strong>\n          Cep: <strong> {{pedido.enderecoEntrega.cep }}</strong></p>\n        <p>Ponto Ref.: <strong> {{pedido.enderecoEntrega.pontoReferencia }}</strong></p>\n        <p>Orientações: <strong> {{pedido.enderecoEntrega.orientacoes }}</strong></p>\n      </div>\n      <div>\n        <ion-row class="botoes">\n          <button ion-button (click)="aceitar(pedido)">Aceitar</button>\n          <button ion-button (click)="recusar(pedido)">Recusar</button>\n          <button ion-button (click)="saiuEntrega(pedido)">Saiu p/ Entrega</button>\n          <div>\n            <button (click)="salvarPedido(pedido)" ion-button>Definir</button>\n            <button ion-button style="width: 200px;">\n              <ion-select [(ngModel)]="pedido.tempoEntrega" interface="popover">\n                <ion-label>Tempo</ion-label>\n                <ion-option value="15">15 min</ion-option>\n                <ion-option value="30">30 min</ion-option>\n                <ion-option value="45">45 min</ion-option>\n                <ion-option value="60">60 min</ion-option>\n              </ion-select>\n            </button>\n          </div>\n          <button ion-button (click)="mensagens(pedido)">Chat</button>\n          <button ion-button>Imprimir</button>\n        </ion-row>\n      </div>\n    </ion-card-content>\n  </ion-card>\n  <div>\n    <ion-item no-lines style="background-color: transparent !important;"></ion-item>\n    <ion-item no-lines style="background-color: transparent !important;"></ion-item>\n  </div>\n</ion-content>'/*ion-inline-end:"E:\Desenvolvimento\TCC\1 - Projeto\Web\Ionic\IonicAdminPanel\src\pages\pedidos\pedidos.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["a" /* ActionSheetController */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_http_http__["a" /* HttpProvider */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_alert_alert__["a" /* AlertProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["a" /* ActionSheetController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0_ionic_angular__["a" /* ActionSheetController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__providers_http_http__["a" /* HttpProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_http_http__["a" /* HttpProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__providers_alert_alert__["a" /* AlertProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_alert_alert__["a" /* AlertProvider */]) === "function" && _e || Object])
     ], PedidosPage);
     return PedidosPage;
+    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=pedidos.js.map
@@ -317,7 +355,7 @@ var ProdutoModel = /** @class */ (function () {
 /* unused harmony export snapshotToArray */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(214);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(210);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pedidos_pedidos__ = __webpack_require__(318);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_operador_operador__ = __webpack_require__(58);
@@ -642,9 +680,9 @@ var TabComponent = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MinhaContaPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app_models_usuarioModel__ = __webpack_require__(320);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_alert_alert__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_camera_camera__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_camera_camera__ = __webpack_require__(212);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_helpers_configHelper__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_usuario_usuario__ = __webpack_require__(212);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_usuario_usuario__ = __webpack_require__(213);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__mensagens_mensagens__ = __webpack_require__(322);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ionic_angular__ = __webpack_require__(27);

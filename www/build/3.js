@@ -60,9 +60,9 @@ var ProdutoModel = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdmProdutoPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_camera_camera__ = __webpack_require__(211);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_categoria_categoria__ = __webpack_require__(210);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_produto_produto__ = __webpack_require__(213);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_camera_camera__ = __webpack_require__(212);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_categoria_categoria__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_produto_produto__ = __webpack_require__(214);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_models_produtoModel__ = __webpack_require__(321);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_alert_alert__ = __webpack_require__(108);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -174,7 +174,7 @@ var AdmProdutoPage = /** @class */ (function () {
                                     excluirResult = _a.sent();
                                     if (excluirResult.success) {
                                         this.alertSrv.toast('Produto excluído com sucesso!', 'bottom');
-                                        this.navCtrl.push('AdmProdutosPage');
+                                        this.navCtrl.push('PedidosPage');
                                     }
                                     return [2 /*return*/];
                             }
@@ -208,8 +208,8 @@ var AdmProdutoPage = /** @class */ (function () {
                         _a.label = 4;
                     case 4:
                         if (sucesso) {
-                            this.alertSrv.toast('Produto salvo com sucesso!', 'bottom');
-                            this.navCtrl.push('AdmProdutosPage');
+                            this.alertSrv.toast('Cliente salvo com sucesso!', 'bottom');
+                            this.navCtrl.push('PedidosPage');
                         }
                         return [2 /*return*/];
                 }

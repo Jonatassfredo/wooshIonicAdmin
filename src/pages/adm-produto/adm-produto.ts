@@ -59,7 +59,7 @@ export class AdmProdutoPage {
           let excluirResult = await this.produtoSrv.delete(this.produto._id);
           if (excluirResult.success) {
             this.alertSrv.toast('Produto excluído com sucesso!', 'bottom');
-            this.navCtrl.push('AdmProdutosPage');
+            this.navCtrl.push('PedidosPage');
           }
         });
     } catch (error) {
@@ -77,8 +77,8 @@ export class AdmProdutoPage {
       sucesso = updateResult.success;
     }
     if (sucesso) {
-      this.alertSrv.toast('Produto salvo com sucesso!', 'bottom');
-      this.navCtrl.push('AdmProdutosPage');
+      this.alertSrv.toast('Cliente salvo com sucesso!', 'bottom');
+      this.navCtrl.push('PedidosPage');
     }
   }
 

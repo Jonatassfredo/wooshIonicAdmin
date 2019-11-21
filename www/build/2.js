@@ -63,7 +63,7 @@ var UsuarioModel = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_models_usuarioModel__ = __webpack_require__(320);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_usuario_usuario__ = __webpack_require__(212);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_usuario_usuario__ = __webpack_require__(213);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_alert_alert__ = __webpack_require__(108);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -149,9 +149,9 @@ var AdmClientePage = /** @class */ (function () {
                         _a.label = 4;
                     case 4:
                         if (sucesso) {
-                            this.alertSrv.toast('Produto salvo com sucesso!', 'bottom');
+                            this.alertSrv.toast('Cliente salvo com sucesso!', 'bottom');
                             // this.navCtrl.setRoot('ClientesPage');
-                            this.navCtrl.push('ClientesPage');
+                            this.navCtrl.push('PedidosPage');
                         }
                         return [2 /*return*/];
                 }

@@ -33,8 +33,8 @@ export class AdmOperadorPage {
         async () => {
           let excluirResult = await this.operadorSrv.delete(this.operador._id);
           if (excluirResult.success) {
-            this.alertSrv.toast('Produto excluído com sucesso!', 'bottom');
-            this.navCtrl.push('OperadoresPage');
+            this.alertSrv.toast('Operador excluído com sucesso!', 'bottom');
+            this.navCtrl.push('PedidosPage');
           }
         });
     } catch (error) {
@@ -53,8 +53,8 @@ export class AdmOperadorPage {
       sucesso = updateResult.success;
     }
     if (sucesso) {
-      this.alertSrv.toast('Produto salvo com sucesso!', 'bottom');
-      this.navCtrl.push('OperadoresPage');
+      this.alertSrv.toast('Operador salvo com sucesso!', 'bottom');
+      this.navCtrl.push('PedidosPage');
     }
   }
 

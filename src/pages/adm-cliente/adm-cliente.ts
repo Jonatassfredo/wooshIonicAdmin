@@ -38,9 +38,9 @@ export class AdmClientePage {
       sucesso = updateResult.success;
     }
     if (sucesso) {
-      this.alertSrv.toast('Produto salvo com sucesso!', 'bottom');
+      this.alertSrv.toast('Cliente salvo com sucesso!', 'bottom');
       // this.navCtrl.setRoot('ClientesPage');
-      this.navCtrl.push('ClientesPage');
+      this.navCtrl.push('PedidosPage');
     }
   }
 

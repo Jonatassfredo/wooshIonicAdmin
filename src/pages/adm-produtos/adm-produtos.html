@@ -15,6 +15,9 @@
         </ion-item>
         <ion-item *ngFor="let item of lista" text-wrap (click)="addOrEdit(item)">
             {{ item.nome }}
+            <!-- <ion-note>
+                {{ item.ativo }}
+            </ion-note> -->
             <ion-note item-end>
                 {{ item.categoriaId.titulo }}
             </ion-note>

@@ -7,6 +7,9 @@ import { Component } from "@angular/core";
 import { ProdutoModel } from '../../app/models/produtoModel';
 import { AlertProvider } from '../../providers/alert/alert';
 import { EnderecoEntregaModel } from './../../app/models/enderecoModel';
+import { OperadorModel } from '../../app/models/operadorModel';
+import firebase from 'firebase';
+import { OperadorProvider } from '../../providers/operador/operador';
 
 @IonicPage()
 @Component({
@@ -43,20 +46,42 @@ export class PedidosPage {
   };
 
   aceitar(model?: ListaPedidosModel): Promise<HttpResultModel> {
+    if (model.status !== "Aguardando") {
+      this.alertSrv.toast('Este pedido já foi recusado ou aceito!', 'bottom');
+      return;
+    }
     model.status = "Pedido Aceito";
     let pedidosResult = this.http.put(`${ConfigHelper.Url}pedido/${model._id}`, model)
+    this.enviarMensagem(model.usuarioId, "Woooooooosh! Seu pedido foi aceito, já estamos preparando ele e assim que sair para a entrega te avisamos aqui ;)")
+    this.alertSrv.toast('Pedido aceito com sucesso!', 'bottom');
     return pedidosResult;
   };
 
   recusar(model?: ListaPedidosModel): Promise<HttpResultModel> {
+    if (model.status !== "Aguardando") {
+      this.alertSrv.toast('Este pedido já foi recusado ou aceito!', 'bottom');
+      return;
+    }
     model.status = "Pedido Recusado";
     let pedidosResult = this.http.put(`${ConfigHelper.Url}pedido/${model._id}`, model)
+    this.enviarMensagem(model.usuarioId, "Lamentamos mas seu pedido foi recusado :(")
+    this.alertSrv.toast('Pedido recusado com sucesso!', 'bottom');
     return pedidosResult;
   };
 
   saiuEntrega(model?: ListaPedidosModel): Promise<HttpResultModel> {
+    if (model.status === "Pedido Recusado") {
+      this.alertSrv.toast('Este pedido foi recusado!', 'bottom');
+      return;
+    }
+    if (model.status === "Saiu para Entrega") {
+      this.alertSrv.toast('Já definido como "Saiu para Entrega"!', 'bottom');
+      return;
+    }
     model.status = "Saiu para Entrega";
     let pedidosResult = this.http.put(`${ConfigHelper.Url}pedido/${model._id}`, model)
+    this.enviarMensagem(model.usuarioId, "Seu pedido saiu para entrega :D")
+    this.alertSrv.toast('Definido como "Saiu para entrega" sucesso!', 'bottom');
     return pedidosResult;
   };
 
@@ -154,5 +179,20 @@ export class PedidosPage {
     } catch (error) {
       console.log('Problema ao carregar os pedidos, motivo: ', error);
     }
+  }
+
+  enviarMensagem(idUser: string, mensagem: string) {
+    let op: OperadorModel = OperadorProvider.GetOperador();
+    let newData = firebase
+      .database()
+      .ref("chats/mensagens/" + idUser)
+      .push();
+    newData.set({
+      type: "operadorMessage",
+      user: op.nome,
+      userID: null,
+      mensagem: mensagem,
+      sendDate: Date()
+    });
   }
 }

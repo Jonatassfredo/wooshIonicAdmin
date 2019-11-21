@@ -39,7 +39,7 @@ export class AdmCategoriaPage {
           let excluirResult = await this.categoriaSrv.delete(this.categoria._id);
           if (excluirResult.success) {
             this.alertSrv.toast('Categoria excluída com sucesso!', 'bottom');
-            this.navCtrl.push('AdmCategoriasPage');
+            this.navCtrl.push('PedidosPage');
 
           }
         });
@@ -59,7 +59,7 @@ export class AdmCategoriaPage {
     }
     if (sucesso) {
       this.alertSrv.toast('Categoria salva com sucesso!', 'bottom');
-      this.navCtrl.push('AdmCategoriasPage');
+      this.navCtrl.push('PedidosPage');
     }
   }
 
