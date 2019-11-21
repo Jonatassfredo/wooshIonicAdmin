@@ -89,11 +89,11 @@ var map = {
 		6
 	],
 	"../pages/adm-categorias/adm-categorias.module": [
-		307,
+		308,
 		11
 	],
 	"../pages/adm-cliente/adm-cliente.module": [
-		308,
+		307,
 		2
 	],
 	"../pages/adm-operador/adm-operador.module": [
@@ -117,11 +117,11 @@ var map = {
 		8
 	],
 	"../pages/mensagens/mensagens.module": [
-		314,
+		315,
 		1
 	],
 	"../pages/minha-conta/minha-conta.module": [
-		315,
+		314,
 		0
 	],
 	"../pages/operadores/operadores.module": [
@@ -607,11 +607,11 @@ var ProdutoProvider = /** @class */ (function (_super) {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CarrinhoProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__http_http__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_models_CarrinhoItemModel__ = __webpack_require__(283);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_models_CarrinhoItemModel__ = __webpack_require__(273);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_models_carrinhoModel__ = __webpack_require__(284);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_models_carrinhoModel__ = __webpack_require__(274);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_helpers_configHelper__ = __webpack_require__(31);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -828,15 +828,15 @@ var AppModule = /** @class */ (function () {
             imports: [__WEBPACK_IMPORTED_MODULE_9__angular_platform_browser__["a" /* BrowserModule */], __WEBPACK_IMPORTED_MODULE_11__node_modules_angular_common_http__["b" /* HttpClientModule */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* MyApp */], {}, {
                     links: [
                         { loadChildren: '../pages/adm-categoria/adm-categoria.module#AdmCategoriaPageModule', name: 'AdmCategoriaPage', segment: 'adm-categoria', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/adm-categorias/adm-categorias.module#AdmCategoriasPageModule', name: 'AdmCategoriasPage', segment: 'adm-categorias', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/adm-cliente/adm-cliente.module#AdmClientePageModule', name: 'AdmClientePage', segment: 'adm-cliente', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/adm-categorias/adm-categorias.module#AdmCategoriasPageModule', name: 'AdmCategoriasPage', segment: 'adm-categorias', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/adm-operador/adm-operador.module#AdmOperadorPageModule', name: 'AdmOperadorPage', segment: 'adm-operador', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/adm-produto/adm-produto.module#AdmProdutoPageModule', name: 'AdmProdutoPage', segment: 'adm-produto', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/adm-produtos/adm-produtos.module#AdmProdutosPageModule', name: 'AdmProdutosPage', segment: 'adm-produtos', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/clientes/clientes.module#ClientesPageModule', name: 'ClientesPage', segment: 'clientes', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/mensagens/mensagens.module#MensagensPageModule', name: 'MensagensPage', segment: 'mensagens', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/minha-conta/minha-conta.module#MinhaContaPageModule', name: 'MinhaContaPage', segment: 'minha-conta', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/mensagens/mensagens.module#MensagensPageModule', name: 'MensagensPage', segment: 'mensagens', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/operadores/operadores.module#OperadoresPageModule', name: 'OperadoresPage', segment: 'operadores', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/pedidos/pedidos.module#PedidosPageModule', name: 'PedidosPage', segment: 'pedidos', priority: 'low', defaultHistory: [] }
                     ]
@@ -869,6 +869,40 @@ var AppModule = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ 273:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CarrinhoItemModel; });
+var CarrinhoItemModel = /** @class */ (function () {
+    function CarrinhoItemModel() {
+        this.Quantidade = 1;
+    }
+    return CarrinhoItemModel;
+}());
+
+//# sourceMappingURL=CarrinhoItemModel.js.map
+
+/***/ }),
+
+/***/ 274:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CarrinhoModel; });
+var CarrinhoModel = /** @class */ (function () {
+    function CarrinhoModel() {
+        this.valorTotal = 0.0;
+        this.itens = new Array();
+        this.enderecoEntrega = new Array();
+    }
+    return CarrinhoModel;
+}());
+
+//# sourceMappingURL=carrinhoModel.js.map
 
 /***/ }),
 
@@ -1036,40 +1070,6 @@ var HttpProvider = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=http.js.map
-
-/***/ }),
-
-/***/ 283:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CarrinhoItemModel; });
-var CarrinhoItemModel = /** @class */ (function () {
-    function CarrinhoItemModel() {
-        this.Quantidade = 1;
-    }
-    return CarrinhoItemModel;
-}());
-
-//# sourceMappingURL=CarrinhoItemModel.js.map
-
-/***/ }),
-
-/***/ 284:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CarrinhoModel; });
-var CarrinhoModel = /** @class */ (function () {
-    function CarrinhoModel() {
-        this.valorTotal = 0.0;
-        this.itens = new Array();
-        this.enderecoEntrega = new Array();
-    }
-    return CarrinhoModel;
-}());
-
-//# sourceMappingURL=carrinhoModel.js.map
 
 /***/ }),
 

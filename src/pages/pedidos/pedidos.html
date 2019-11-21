@@ -39,46 +39,52 @@
             Pedido realizado em <strong>{{ pedido.dataPedido | date:'dd/MM/yyyy, HH:mm' }}</strong>
           </ion-card-header>
           <ion-card-content>
-            <table class="tabela">
-              <tr>
-                <th>Qtd.</th>
-                <th>Produto</th>
-                <th>Observações</th>
-              </tr>
-              <tr *ngFor="let produto of pedido.itens">
-                <td>{{produto.quantidade}}</td>
-                <td>{{produto.nomeProd}}</td>
-                <td>{{produto.observacoes}}</td>
-                <!-- <strong>Nome Produto: <strong>{{produto.nomeProd}}</strong></{{produto.quantidade}},> -->
-                <!-- <strong>Quantidade: <strong>{{produto.quantidade}}</strong></p> -->
-                <!-- <p>Produto ID: <strong>{{produto.produtoId}}</strong></p> -->
-                <!-- <strong>Observaçoes: <strong>{{produto.observacoes}}</strong></p> -->
-              </tr>
-            </table>
-            <!-- <p>Usuário ID: <strong>{{pedido.usuarioId}}</strong></p> -->
-            <!-- <strong>Aceito: <strong> {{ pedido.aceito }}</strong></p> -->
-            <p>Status: <strong>{{pedido.status}}</strong></p>
-            <!-- <strong>Quantidade Total itens: <strong>{{ contaItem(produtos) }}</strong></p> -->
-            <p>Valor total: <strong> {{ pedido.valorTotal }}</strong></p>
-            <p>Forma de Pagamento: <strong>{{pedido.formaPagamento}}</strong></p>
-            <p>Tempo entrega: <strong> {{ pedido.tempoEntrega }}</strong></p>
-            <p>Cliente: <strong> {{ pedido.usuarioNome }}</strong></p>
-            <div class="enderecoEntrega">
-              <p><strong>Endereço de Entrega</strong></p>
-              <p>Rua: <strong> {{ pedido.enderecoEntrega.rua }}</strong> Nº: <strong>
-                  {{pedido.enderecoEntrega.numero }}</strong> Bairro:
-                <strong> {{pedido.enderecoEntrega.bairro }}</strong></p>
-              <p>Cidade: <strong> {{pedido.enderecoEntrega.cidade }}</strong> Estado: <strong>
-                  {{pedido.enderecoEntrega.uf }}</strong>
-                Cep: <strong> {{pedido.enderecoEntrega.cep }}</strong></p>
-              <p>Ponto Ref.: <strong> {{pedido.enderecoEntrega.pontoReferencia }}</strong></p>
-              <p>Orientações: <strong> {{pedido.enderecoEntrega.orientacoes }}</strong></p>
-            </div>
+            <ion-card>
+              <ion-card-content>
+                <table class="tabela">
+                  <tr>
+                    <th>Qtd.</th>
+                    <th>Produto</th>
+                    <th>Observações</th>
+                  </tr>
+                  <tr *ngFor="let produto of pedido.itens">
+                    <td>{{produto.quantidade}}</td>
+                    <td>{{produto.nomeProd}}</td>
+                    <td>{{produto.observacoes}}</td>
+                  </tr>
+                </table>
+              </ion-card-content>
+            </ion-card>
+            <ion-card style="width: 48%;">
+              <ion-card-content>
+                <p>Status: <strong>{{pedido.status}}</strong></p>
+                <p>Valor total: <strong> {{ pedido.valorTotal }}</strong></p>
+                <p>Forma de Pagamento: <strong>{{pedido.formaPagamento}}</strong></p>
+                <p>Tempo entrega: <strong> {{ pedido.tempoEntrega }}</strong></p>
+                <p>Cliente: <strong> {{ pedido.usuarioNome }}</strong></p>
+              </ion-card-content>
+            </ion-card>
+            <ion-card style="width: 48%; float: right; margin-top: -150px; margin-left: 10px;">
+              <ion-card-content>
+                <div>
+                  <p><strong>Endereço de Entrega</strong></p>
+                  <p>Rua: <strong> {{ pedido.enderecoEntrega.rua }}</strong> Nº: <strong>
+                      {{pedido.enderecoEntrega.numero }}</strong> Bairro:
+                    <strong> {{pedido.enderecoEntrega.bairro }}</strong></p>
+                  <p>Cidade: <strong> {{pedido.enderecoEntrega.cidade }}</strong> Estado: <strong>
+                      {{pedido.enderecoEntrega.uf }}</strong>
+                    Cep: <strong> {{pedido.enderecoEntrega.cep }}</strong></p>
+                  <p>Ponto Ref.: <strong> {{pedido.enderecoEntrega.pontoReferencia }}</strong></p>
+                  <p>Orientações: <strong> {{pedido.enderecoEntrega.orientacoes }}</strong></p>
+                </div>
+              </ion-card-content>
+            </ion-card>
             <div>
               <ion-row class="botoes">
                 <button ion-button (click)="aceitar(pedido)">Aceitar</button>
                 <button ion-button (click)="recusar(pedido)">Recusar</button>
-                <button ion-button (click)="saiuEntrega(pedido)">Saiu p/ Entrega</button>
+                <button ion-button (click)="mensagens(pedido)">Chat</button>
+                <button ion-button (click)="saiuEntrega(pedido)">Entrega</button>
                 <div>
                   <button (click)="salvarPedido(pedido)" ion-button>Definir</button>
                   <button ion-button style="width: 200px;">
@@ -91,8 +97,7 @@
                     </ion-select>
                   </button>
                 </div>
-                <button ion-button (click)="mensagens(pedido)">Chat</button>
-                <button ion-button>Imprimir</button>
+                <!-- <button ion-button>Imprimir</button> -->
               </ion-row>
             </div>
           </ion-card-content>
@@ -107,46 +112,52 @@
             Pedido realizado em <strong>{{ pedido.dataPedido | date:'dd/MM/yyyy, HH:mm' }}</strong>
           </ion-card-header>
           <ion-card-content>
-            <table class="tabela">
-              <tr>
-                <th>Qtd.</th>
-                <th>Produto</th>
-                <th>Observações</th>
-              </tr>
-              <tr *ngFor="let produto of pedido.itens">
-                <td>{{produto.quantidade}}</td>
-                <td>{{produto.nomeProd}}</td>
-                <td>{{produto.observacoes}}</td>
-                <!-- <strong>Nome Produto: <strong>{{produto.nomeProd}}</strong></{{produto.quantidade}},> -->
-                <!-- <strong>Quantidade: <strong>{{produto.quantidade}}</strong></p> -->
-                <!-- <p>Produto ID: <strong>{{produto.produtoId}}</strong></p> -->
-                <!-- <strong>Observaçoes: <strong>{{produto.observacoes}}</strong></p> -->
-              </tr>
-            </table>
-            <!-- <p>Usuário ID: <strong>{{pedido.usuarioId}}</strong></p> -->
-            <!-- <strong>Aceito: <strong> {{ pedido.aceito }}</strong></p> -->
-            <p>Status: <strong>{{pedido.status}}</strong></p>
-            <!-- <strong>Quantidade Total itens: <strong>{{ contaItem(produtos) }}</strong></p> -->
-            <p>Valor total: <strong> {{ pedido.valorTotal }}</strong></p>
-            <p>Forma de Pagamento: <strong>{{pedido.formaPagamento}}</strong></p>
-            <p>Tempo entrega: <strong> {{ pedido.tempoEntrega }}</strong></p>
-            <p>Cliente: <strong> {{ pedido.usuarioNome }}</strong></p>
-            <div class="enderecoEntrega">
-              <p><strong>Endereço de Entrega</strong></p>
-              <p>Rua: <strong> {{ pedido.enderecoEntrega.rua }}</strong> Nº: <strong>
-                  {{pedido.enderecoEntrega.numero }}</strong> Bairro:
-                <strong> {{pedido.enderecoEntrega.bairro }}</strong></p>
-              <p>Cidade: <strong> {{pedido.enderecoEntrega.cidade }}</strong> Estado: <strong>
-                  {{pedido.enderecoEntrega.uf }}</strong>
-                Cep: <strong> {{pedido.enderecoEntrega.cep }}</strong></p>
-              <p>Ponto Ref.: <strong> {{pedido.enderecoEntrega.pontoReferencia }}</strong></p>
-              <p>Orientações: <strong> {{pedido.enderecoEntrega.orientacoes }}</strong></p>
-            </div>
+            <ion-card>
+              <ion-card-content>
+                <table class="tabela">
+                  <tr>
+                    <th>Qtd.</th>
+                    <th>Produto</th>
+                    <th>Observações</th>
+                  </tr>
+                  <tr *ngFor="let produto of pedido.itens">
+                    <td>{{produto.quantidade}}</td>
+                    <td>{{produto.nomeProd}}</td>
+                    <td>{{produto.observacoes}}</td>
+                  </tr>
+                </table>
+              </ion-card-content>
+            </ion-card>
+            <ion-card style="width: 48%;">
+              <ion-card-content>
+                <p>Status: <strong>{{pedido.status}}</strong></p>
+                <p>Valor total: <strong> {{ pedido.valorTotal }}</strong></p>
+                <p>Forma de Pagamento: <strong>{{pedido.formaPagamento}}</strong></p>
+                <p>Tempo entrega: <strong> {{ pedido.tempoEntrega }}</strong></p>
+                <p>Cliente: <strong> {{ pedido.usuarioNome }}</strong></p>
+              </ion-card-content>
+            </ion-card>
+            <ion-card style="width: 48%; float: right; margin-top: -150px; margin-left: 10px;">
+              <ion-card-content>
+                <div>
+                  <p><strong>Endereço de Entrega</strong></p>
+                  <p>Rua: <strong> {{ pedido.enderecoEntrega.rua }}</strong> Nº: <strong>
+                      {{pedido.enderecoEntrega.numero }}</strong> Bairro:
+                    <strong> {{pedido.enderecoEntrega.bairro }}</strong></p>
+                  <p>Cidade: <strong> {{pedido.enderecoEntrega.cidade }}</strong> Estado: <strong>
+                      {{pedido.enderecoEntrega.uf }}</strong>
+                    Cep: <strong> {{pedido.enderecoEntrega.cep }}</strong></p>
+                  <p>Ponto Ref.: <strong> {{pedido.enderecoEntrega.pontoReferencia }}</strong></p>
+                  <p>Orientações: <strong> {{pedido.enderecoEntrega.orientacoes }}</strong></p>
+                </div>
+              </ion-card-content>
+            </ion-card>
             <div>
               <ion-row class="botoes">
                 <button ion-button (click)="aceitar(pedido)">Aceitar</button>
                 <button ion-button (click)="recusar(pedido)">Recusar</button>
-                <button ion-button (click)="saiuEntrega(pedido)">Saiu p/ Entrega</button>
+                <button ion-button (click)="mensagens(pedido)">Chat</button>
+                <button ion-button (click)="saiuEntrega(pedido)">Entrega</button>
                 <div>
                   <button (click)="salvarPedido(pedido)" ion-button>Definir</button>
                   <button ion-button style="width: 200px;">
@@ -159,8 +170,7 @@
                     </ion-select>
                   </button>
                 </div>
-                <button ion-button (click)="mensagens(pedido)">Chat</button>
-                <button ion-button>Imprimir</button>
+                <!-- <button ion-button>Imprimir</button> -->
               </ion-row>
             </div>
           </ion-card-content>
@@ -175,46 +185,52 @@
             Pedido realizado em <strong>{{ pedido.dataPedido | date:'dd/MM/yyyy, HH:mm' }}</strong>
           </ion-card-header>
           <ion-card-content>
-            <table class="tabela">
-              <tr>
-                <th>Qtd.</th>
-                <th>Produto</th>
-                <th>Observações</th>
-              </tr>
-              <tr *ngFor="let produto of pedido.itens">
-                <td>{{produto.quantidade}}</td>
-                <td>{{produto.nomeProd}}</td>
-                <td>{{produto.observacoes}}</td>
-                <!-- <strong>Nome Produto: <strong>{{produto.nomeProd}}</strong></{{produto.quantidade}},> -->
-                <!-- <strong>Quantidade: <strong>{{produto.quantidade}}</strong></p> -->
-                <!-- <p>Produto ID: <strong>{{produto.produtoId}}</strong></p> -->
-                <!-- <strong>Observaçoes: <strong>{{produto.observacoes}}</strong></p> -->
-              </tr>
-            </table>
-            <!-- <p>Usuário ID: <strong>{{pedido.usuarioId}}</strong></p> -->
-            <!-- <strong>Aceito: <strong> {{ pedido.aceito }}</strong></p> -->
-            <p>Status: <strong>{{pedido.status}}</strong></p>
-            <!-- <strong>Quantidade Total itens: <strong>{{ contaItem(produtos) }}</strong></p> -->
-            <p>Valor total: <strong> {{ pedido.valorTotal }}</strong></p>
-            <p>Forma de Pagamento: <strong>{{pedido.formaPagamento}}</strong></p>
-            <p>Tempo entrega: <strong> {{ pedido.tempoEntrega }}</strong></p>
-            <p>Cliente: <strong> {{ pedido.usuarioNome }}</strong></p>
-            <div class="enderecoEntrega">
-              <p><strong>Endereço de Entrega</strong></p>
-              <p>Rua: <strong> {{ pedido.enderecoEntrega.rua }}</strong> Nº: <strong>
-                  {{pedido.enderecoEntrega.numero }}</strong> Bairro:
-                <strong> {{pedido.enderecoEntrega.bairro }}</strong></p>
-              <p>Cidade: <strong> {{pedido.enderecoEntrega.cidade }}</strong> Estado: <strong>
-                  {{pedido.enderecoEntrega.uf }}</strong>
-                Cep: <strong> {{pedido.enderecoEntrega.cep }}</strong></p>
-              <p>Ponto Ref.: <strong> {{pedido.enderecoEntrega.pontoReferencia }}</strong></p>
-              <p>Orientações: <strong> {{pedido.enderecoEntrega.orientacoes }}</strong></p>
-            </div>
+            <ion-card>
+              <ion-card-content>
+                <table class="tabela">
+                  <tr>
+                    <th>Qtd.</th>
+                    <th>Produto</th>
+                    <th>Observações</th>
+                  </tr>
+                  <tr *ngFor="let produto of pedido.itens">
+                    <td>{{produto.quantidade}}</td>
+                    <td>{{produto.nomeProd}}</td>
+                    <td>{{produto.observacoes}}</td>
+                  </tr>
+                </table>
+              </ion-card-content>
+            </ion-card>
+            <ion-card style="width: 48%;">
+              <ion-card-content>
+                <p>Status: <strong>{{pedido.status}}</strong></p>
+                <p>Valor total: <strong> {{ pedido.valorTotal }}</strong></p>
+                <p>Forma de Pagamento: <strong>{{pedido.formaPagamento}}</strong></p>
+                <p>Tempo entrega: <strong> {{ pedido.tempoEntrega }}</strong></p>
+                <p>Cliente: <strong> {{ pedido.usuarioNome }}</strong></p>
+              </ion-card-content>
+            </ion-card>
+            <ion-card style="width: 48%; float: right; margin-top: -150px; margin-left: 10px;">
+              <ion-card-content>
+                <div>
+                  <p><strong>Endereço de Entrega</strong></p>
+                  <p>Rua: <strong> {{ pedido.enderecoEntrega.rua }}</strong> Nº: <strong>
+                      {{pedido.enderecoEntrega.numero }}</strong> Bairro:
+                    <strong> {{pedido.enderecoEntrega.bairro }}</strong></p>
+                  <p>Cidade: <strong> {{pedido.enderecoEntrega.cidade }}</strong> Estado: <strong>
+                      {{pedido.enderecoEntrega.uf }}</strong>
+                    Cep: <strong> {{pedido.enderecoEntrega.cep }}</strong></p>
+                  <p>Ponto Ref.: <strong> {{pedido.enderecoEntrega.pontoReferencia }}</strong></p>
+                  <p>Orientações: <strong> {{pedido.enderecoEntrega.orientacoes }}</strong></p>
+                </div>
+              </ion-card-content>
+            </ion-card>
             <div>
               <ion-row class="botoes">
                 <button ion-button (click)="aceitar(pedido)">Aceitar</button>
                 <button ion-button (click)="recusar(pedido)">Recusar</button>
-                <button ion-button (click)="saiuEntrega(pedido)">Saiu p/ Entrega</button>
+                <button ion-button (click)="mensagens(pedido)">Chat</button>
+                <button ion-button (click)="saiuEntrega(pedido)">Entrega</button>
                 <div>
                   <button (click)="salvarPedido(pedido)" ion-button>Definir</button>
                   <button ion-button style="width: 200px;">
@@ -227,15 +243,12 @@
                     </ion-select>
                   </button>
                 </div>
-                <button ion-button (click)="mensagens(pedido)">Chat</button>
-                <button ion-button>Imprimir</button>
+                <!-- <button ion-button>Imprimir</button> -->
               </ion-row>
             </div>
           </ion-card-content>
         </ion-card>
       </div>
-
-
 
 
       <div *ngSwitchCase="'Saiu para Entrega'">
@@ -245,46 +258,52 @@
             Pedido realizado em <strong>{{ pedido.dataPedido | date:'dd/MM/yyyy, HH:mm' }}</strong>
           </ion-card-header>
           <ion-card-content>
-            <table class="tabela">
-              <tr>
-                <th>Qtd.</th>
-                <th>Produto</th>
-                <th>Observações</th>
-              </tr>
-              <tr *ngFor="let produto of pedido.itens">
-                <td>{{produto.quantidade}}</td>
-                <td>{{produto.nomeProd}}</td>
-                <td>{{produto.observacoes}}</td>
-                <!-- <strong>Nome Produto: <strong>{{produto.nomeProd}}</strong></{{produto.quantidade}},> -->
-                <!-- <strong>Quantidade: <strong>{{produto.quantidade}}</strong></p> -->
-                <!-- <p>Produto ID: <strong>{{produto.produtoId}}</strong></p> -->
-                <!-- <strong>Observaçoes: <strong>{{produto.observacoes}}</strong></p> -->
-              </tr>
-            </table>
-            <!-- <p>Usuário ID: <strong>{{pedido.usuarioId}}</strong></p> -->
-            <!-- <strong>Aceito: <strong> {{ pedido.aceito }}</strong></p> -->
-            <p>Status: <strong>{{pedido.status}}</strong></p>
-            <!-- <strong>Quantidade Total itens: <strong>{{ contaItem(produtos) }}</strong></p> -->
-            <p>Valor total: <strong> {{ pedido.valorTotal }}</strong></p>
-            <p>Forma de Pagamento: <strong>{{pedido.formaPagamento}}</strong></p>
-            <p>Tempo entrega: <strong> {{ pedido.tempoEntrega }}</strong></p>
-            <p>Cliente: <strong> {{ pedido.usuarioNome }}</strong></p>
-            <div class="enderecoEntrega">
-              <p><strong>Endereço de Entrega</strong></p>
-              <p>Rua: <strong> {{ pedido.enderecoEntrega.rua }}</strong> Nº: <strong>
-                  {{pedido.enderecoEntrega.numero }}</strong> Bairro:
-                <strong> {{pedido.enderecoEntrega.bairro }}</strong></p>
-              <p>Cidade: <strong> {{pedido.enderecoEntrega.cidade }}</strong> Estado: <strong>
-                  {{pedido.enderecoEntrega.uf }}</strong>
-                Cep: <strong> {{pedido.enderecoEntrega.cep }}</strong></p>
-              <p>Ponto Ref.: <strong> {{pedido.enderecoEntrega.pontoReferencia }}</strong></p>
-              <p>Orientações: <strong> {{pedido.enderecoEntrega.orientacoes }}</strong></p>
-            </div>
+            <ion-card>
+              <ion-card-content>
+                <table class="tabela">
+                  <tr>
+                    <th>Qtd.</th>
+                    <th>Produto</th>
+                    <th>Observações</th>
+                  </tr>
+                  <tr *ngFor="let produto of pedido.itens">
+                    <td>{{produto.quantidade}}</td>
+                    <td>{{produto.nomeProd}}</td>
+                    <td>{{produto.observacoes}}</td>
+                  </tr>
+                </table>
+              </ion-card-content>
+            </ion-card>
+            <ion-card style="width: 48%;">
+              <ion-card-content>
+                <p>Status: <strong>{{pedido.status}}</strong></p>
+                <p>Valor total: <strong> {{ pedido.valorTotal }}</strong></p>
+                <p>Forma de Pagamento: <strong>{{pedido.formaPagamento}}</strong></p>
+                <p>Tempo entrega: <strong> {{ pedido.tempoEntrega }}</strong></p>
+                <p>Cliente: <strong> {{ pedido.usuarioNome }}</strong></p>
+              </ion-card-content>
+            </ion-card>
+            <ion-card style="width: 48%; float: right; margin-top: -150px; margin-left: 10px;">
+              <ion-card-content>
+                <div>
+                  <p><strong>Endereço de Entrega</strong></p>
+                  <p>Rua: <strong> {{ pedido.enderecoEntrega.rua }}</strong> Nº: <strong>
+                      {{pedido.enderecoEntrega.numero }}</strong> Bairro:
+                    <strong> {{pedido.enderecoEntrega.bairro }}</strong></p>
+                  <p>Cidade: <strong> {{pedido.enderecoEntrega.cidade }}</strong> Estado: <strong>
+                      {{pedido.enderecoEntrega.uf }}</strong>
+                    Cep: <strong> {{pedido.enderecoEntrega.cep }}</strong></p>
+                  <p>Ponto Ref.: <strong> {{pedido.enderecoEntrega.pontoReferencia }}</strong></p>
+                  <p>Orientações: <strong> {{pedido.enderecoEntrega.orientacoes }}</strong></p>
+                </div>
+              </ion-card-content>
+            </ion-card>
             <div>
               <ion-row class="botoes">
                 <button ion-button (click)="aceitar(pedido)">Aceitar</button>
                 <button ion-button (click)="recusar(pedido)">Recusar</button>
-                <button ion-button (click)="saiuEntrega(pedido)">Saiu p/ Entrega</button>
+                <button ion-button (click)="mensagens(pedido)">Chat</button>
+                <button ion-button (click)="saiuEntrega(pedido)">Entrega</button>
                 <div>
                   <button (click)="salvarPedido(pedido)" ion-button>Definir</button>
                   <button ion-button style="width: 200px;">
@@ -297,22 +316,9 @@
                     </ion-select>
                   </button>
                 </div>
-                <button ion-button (click)="mensagens(pedido)">Chat</button>
-                <button ion-button>Imprimir</button>
+                <!-- <button ion-button>Imprimir</button> -->
               </ion-row>
             </div>
           </ion-card-content>
         </ion-card>
       </div>
-
-
-
-
-
-
-
-      <!-- <div>
-        <ion-item no-lines style="background-color: transparent !important;"></ion-item>
-        <ion-item no-lines style="background-color: transparent !important;"></ion-item>
-      </div> -->
-      <!-- </ion-content> -->

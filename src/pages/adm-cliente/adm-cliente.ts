@@ -40,7 +40,7 @@ export class AdmClientePage {
     if (sucesso) {
       this.alertSrv.toast('Cliente salvo com sucesso!', 'bottom');
       // this.navCtrl.setRoot('ClientesPage');
-      this.navCtrl.push('PedidosPage');
+      this.navCtrl.setRoot('PedidosPage');
     }
   }
 
