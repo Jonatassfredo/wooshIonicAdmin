@@ -21,7 +21,7 @@ export class PedidosPage {
   // enderecoEntregaId: any;
   pedidos: Array<ListaPedidosModel> = new Array<ListaPedidosModel>();
   enderecoEntrega = new EnderecoEntregaModel;
-  statusPedido: ["Pedido Aceito", "Pedido Recusado", "Saiu para Entrega"];
+  statusPedido = "Aguardando";
 
   constructor(
     public navCtrl: NavController,
@@ -31,6 +31,7 @@ export class PedidosPage {
     private alertSrv: AlertProvider) {
 
   }
+
 
   mensagens(model?: ListaPedidosModel): void {
     this.navCtrl.push('MensagensPage', { _pedido: model });
@@ -91,6 +92,8 @@ export class PedidosPage {
   ionViewDidLoad() {
     this.GetAllPedidos();
     console.log(this.produtos);
+    // this.statusPedido = "Pedido"
+
   }
 
   adminOptions(): void {
