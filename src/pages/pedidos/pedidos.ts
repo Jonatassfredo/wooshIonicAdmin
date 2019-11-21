@@ -21,6 +21,7 @@ export class PedidosPage {
   // enderecoEntregaId: any;
   pedidos: Array<ListaPedidosModel> = new Array<ListaPedidosModel>();
   enderecoEntrega = new EnderecoEntregaModel;
+  statusPedido: ["Pedido Aceito", "Pedido Recusado", "Saiu para Entrega"];
 
   constructor(
     public navCtrl: NavController,
