@@ -40,12 +40,13 @@ export class PedidosPage {
 
 
   salvarPedido(model?: ListaPedidosModel): Promise<HttpResultModel> {
-    if (model.tempoEntrega !== "0") {
-      this.alertSrv.toast('Tempo de entrega já definido!', 'bottom');
-      return;
-    }
+    // if (model.tempoEntrega !== "0") {
+    //   this.alertSrv.toast('Tempo de entrega já definido!', 'bottom');
+    //   return;
+    // }
     let pedidosResult = this.http.put(`${ConfigHelper.Url}pedido/${model._id}`, model)
     this.enviarMensagem(model.usuarioId, `O tempo de entrega para seu pedido é de ${model.tempoEntrega} minutos!`)
+    this.alertSrv.toast('Definido com sucesso!', 'bottom');
     return pedidosResult;
   };
 

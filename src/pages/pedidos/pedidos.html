@@ -13,7 +13,7 @@
 
 <ion-content no-padding>
   <div padding>
-    <ion-segment [(ngModel)]="statusPedido">
+    <ion-segment [(ngModel)]="statusPedido" class="switch">
       <ion-segment-button value="Aguardando">
         Aguardando
       </ion-segment-button>
@@ -32,8 +32,6 @@
   <div *ngFor="let pedido of pedidos">
 
     <div [ngSwitch]="statusPedido">
-
-
       <div *ngSwitchCase="'Aguardando'">
         <ion-card *ngIf="pedido.status === 'Aguardando'" style="border-radius: 10px;">
           <ion-card-header icon-left>
